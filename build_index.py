@@ -32,7 +32,7 @@ def build_standalone_index():
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simulasi Ujian Perangkat Desa | CBT Mandiri & Latihan Resmi</title>
-  <meta name="description" content="Aplikasi simulasi ujian perangkat desa lengkap dan profesional berbasis CBT untuk persiapan seleksi perangkat desa Kabupaten Tuban dan standar nasional. Database 500 soal, acak 100 soal otomatis tanpa kecurangan, pilihan jawaban acak, glosarium desa, analisis kelemahan, dan riwayat nilai.">
+  <meta name="description" content="Aplikasi simulasi ujian perangkat desa lengkap dan profesional berbasis CBT untuk persiapan seleksi perangkat desa Kabupaten Tuban dan standar nasional. Database 550 soal, acak 100 soal otomatis tanpa kecurangan, pilihan jawaban acak, glosarium desa, analisis kelemahan, dan riwayat nilai.">
   <meta name="author" content="Simulasi CBT Perangkat Desa">
   <style>
     /* ==========================================================================
@@ -1444,14 +1444,14 @@ def build_standalone_index():
     <section id="viewHome">
       <div class="hero-panel">
         <div class="hero-badge-row">
-          <span class="badge-pill badge-cat">Bank Soal Database: 500 Butir</span>
+          <span class="badge-pill badge-cat">Bank Soal Database: 550 Butir</span>
           <span class="badge-pill badge-diff-mudah">Acak 100 Soal Otomatis</span>
           <span class="badge-pill badge-diff-sedang">Pilihan Jawaban Diacak Otomatis</span>
           <span class="badge-pill badge-diff-sulit">Durasi 100 Menit (60 Detik/Soal)</span>
           <span class="badge-pill badge-verified">100% Offline & Privat</span>
         </div>
         <h2>Persiapan Ujian Seleksi Perangkat Desa</h2>
-        <p class="lead">Uji pemahaman dan kesiapan Anda dengan sistem Computer Assisted Test (CAT/CBT) mandiri. Dilengkapi database 500 bank soal terverifikasi, generator 100 soal acak per sesi, pilihan jawaban teracak otomatis tanpa kecurangan, glosarium istilah desa, analisis kelemahan materi, dan pelacak riwayat nilai.</p>
+        <p class="lead">Uji pemahaman dan kesiapan Anda dengan sistem Computer Assisted Test (CAT/CBT) mandiri. Dilengkapi database 550 bank soal terverifikasi, generator 100 soal acak per sesi, pilihan jawaban teracak otomatis tanpa kecurangan, glosarium istilah desa, analisis kelemahan materi, dan pelacak riwayat nilai.</p>
 
         <!-- Candidate Registration Box -->
         <div class="form-candidate-grid">
@@ -1478,7 +1478,7 @@ def build_standalone_index():
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
           <div style="font-size:0.88rem; color:var(--white); line-height:1.4;">
-            <strong>Sistem Integritas & Anti-Kecurangan Aktif:</strong> Seluruh 100 butir soal diundi secara acak proporsional dari bank database 500 soal (rasio sampling 20%), dan setiap susunan pilihan jawaban (A, B, C, D) diacak otomatis oleh sistem dengan sinkronisasi kunci jawaban presisi.
+            <strong>Sistem Integritas & Anti-Kecurangan Aktif:</strong> Seluruh 100 butir soal diundi secara acak proporsional dari bank database 550 soal, dan setiap susunan pilihan jawaban (A, B, C, D) diacak otomatis oleh sistem dengan sinkronisasi kunci jawaban presisi.
           </div>
         </div>
       </div>
@@ -1493,7 +1493,7 @@ def build_standalone_index():
               </div>
               <h3>Simulasi CAT Resmi</h3>
             </div>
-            <p>100 butir soal acak dari database 500 soal sesuai kuota 12 kategori resmi. Waktu 100 menit, batas 60 detik/soal, penanda ragu-ragu, dan siklus otomatis soal belum terjawab.</p>
+            <p>100 butir soal acak dari database 550 soal sesuai kuota 13 kategori resmi. Waktu 100 menit, batas 60 detik/soal, penanda ragu-ragu, dan siklus otomatis soal belum terjawab.</p>
           </div>
           <button class="btn btn-gold btn-lg" onclick="CBTApp.confirmStartExam()">
             Mulai Simulasi CAT
@@ -1552,10 +1552,10 @@ def build_standalone_index():
       <div class="cbt-card">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
           <div>
-            <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-900);">Struktur Bobot & Sebaran 12 Kategori Soal</h3>
-            <p style="font-size:0.85rem; color:var(--slate-600);">Sistem mengundi 100 butir soal secara proporsional dari pool database 500 butir soal.</p>
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-900);">Struktur Bobot & Sebaran 13 Kategori Soal</h3>
+            <p style="font-size:0.85rem; color:var(--slate-600);">Sistem mengundi 100 butir soal secara proporsional dari pool database 550 butir soal.</p>
           </div>
-          <span class="badge-pill badge-cat">Total Database: 500 Butir</span>
+          <span class="badge-pill badge-cat">Total Database: 550 Butir</span>
         </div>
 
         <div class="table-container">
@@ -1589,7 +1589,7 @@ def build_standalone_index():
         <div class="form-group" style="margin-bottom:1.25rem;">
           <label for="practiceCategorySelect" style="color:var(--slate-800);">Pilih Kategori Materi:</label>
           <select id="practiceCategorySelect" class="form-control">
-            <option value="all">Semua Kategori (Database 500 Soal)</option>
+            <option value="all">Semua Kategori (Database 550 Soal)</option>
             <!-- Populated via JS -->
           </select>
         </div>
@@ -1825,7 +1825,7 @@ def build_standalone_index():
         </div>
       </div>
 
-      <!-- Section: Rekapitulasi 12 Kategori -->
+      <!-- Section: Rekapitulasi 13 Kategori -->
       <div class="cbt-card">
         <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-900); margin-bottom:0.75rem;">Rekapitulasi Nilai Per Kategori Materi</h3>
         <div class="table-container">
@@ -2112,18 +2112,19 @@ def build_standalone_index():
 
     // Category Distribution Schema (Exam quota & Database count)
     const CATEGORIES_SPEC = [
-      {{ name: "Pemerintahan desa, struktur organisasi, tugas dan fungsi perangkat desa", count: 20, inDb: 100, focus: "UU No. 6/2014 jo. UU No. 3/2024, Permendagri 84/2015, Permendagri 67/2017, PP 11/2019, Siltap, usia & pensiun" }},
-      {{ name: "Peraturan perundang-undangan dan tata kelola pemerintahan", count: 12, inDb: 60, focus: "Hierarki UU 12/2011, produk hukum desa Permendagri 111/2014, asas desa, Perda Tuban 2/2016 jo 16/2021, Perbup Tuban 11/2022" }},
-      {{ name: "Pancasila, UUD 1945, dan wawasan kebangsaan", count: 10, inDb: 50, focus: "Pengamalan Sila 1-5 di desa, Pembukaan UUD 1945 alinea IV, Pasal 1(2), 27(3), Bhinneka Tunggal Ika, Wawasan Nusantara" }},
-      {{ name: "Administrasi pemerintahan, surat-menyurat, dan pengarsipan", count: 10, inDb: 50, focus: "Permendagri 47/2016 (5 buku adm desa), tata naskah dinas, buku ekspedisi, kop surat, SK Kades, arsip dinamis" }},
-      {{ name: "Keuangan desa, APB Desa, dan aset desa", count: 10, inDb: 50, focus: "Permendagri 20/2018 (PKPKD, PPKD, Siskeudes), Permendagri 1/2016 (Aset desa, sewa max 3 th), 5 bidang belanja desa" }},
+      {{ name: "Pemerintahan desa, struktur organisasi, tugas dan fungsi perangkat desa", count: 18, inDb: 100, focus: "UU No. 6/2014 jo. UU No. 3/2024, Permendagri 84/2015, Permendagri 67/2017, PP 11/2019, Siltap, usia & pensiun" }},
+      {{ name: "Peraturan perundang-undangan dan tata kelola pemerintahan", count: 10, inDb: 60, focus: "Hierarki UU 12/2011, produk hukum desa Permendagri 111/2014, asas desa, Perda Tuban 2/2016 jo 16/2021, Perbup Tuban 11/2022" }},
+      {{ name: "Pancasila, UUD 1945, dan wawasan kebangsaan", count: 8, inDb: 50, focus: "Pengamalan Sila 1-5 di desa, Pembukaan UUD 1945 alinea IV, Pasal 1(2), 27(3), Bhinneka Tunggal Ika, Wawasan Nusantara" }},
+      {{ name: "Administrasi pemerintahan, surat-menyurat, dan pengarsipan", count: 8, inDb: 50, focus: "Permendagri 47/2016 (5 buku adm desa), tata naskah dinas, buku ekspedisi, kop surat, SK Kades, arsip dinamis" }},
+      {{ name: "Keuangan desa, APB Desa, dan aset desa", count: 8, inDb: 50, focus: "Permendagri 20/2018 (PKPKD, PPKD, Siskeudes), Permendagri 1/2016 (Aset desa, sewa max 3 th), 5 bidang belanja desa" }},
       {{ name: "Pembangunan desa, perencanaan, dan pemberdayaan masyarakat", count: 8, inDb: 40, focus: "Permendesa 21/2020 (RPJM Desa, RKP Desa akhir Sept, Musrenbangdes), SDGs Desa, BUMDes PP 11/2021, LKD Permendagri 18/2018" }},
       {{ name: "BPD, kelembagaan desa, dan musyawarah", count: 5, inDb: 25, focus: "UU 6/2014 Pasal 55, Permendagri 110/2016 (3 fungsi BPD, larangan rangkap jabatan), Musdes, LKPPD 3 bulan" }},
       {{ name: "Bahasa Indonesia", count: 7, inDb: 35, focus: "EYD V kata baku (antre, izin, kuitansi, jadwal), kapitalisasi naskah dinas, kalimat efektif bebas pleonasme, tanda baca" }},
       {{ name: "Matematika dan numerik", count: 6, inDb: 30, focus: "Persentase APB Desa, konversi hektar lahan bengkok, potongan pajak PPh 22, rata-rata pupuk, deret bilangan, perbandingan berbalik nilai" }},
       {{ name: "Logika dan penalaran", count: 5, inDb: 25, focus: "Silogisme kategorial seragam dinas, penalaran jadwal piket staf, modus tollens genangan air, himpunan bantuan bansos, mediasi sengketa batas" }},
       {{ name: "Pengetahuan umum", count: 4, inDb: 20, focus: "Hari Jadi Tuban 12 Nov 1293 (Ronggolawe), Makam Sunan Bonang, hierarki pemda, filosofi bulu Garuda Pancasila" }},
-      {{ name: "Komputer dasar dan pelayanan publik", count: 3, inDb: 15, focus: "Microsoft Excel (=SUM, =AVERAGE), Word Mail Merge surat massal desa, UU PDP No. 27/2022 perlindungan NIK warga" }}
+      {{ name: "Komputer dasar dan pelayanan publik", count: 3, inDb: 15, focus: "Microsoft Excel (=SUM, =AVERAGE), Word Mail Merge surat massal desa, UU PDP No. 27/2022 perlindungan NIK warga" }},
+      {{ name: "Pendidikan agama dan moderasi beragama", count: 10, inDb: 50, focus: "Fardhu kifayah jenazah di desa, zakat fitrah & mal, wakaf UU 41/2004, tugas modin/Kasi Pelayanan, moderasi beragama PBM 9/8 2006, etika amanah bebas risywah, sejarah Walisongo & Sunan Bonang Tuban" }}
     ];
 
     // Safe Randomization Helpers (Fisher-Yates)
@@ -2251,7 +2252,7 @@ def build_standalone_index():
       populateCategoryDropdowns() {{
         const pSelect = document.getElementById('practiceCategorySelect');
         if (!pSelect) return;
-        let pOptions = '<option value="all">Semua Kategori (Database 500 Soal)</option>';
+        let pOptions = '<option value="all">Semua Kategori (Database 550 Soal)</option>';
         CATEGORIES_SPEC.forEach(cat => {{
           pOptions += `<option value="${{cat.name}}">${{cat.name}} (${{cat.inDb}} di Database)</option>`;
         }});

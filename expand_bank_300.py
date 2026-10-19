@@ -390,16 +390,16 @@ QUESTIONS_201_300 = [
     "id": 225,
     "category": "Peraturan perundang-undangan dan tata kelola pemerintahan",
     "difficulty": "sedang",
-    "question": "Asas dalam penyelenggaraan pemerintahan desa yang mengutamakan landasan peraturan perundang-undangan dan keadilan dalam setiap kebijakan disebut...",
+    "question": "Asas penyelenggaraan pemerintahan desa yang menjadi landasan keteraturan, keserasian, dan keseimbangan dalam pengendalian tata kelola desa disebut asas...",
     "options": [
-      "Asas Kepastian Hukum",
-      "Asas Tertib Penyelenggara Negara",
-      "Asas Akuntabilitas",
-      "Asas Proporsionalitas"
+      "Asas Tertib Penyelenggaraan Pemerintahan",
+      "Asas Sentralisasi Kekuasaan",
+      "Asas Diskresi Mutlak Kepala Desa",
+      "Asas Kepentingan Golongan"
     ],
     "answer": 0,
-    "explanation": "Asas kepastian hukum adalah asas yang mengutamakan landasan peraturan perundang-undangan, kepatutan, dan keadilan dalam setiap kebijakan penyelenggara pemerintahan desa.",
-    "source": "UU No. 6 Tahun 2014 Pasal 24 huruf a"
+    "explanation": "Berdasarkan penjelasan Pasal 24 huruf b UU No. 6 Tahun 2014, Asas Tertib Penyelenggaraan Pemerintahan adalah asas yang menjadi landasan keteraturan, keserasian, dan keseimbangan dalam pengendalian penyelenggaraan pemerintahan desa.",
+    "source": "UU No. 6 Tahun 2014 Pasal 24 huruf b"
   },
   {
     "id": 226,

@@ -8,9 +8,9 @@ Aplikasi berupa **satu file tunggal mandiri (`index.html`)** yang beroperasi **1
 
 ## 🌟 Fitur Utama & Keunggulan
 
-### 1. Bank Soal Master 500 Butir & Pengacakan Otomatis Anti-Kecurangan
-* **Database Master 500 Soal:** Seluruh butir soal telah diverifikasi, bebas duplikasi, dan dilengkapi pembahasan mendalam serta dasar hukum resmi.
-* **Pengundian Proporsional:** Sistem mengundi tepat **100 butir soal secara acak** dari pool 500 butir (rasio sampling 20%, proporsional seimbang tepat 5x kuota ujian) pada setiap sesi simulasi dengan memenuhi kuota resmi 12 kategori materi.
+### 1. Bank Soal Master 550 Butir & Pengacakan Otomatis Anti-Kecurangan
+* **Database Master 550 Soal:** Seluruh butir soal telah diverifikasi, bebas duplikasi, dan dilengkapi pembahasan mendalam serta dasar hukum/syariat resmi.
+* **Pengundian Proporsional:** Sistem mengundi tepat **100 butir soal secara acak** dari pool 550 butir (rasio sampling proporsional seimbang 5:1 untuk kategori agama dan materi inti) pada setiap sesi simulasi dengan memenuhi kuota resmi 13 kategori materi.
 * **Pengacakan Otomatis Anti-Kecurangan:** Sakelar pengacakan manual sengaja ditiadakan di antarmuka sistem. Seluruh susunan soal dan opsi pilihan jawaban (A, B, C, D) **wajib diacak otomatis** oleh algoritma *Fisher-Yates Shuffle* untuk menjamin integritas ujian dan mencegah kecurangan atau penghafalan pola kunci.
 * **Sinkronisasi Kunci Jawaban Presisi:** Kunci jawaban (`answer`) disinkronkan secara otomatis berdasarkan teks jawaban aslinya sehingga penilaian skor dan ulasan pembahasan selalu 100% tepat dan konsisten.
 
@@ -79,15 +79,15 @@ Aplikasi berupa **satu file tunggal mandiri (`index.html`)** yang beroperasi **1
 
 ---
 
-## 📊 Sebaran 12 Kategori Materi & Kuota Ujian
+## 📊 Sebaran 13 Kategori Materi & Kuota Ujian
 
 | No | Kategori Materi | Kuota Ujian | Jumlah di Database | Fokus Regulasi & Materi Utama |
 |:---:|:---|:---:|:---:|:---|
-| 1 | Pemerintahan desa, struktur organisasi, tugas dan fungsi perangkat desa | 20 Soal | **100 Soal** | UU No. 6/2014 jo. UU No. 3/2024, Permendagri 84/2015, Permendagri 67/2017, PP 11/2019, Siltap, usia & pensiun |
-| 2 | Peraturan perundang-undangan dan tata kelola pemerintahan | 12 Soal | **60 Soal** | UU 12/2011, Permendagri 111/2014, asas desa, Perda Kab. Tuban 2/2016 jo. 16/2021, Perbup Tuban 11/2022 |
-| 3 | Pancasila, UUD 1945, dan wawasan kebangsaan | 10 Soal | **50 Soal** | Butir pengamalan Sila 1-5, Pembukaan UUD 1945 alinea IV, Pasal 1(2), 27(3), 30(1), Bhinneka Tunggal Ika |
-| 4 | Administrasi pemerintahan, surat-menyurat, dan pengarsipan | 10 Soal | **50 Soal** | Permendagri 47/2016 (5 buku adm desa), tata naskah dinas, buku ekspedisi, kop surat, SK Kades, retensi arsip |
-| 5 | Keuangan desa, APB Desa, dan aset desa | 10 Soal | **50 Soal** | Permendagri 20/2018 (PKPKD, PPKD, Siskeudes, 5 bidang belanja), Permendagri 1/2016 (sewa aset desa maks 3 th) |
+| 1 | Pemerintahan desa, struktur organisasi, tugas dan fungsi perangkat desa | 18 Soal | **100 Soal** | UU No. 6/2014 jo. UU No. 3/2024, Permendagri 84/2015, Permendagri 67/2017, PP 11/2019, Siltap, usia & pensiun |
+| 2 | Peraturan perundang-undangan dan tata kelola pemerintahan | 10 Soal | **60 Soal** | UU 12/2011, Permendagri 111/2014, asas desa, Perda Kab. Tuban 2/2016 jo. 16/2021, Perbup Tuban 11/2022 |
+| 3 | Pancasila, UUD 1945, dan wawasan kebangsaan | 8 Soal | **50 Soal** | Butir pengamalan Sila 1-5, Pembukaan UUD 1945 alinea IV, Pasal 1(2), 27(3), 30(1), Bhinneka Tunggal Ika |
+| 4 | Administrasi pemerintahan, surat-menyurat, dan pengarsipan | 8 Soal | **50 Soal** | Permendagri 47/2016 (5 buku adm desa), tata naskah dinas, buku ekspedisi, kop surat, SK Kades, retensi arsip |
+| 5 | Keuangan desa, APB Desa, dan aset desa | 8 Soal | **50 Soal** | Permendagri 20/2018 (PKPKD, PPKD, Siskeudes, 5 bidang belanja), Permendagri 1/2016 (sewa aset desa maks 3 th) |
 | 6 | Pembangunan desa, perencanaan, dan pemberdayaan masyarakat | 8 Soal | **40 Soal** | Permendesa 21/2020 (RPJM Desa 8 th, RKP Desa akhir Sept, Musrenbangdes), SDGs Desa, BUMDes PP 11/2021 |
 | 7 | BPD, kelembagaan desa, dan musyawarah | 5 Soal | **25 Soal** | UU 6/2014 Pasal 55, Permendagri 110/2016 (3 fungsi BPD, larangan rangkap jabatan), Musdes, LKPPD 3 bulan |
 | 8 | Bahasa Indonesia | 7 Soal | **35 Soal** | EYD V (antre, izin, kuitansi, jadwal, risiko), kapitalisasi naskah dinas, kalimat efektif bebas pleonasme |
@@ -95,23 +95,25 @@ Aplikasi berupa **satu file tunggal mandiri (`index.html`)** yang beroperasi **1
 | 10 | Logika dan penalaran | 5 Soal | **25 Soal** | Silogisme kategorial seragam dinas, jadwal piket staf, modus tollens, himpunan bansos, mediasi batas |
 | 11 | Pengetahuan umum | 4 Soal | **20 Soal** | Hari Jadi Tuban 12 Nov 1293 (Ronggolawe), Makam Sunan Bonang, hierarki pemda, lambang Garuda |
 | 12 | Komputer dasar dan pelayanan publik | 3 Soal | **15 Soal** | Microsoft Excel (`=SUM`, `=AVERAGE`), Word Mail Merge surat desa, UU Perlindungan Data Pribadi (UU PDP 27/2022) |
-| **TOTAL** | **12 Kategori Lengkap** | **100 Soal** | **500 Soal** | **100% Terverifikasi Regulasi Resmi (Rasio 5:1 Seimbang)** |
+| 13 | Pendidikan agama dan moderasi beragama | 10 Soal | **50 Soal** | Fiqih fardhu kifayah jenazah, zakat/wakaf UU 41/2004, tugas modin/Kasi Pelayanan, UU Perkawinan 16/2019, moderasi PBM 9/8 2006, etika amanah bebas risywah, sejarah Walisongo & Sunan Bonang Tuban |
+| **TOTAL** | **13 Kategori Lengkap** | **100 Soal** | **550 Soal** | **100% Terverifikasi Regulasi & Syariat Resmi** |
 
 ---
 
 ## 📂 Struktur Berkas Repository
 
 ```text
-├── index.html              # Berkas tunggal mandiri aplikasi CBT (siap pakai di browser, database 500 soal)
+├── index.html              # Berkas tunggal mandiri aplikasi CBT (siap pakai di browser, database 550 soal)
 ├── build_index.py          # Script generator Python untuk mengompilasi index.html
 ├── glossary_data.py        # Dataset 36 istilah glosarium resmi pemerintahan desa
-├── merge_and_validate.py   # Script validasi & penggabungan master pool (500 butir)
+├── merge_and_validate.py   # Script validasi & penggabungan master pool (550 butir)
+├── expand_bank_agama.py    # Dataset butir soal nomor 501 s.d. 550 (Pendidikan Agama & Moderasi Beragama)
 ├── expand_bank_500.py      # Dataset butir soal nomor 401 s.d. 500
 ├── expand_bank_400.py      # Dataset butir soal nomor 301 s.d. 400
 ├── expand_bank_300.py      # Dataset butir soal nomor 201 s.d. 300
 ├── expand_bank.py          # Dataset butir soal nomor 101 s.d. 200
 ├── validate_data.py        # Dataset butir soal nomor 1 s.d. 100
-├── test_suite.js           # Pengujian komprehensif Node.js untuk 500 soal & 12 fitur sistem
+├── test_suite.js           # Pengujian komprehensif Node.js untuk 550 soal & 12 fitur sistem
 └── README.md               # Dokumentasi lengkap proyek
 ```
 
@@ -172,6 +174,11 @@ Pengujian mencakup:
 14. **Peraturan Bupati Tuban No. 30 Tahun 2023** tentang Pengelolaan Keuangan Desa di Kabupaten Tuban.
 15. **Ejaan Bahasa Indonesia yang Disempurnakan (EYD Edisi V)** dari Badan Pengembangan dan Pembinaan Bahasa Kemendikbudristek.
 16. **Undang-Undang No. 27 Tahun 2022** tentang Perlindungan Data Pribadi (UU PDP).
+17. **Undang-Undang No. 41 Tahun 2004** tentang Wakaf jo. **PP No. 42 Tahun 2006**.
+18. **Undang-Undang No. 16 Tahun 2019** tentang Perubahan atas **UU No. 1 Tahun 1974** tentang Perkawinan (Batas Usia 19 Tahun).
+19. **Undang-Undang No. 23 Tahun 2011** tentang Pengelolaan Zakat.
+20. **Peraturan Bersama Menteri Agama dan Menteri Dalam Negeri (PBM) No. 9 & 8 Tahun 2006** tentang Pemeliharaan Kerukunan Umat Beragama.
+21. **Instruksi Presiden No. 1 Tahun 1991** tentang Kompilasi Hukum Islam (KHI).
 
 ---
 

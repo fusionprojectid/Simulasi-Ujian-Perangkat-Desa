@@ -757,15 +757,15 @@ NEW_QUESTIONS = [
         "number": 144,
         "category": "Administrasi pemerintahan, surat-menyurat, dan pengarsipan",
         "difficulty": "sedang",
-        "question": "Kelompok Administrasi Pembangunan desa menurut Permendagri Nomor 47 Tahun 2016 terdiri atas buku-buku berikut, KECUALI...",
+        "question": "Menurut Permendagri Nomor 47 Tahun 2016, buku administrasi yang wajib mencatat seluruh rencana pelaksanaan kegiatan pembangunan desa adalah...",
         "options": [
-            "Buku Tabungan Pribadi Kepala Desa",
             "Buku Rencana Kerja Pembangunan Desa",
-            "Buku Kegiatan Pembangunan Desa",
-            "Buku Inventaris Hasil-Hasil Pembangunan"
+            "Buku Kas Pembantu Kegiatan",
+            "Buku Ekspedisi Naskah Dinas",
+            "Buku Agenda Surat Masuk"
         ],
         "answer": 0,
-        "explanation": "Buku Administrasi Pembangunan memuat: Rencana Kerja Pembangunan, Kegiatan Pembangunan, Inventaris Hasil-Hasil Pembangunan, dan Buku Kader Pemberdayaan Masyarakat.",
+        "explanation": "Berdasarkan Permendagri No. 47 Tahun 2016 Lampiran IV, Buku Rencana Kerja Pembangunan Desa adalah buku dalam kelompok Administrasi Pembangunan yang berfungsi mencatat seluruh rencana kerja pembangunan yang akan dilaksanakan di desa pada tahun berjalan.",
         "source": "Permendagri No. 47 Tahun 2016 Lampiran IV",
         "sourceType": "administrasi"
     },

@@ -1,4 +1,4 @@
-// Comprehensive Test Suite for Simulasi CBT Perangkat Desa (All 12 Features + 500 Questions Pool)
+// Comprehensive Test Suite for Simulasi CBT Perangkat Desa (All 12 Features + 550 Questions Pool)
 const fs = require('fs');
 const path = require('path');
 
@@ -6,10 +6,10 @@ const htmlPath = path.join(__dirname, 'index.html');
 const htmlContent = fs.readFileSync(htmlPath, 'utf-8');
 
 console.log("==================================================================");
-console.log("MENJALANKAN COMPREHENSIVE TEST SUITE CBT PERANGKAT DESA (500 SOAL)");
+console.log("MENJALANKAN COMPREHENSIVE TEST SUITE CBT PERANGKAT DESA (550 SOAL)");
 console.log("==================================================================");
 
-// 1. Ekstraksi Master Database Soal (500 Soal)
+// 1. Ekstraksi Master Database Soal (550 Soal)
 const matchQuestions = htmlContent.match(/const MASTER_QUESTIONS = (\[[\s\S]*?\]);\s*(\/\/[^\n]*\r?\n\s*)?const GLOSSARY_DATA/);
 if (!matchQuestions) {
   console.error("GAGAL: Tidak dapat mengekstrak MASTER_QUESTIONS dari index.html");
@@ -17,11 +17,11 @@ if (!matchQuestions) {
 }
 const MASTER_QUESTIONS = JSON.parse(matchQuestions[1]);
 console.log(`[TEST 1] Ekstraksi Master Pool: Ditemukan ${MASTER_QUESTIONS.length} butir soal.`);
-if (MASTER_QUESTIONS.length !== 500) {
-  throw new Error(`Master pool harus berjumlah 500 butir, tetapi ditemukan ${MASTER_QUESTIONS.length}`);
+if (MASTER_QUESTIONS.length !== 550) {
+  throw new Error(`Master pool harus berjumlah 550 butir, tetapi ditemukan ${MASTER_QUESTIONS.length}`);
 }
 
-// 2. Integritas Data dan Sumber Regulasi Terverifikasi (500 Soal)
+// 2. Integritas Data dan Sumber Regulasi Terverifikasi (550 Soal)
 const catCounts = {};
 MASTER_QUESTIONS.forEach((q, i) => {
   if (q.id !== i + 1) throw new Error(`ID tidak urut pada indeks ${i}`);
@@ -32,9 +32,9 @@ MASTER_QUESTIONS.forEach((q, i) => {
   if (!q.source || !q.source.trim()) throw new Error(`Rujukan regulasi kosong pada ID ${q.id}`);
   catCounts[q.category] = (catCounts[q.category] || 0) + 1;
 });
-console.log("[TEST 2] Integritas 500 Soal, Kunci, Pembahasan, & Rujukan Regulasi Terverifikasi: LULUS");
+console.log("[TEST 2] Integritas 550 Soal, Kunci, Pembahasan, & Rujukan Regulasi Terverifikasi: LULUS");
 
-// 3. Validasi Distribusi 12 Kategori di Master Database (500 Butir: 5x Kuota Ujian)
+// 3. Validasi Distribusi 13 Kategori di Master Database (550 Butir: 13 Kategori Lengkap)
 const EXPECTED_POOL_CATS = {
   "Pemerintahan desa, struktur organisasi, tugas dan fungsi perangkat desa": 100,
   "Peraturan perundang-undangan dan tata kelola pemerintahan": 60,
@@ -47,7 +47,8 @@ const EXPECTED_POOL_CATS = {
   "Matematika dan numerik": 30,
   "Logika dan penalaran": 25,
   "Pengetahuan umum": 20,
-  "Komputer dasar dan pelayanan publik": 15
+  "Komputer dasar dan pelayanan publik": 15,
+  "Pendidikan agama dan moderasi beragama": 50
 };
 
 for (const [cat, expected] of Object.entries(EXPECTED_POOL_CATS)) {
@@ -55,7 +56,7 @@ for (const [cat, expected] of Object.entries(EXPECTED_POOL_CATS)) {
     throw new Error(`Distribusi pool ${cat} salah: didapat ${catCounts[cat]}, harusnya ${expected}`);
   }
 }
-console.log("[TEST 3] Distribusi 12 Kategori pada Master Pool (500 Butir): LULUS");
+console.log("[TEST 3] Distribusi 13 Kategori pada Master Pool (550 Butir): LULUS");
 
 // 4. Ekstraksi CATEGORIES_SPEC dan Uji Randomisasi Aman Otomatis
 const matchCatSpec = htmlContent.match(/const CATEGORIES_SPEC = (\[[\s\S]*?\]);/);
@@ -126,7 +127,7 @@ for (let run = 1; run <= 10; run++) {
     }
   });
 }
-console.log("[TEST 4] Pengacakan Otomatis 100 Soal dari 500 Bank Soal & Sinkronisasi Kunci Jawaban: LULUS");
+console.log("[TEST 4] Pengacakan Otomatis 100 Soal dari 550 Bank Soal & Sinkronisasi Kunci Jawaban: LULUS");
 
 // 5. Uji Antrean Prioritas Soal Kosong (Feature 1 CAT)
 const sampleExam = generateExam100Questions(MASTER_QUESTIONS, CATEGORIES_SPEC, false, false);
@@ -167,9 +168,9 @@ CATEGORIES_SPEC.forEach(c => {
   catStatsMock[c.name] = { total: c.count, correct: c.count, wrong: 0, empty: 0 };
 });
 
-// Mock: Keuangan desa skor rendah (2/10 = 20%), kategori lain 100%
+// Mock: Keuangan desa skor rendah (2/8 = 25%), kategori lain 100%
 catStatsMock["Keuangan desa, APB Desa, dan aset desa"].correct = 2;
-catStatsMock["Keuangan desa, APB Desa, dan aset desa"].wrong = 8;
+catStatsMock["Keuangan desa, APB Desa, dan aset desa"].wrong = 6;
 
 const rankedCats = Object.keys(catStatsMock).map(name => {
   const st = catStatsMock[name];
@@ -177,7 +178,7 @@ const rankedCats = Object.keys(catStatsMock).map(name => {
   return { name, acc };
 }).sort((a, b) => a.acc - b.acc);
 
-if (rankedCats[0].name !== "Keuangan desa, APB Desa, dan aset desa" || rankedCats[0].acc !== 20) {
+if (rankedCats[0].name !== "Keuangan desa, APB Desa, dan aset desa" || rankedCats[0].acc !== 25) {
   throw new Error("Urutan analisis kelemahan salah: kategori terendah harus Keuangan Desa");
 }
 console.log("[TEST 6] Analisis Kelemahan Kategori & Pengurutan Prioritas: LULUS");
