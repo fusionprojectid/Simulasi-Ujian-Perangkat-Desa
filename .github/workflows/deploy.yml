@@ -50,6 +50,32 @@ jobs:
       - name: Konfigurasi GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Bersihkan File .py, Duplikat, & File Non-Web di Luar Folder
+        run: |
+          echo "Membersihkan file non-web dan file di luar folder sebelum dipublikasikan..."
+          # 1. Hapus semua file .py yang berada di luar folder (root direktori)
+          rm -f ./*.py
+
+          # 2. Hapus file skrip internal & file pengujian yang berada di luar folder
+          rm -f ./sync_github.bat ./sync_github.ps1 ./test_*.js
+
+          # 3. Hapus folder generator python, dev_scratch, dan cache yang tidak ditampilkan di web
+          rm -rf ./generator ./dev_scratch ./__pycache__ ./.pytest_cache
+
+          # 4. Jika ada file di luar folder yang sudah ada di dalam folder, hapus yang di luar folder
+          for file in *; do
+            if [ -f "$file" ]; then
+              duplicate_match=$(find assets css js -type f -name "$file" -print -quit 2>/dev/null)
+              if [ -n "$duplicate_match" ]; then
+                echo "Menghapus file di luar folder karena sudah ada di dalam folder: $file (duplikat dari $duplicate_match)"
+                rm -f "$file"
+              fi
+            fi
+          done
+
+          echo "=== Daftar Berkas Web Bersih Siap Unggah ==="
+          ls -la
+
       - name: Unggah Aset Web CBT (index.html, css, js)
         uses: actions/upload-pages-artifact@v3
         with:

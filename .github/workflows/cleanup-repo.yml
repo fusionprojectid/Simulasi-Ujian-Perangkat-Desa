@@ -1,0 +1,96 @@
+name: Bersihkan File di Luar Folder
+
+on:
+  push:
+    branches: ["main", "master"]
+  workflow_dispatch:
+    inputs:
+      delete_dev_scratch:
+        description: "Hapus juga folder dev_scratch (skrip scratch lokal) dari repositori?"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "cleanup-repo"
+  cancel-in-progress: true
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Jalankan Pembersihan File Tidak Berguna di Root
+        run: |
+          echo "=========================================================="
+          echo "MULAI PROSES PEMBERSIHAN FILE DI LUAR FOLDER (ROOT REPO)"
+          echo "=========================================================="
+
+          DELETED_ANY=0
+
+          # 1. Hapus folder cache __pycache__ di root jika ada
+          if [ -d "__pycache__" ]; then
+            echo "-> Menghapus folder cache: __pycache__"
+            git rm -rf --ignore-unmatch __pycache__ || rm -rf __pycache__
+            DELETED_ANY=1
+          fi
+
+          # 2. Hapus semua file .py yang berada di luar folder (root directory)
+          # File generator yang sah berada di dalam folder generator/
+          for pyfile in ./*.py; do
+            if [ -f "$pyfile" ]; then
+              echo "-> Menghapus file Python tidak berguna di luar folder: $pyfile"
+              git rm -f --ignore-unmatch "$pyfile" || rm -f "$pyfile"
+              DELETED_ANY=1
+            fi
+          done
+
+          # 3. Hapus file root yang duplikat dengan file di generator/
+          for file in *; do
+            if [ -f "$file" ] && [ -f "generator/$file" ]; then
+              echo "-> Menghapus duplikat root karena sudah ada di generator/: $file"
+              git rm -f --ignore-unmatch "$file" || rm -f "$file"
+              DELETED_ANY=1
+            fi
+          done
+
+          # 4. Hapus file sampah OS jika ada di root
+          for junk in Thumbs.db desktop.ini .DS_Store ehthumbs.db; do
+            if [ -e "$junk" ]; then
+              echo "-> Menghapus file sampah OS: $junk"
+              git rm -rf --ignore-unmatch "$junk" || rm -rf "$junk"
+              DELETED_ANY=1
+            fi
+          done
+
+          # 5. Opsional: Hapus dev_scratch jika dipilih pada workflow_dispatch
+          if [ "${{ github.event.inputs.delete_dev_scratch }}" = "true" ] && [ -d "dev_scratch" ]; then
+            echo "-> Menghapus folder dev_scratch sesuai permintaan..."
+            git rm -rf --ignore-unmatch dev_scratch || rm -rf dev_scratch
+            DELETED_ANY=1
+          fi
+
+          echo "=========================================================="
+          echo "STATUS HASIL PEMBERSIHAN"
+          echo "=========================================================="
+
+          # Periksa apakah ada perubahan yang siap di-commit
+          if git diff --staged --quiet && git diff --quiet; then
+            echo "Repositori sudah 100% bersih. Tidak ada file di luar folder yang perlu dihapus."
+          else
+            echo "Perubahan terdeteksi. Menyimpan commit pembersihan otomatis..."
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore: bersihkan file .py dan cache tidak berguna di luar folder [skip ci]"
+            git push origin HEAD:${{ github.ref_name }}
+            echo "SUKSES: Seluruh file tidak berguna di luar folder telah dihapus dari repositori GitHub!"
+          fi
