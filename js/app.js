@@ -298,6 +298,17 @@
         this.renderGlossary();
         this.checkExistingSession();
         this.setupKeyboardShortcuts();
+        this.setupModalBackdropListeners();
+      },
+
+      setupModalBackdropListeners() {
+        document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+          backdrop.addEventListener('click', (e) => {
+            if (e.target === backdrop) {
+              this.closeModals();
+            }
+          });
+        });
       },
 
 
@@ -3117,7 +3128,7 @@
       exportBackupJSON() {
         const data = {
           app: 'Simulasi Ujian Perangkat Desa Kabupaten Tuban',
-          version: '4.5.0',
+          version: '5.1.0',
           copyright: 'Copyright by fusionproject.id',
           exportedAt: new Date().toISOString(),
           history: safeGetStorage(this.HISTORY_KEY, [])

@@ -83,7 +83,7 @@ def build_all_assets():
   <title>Simulasi Ujian Perangkat Desa Kabupaten Tuban | 5 Bidang Tertulis & Praktik Komputer</title>
   <meta name="description" content="Aplikasi simulasi resmi ujian perangkat desa Kabupaten Tuban. 5 bidang materi tertulis berurutan @ 25 soal (30 menit/bidang, total 125 soal) dan praktik komputer 10 butir. Nilai akhir gabungan tertulis (87,5) dan praktik (12,5).">
   <meta name="author" content="fusionproject.id">
-  <meta name="version" content="5.0.0">
+  <meta name="version" content="5.1.0">
   <meta name="copyright" content="Copyright by fusionproject.id">
   <!-- Official Favicon & App Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -120,7 +120,7 @@ def build_all_assets():
   <title>Simulasi Ujian Perangkat Desa Kabupaten Tuban | 5 Bidang Tertulis & Praktik Komputer</title>
   <meta name="description" content="Aplikasi simulasi resmi ujian perangkat desa Kabupaten Tuban. 5 bidang materi tertulis berurutan @ 25 soal (30 menit/bidang, total 125 soal) dan praktik komputer 10 butir. Nilai akhir gabungan tertulis (87,5) dan praktik (12,5).">
   <meta name="author" content="fusionproject.id">
-  <meta name="version" content="5.0.0">
+  <meta name="version" content="5.1.0">
   <meta name="copyright" content="Copyright by fusionproject.id">
   <!-- Official Favicon & App Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">

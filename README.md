@@ -1,6 +1,6 @@
 # Simulasi Ujian Perangkat Desa Kabupaten Tuban — Computer Assisted Test (CBT)
 
-> **Versi:** `v5.0.0` • **Lisensi & Hak Cipta:** `Copyright by fusionproject.id` • **Status:** `Production Ready`
+> **Versi:** `v5.1.0` • **Lisensi & Hak Cipta:** `Copyright by fusionproject.id` • **Status:** `Production Ready`
 
 Aplikasi simulasi Computer Assisted Test (CAT/CBT) modern, interaktif, dan modular yang dirancang khusus untuk persiapan seleksi calon Perangkat Desa (Sekretaris Desa, Kaur, Kasi, dan Kepala Dusun) di **Kabupaten Tuban, Jawa Timur** serta mengacu pada regulasi pemerintahan desa di Indonesia.
 
@@ -229,28 +229,34 @@ Jika Anda memperbarui bank soal di file sumber Python, jalankan script pembangun
 python generator/build_index.py
 ```
 
-### 4. Pembersihan File Tidak Berguna & Optimasi Aset Mandiri
-Proyek ini menyediakan tool optimasi mandiri di [`generator/optimize_assets.py`](file:///d:/FusionProject/Ujian/generator/optimize_assets.py) yang dapat dijalankan secara lokal kapan saja:
+### 4. Pembersihan Mendalam Seluruh Folder & Optimasi Aset Mandiri
+Proyek ini menyediakan tool optimasi dan pembersih mandiri di [`generator/optimize_assets.py`](file:///d:/FusionProject/Ujian/generator/optimize_assets.py) yang dapat dijalankan secara lokal kapan saja:
 ```bash
+# Menjalankan pembersihan seluruh folder dan optimasi seluruh aset:
 python generator/optimize_assets.py
+
+# Atau hanya menjalankan pembersihan seluruh folder saja:
+python generator/optimize_assets.py --clean-only
 ```
-**Operasi yang Dilakukan Secara Otomatis:**
-1. **Pembersihan File Luar & Dalam Folder:**
-   - Menghapus seluruh file skrip `.py` yang berada di luar folder (root).
-   - Menghapus folder usang `dev_scratch/` dan seluruh file analisis sementara.
-   - Menghapus modul generator lama yang sudah tidak terpakai (`expand_bank*.py`, `validate_data.py`).
-   - Menghapus direktori cache `__pycache__` dan file compiled `.pyc`.
-   - Menghapus file sampah OS (`Thumbs.db`, `.DS_Store`, `desktop.ini`).
-   - Menghapus file duplikat di root jika file identik sudah tersedia di subfolder (`assets/logo.svg`).
+**Operasi Pembersihan Menyeluruh (Semua Folder & Seluruh Ekstensi):**
+1. **Analisa & Pembersihan Seluruh Direktori:**
+   - **File `.py` Liar:** Memindai seluruh folder di repositori; file Python hanya diizinkan di dalam folder `generator/`. File `.py` di root atau subfolder lain otomatis dihapus.
+   - **Modul Generator Usang:** Di dalam `generator/`, hanya file modul aktif yang dipertahankan. File legacy (seperti `expand_bank*.py`, `validate_data.py`) otomatis dieliminasi.
+   - **File Sampah, Temp, & Backup:** Menghapus seluruh file dengan ekstensi `.tmp`, `.temp`, `.bak`, `.backup`, `.old`, `.orig`, `*~`, `.swp`, `.swo`, `.log`, `.patch`, `.diff` di folder manapun.
+   - **Cache & Bytecode:** Menghapus seluruh folder `__pycache__`, `.pytest_cache`, `.coverage`, `.cache`, serta file `.pyc`, `.pyo`, `.pyd`.
+   - **File Sampah Sistem Operasi:** Menghapus `Thumbs.db`, `ehthumbs.db`, `desktop.ini`, `.DS_Store`, `._*`, `.Spotlight-V100`.
+   - **Folder Scratch Usang:** Menghapus folder `dev_scratch/`, `scratch/`, `tmp/`, `temp/`.
+   - **Duplikat Aset:** Menghapus file root yang identik dan sudah ada di dalam `assets/` (misal: duplikat `logo.svg`).
+   - **Subfolder Kosong:** Menghapus subfolder kosong yang tertinggal pasca-pembersihan.
 2. **Optimasi CSS:**
-   - Membaca `css/style.css` (53.4 KB) dan menghasilkan `css/style.min.css` (36.3 KB) dengan **penghematan 32.1%**.
+   - Membaca `css/style.css` (55.0 KB) dan menghasilkan `css/style.min.css` (37.4 KB) dengan **penghematan 32.0%**.
    - Menghapus komentar, baris kosong, dan spasi redundan secara aman tanpa merusak CSS custom properties (`--primary-900`) maupun media query responsif.
 3. **Optimasi JavaScript:**
-   - Mengompresi `js/app.js` (150.4 KB) menjadi `js/app.min.js` (143.2 KB) secara aman dengan mempertahankan string template dan regex parser OpenXML.
+   - Mengompresi `js/app.js` (150.8 KB) menjadi `js/app.min.js` (143.5 KB) secara aman dengan mempertahankan string template dan regex parser OpenXML.
 4. **Optimasi Berkas Vektor SVG:**
    - Mengompresi `favicon.svg` (2.97 KB $\rightarrow$ 2.10 KB, **-29.5%**), `assets/logo.svg` (3.51 KB $\rightarrow$ 2.57 KB, **-26.9%**), dan `assets/logo-full.svg` (3.09 KB $\rightarrow$ 2.56 KB, **-17.0%**).
 5. **Optimasi Berkas HTML:**
-   - Mengompresi `index.html` (92.4 KB $\rightarrow$ 86.2 KB, **-6.7%**) dan `index_standalone_bundle.html`.
+   - Mengompresi `index.html` (94.4 KB $\rightarrow$ 88.1 KB, **-6.6%**) dan `index_standalone_bundle.html`.
 
 ---
 
@@ -258,11 +264,11 @@ python generator/optimize_assets.py
 
 Repositori ini dilengkapi 3 alur kerja (*workflows*) GitHub Actions otomatis yang terintegrasi di folder `.github/workflows/`:
 
-#### A. Workflow Pembersihan Repositori (`.github/workflows/cleanup-repo.yml`)
-- **Pemicu:** Dijalankan secara terjadwal setiap minggu (*weekly cron*), via manual trigger (*workflow_dispatch*), atau saat push file root.
+#### A. Workflow Pembersihan Mendalam Repositori (`.github/workflows/cleanup-repo.yml`)
+- **Pemicu:** Dijalankan terjadwal mingguan (*weekly cron* setiap Minggu 00:00 UTC), manual trigger (*workflow_dispatch*), atau saat push.
 - **Tugas Utama:**
-  - Membersihkan file `.py` di root direktori.
-  - Membersihkan folder usang `dev_scratch/`, modul generator legacy, file cache `__pycache__`, dan file sampah OS.
+  - Memindai seluruh folder dan subfolder di repositori untuk menghapus file `.py` di luar generator, file temporary `.tmp`/`.bak`/`.swp`, cache python, log, sampah OS, dan folder usang.
+  - Memvalidasi kelulusan 100% dari seluruh 4 test suite Node.js pasca-pembersihan.
   - Melakukan `git commit` dan `git push` otomatis jika ditemukan file yang perlu dibersihkan.
 
 #### B. Workflow Optimasi Aset (`.github/workflows/optimize-assets.yml`)
@@ -333,11 +339,14 @@ Untuk pengguna Windows, tersedia skrip one-click yang menggabungkan seluruh alur
 
 ### 3. Catatan Rilis & Riwayat Fitur (Changelog)
 
-#### **v5.0.0 (Rilis Terkini — Perombakan Arsitektur Besar)**
+#### **v5.1.0 (Rilis Terkini — Pembersihan Menyeluruh Seluruh Folder & Peningkatan UI)**
+- **Pembersihan Mendalam Seluruh Folder & Subfolder (Deep Cleanup):** Workflow GitHub Actions baru (`cleanup-repo.yml`) dan modul Python (`optimize_assets.py`) yang menganalisis seluruh folder dan subfolder di dalam repositori untuk menghapus seluruh berkas tidak berguna lintas seluruh ekstensi (`.py` liar di luar folder generator, file temporary `.tmp`/`.bak`/`.swp`, cache python `__pycache__`/`.pyc`, log, file sampah OS `Thumbs.db`/`.DS_Store`, serta folder usang).
+- **Perbaikan & Redesain Popup Changelog:** Rekonstruksi total dialog modal Catatan Rilis dengan background putih solid, backdrop blur, animasi halus `modalFadeIn`, custom scrollbar ramping, tombol tutup melingkar modern (`.btn-close-modal`), serta penutupan fleksibel via tombol keyboard Escape maupun klik backdrop luar.
+- **Optimasi Aset Maksimal & Otomasi CI/CD:** Minifikasi CSS (`style.min.css`, hemat 32%), kompresi JavaScript (`app.min.js`), optimasi grafis vektor SVG (hemat s.d. 29.5%), dan kompresi bundle HTML terintegrasi dengan validasi kelulusan 100% test suite.
+
+#### **v5.0.0 (Perombakan Arsitektur Besar)**
 - **Penyeimbangan Bank Soal 1.000 Butir (200 Soal per Bidang):** Restrukturisasi master bank soal menjadi tepat 200 butir soal per bidang untuk seluruh 5 bidang ujian (200 Agama, 200 Pemdes, 200 Bahasa Indonesia, 200 Pengetahuan Umum, 200 Pengetahuan Komputer).
 - **Isolasi Ketat Antarbidang (Zero Mixing):** Pemisahan fisik file modul bank soal (`bank_bidang1_agama.py` s.d. `bank_bidang5_komputer.py`) dengan nomor ID unik berurutan (1–200, 201–400, 401–600, 601–800, 801–1000) dan filter `q.bidangId === cfg.id` saat pengundian sesi ujian sehingga soal bidang satu tidak akan pernah keluar atau tercampur di bidang lain.
-- **Workflow Pembersihan Repositori Otomatis (cleanup-repo.yml):** Workflow GitHub Actions komprehensif yang otomatis membersihkan file `.py` di luar folder, folder usang `dev_scratch/`, modul generator legacy, cache python, file sampah OS, dan file duplikat baik di luar maupun di dalam subfolder.
-- **Workflow & Skrip Optimasi Aset Mandiri (optimize-assets.yml & optimize_assets.py):** Workflow optimasi otomatis yang meminifikasi CSS (`style.min.css`, hemat 32.1%), kompresi JavaScript (`app.min.js`), optimasi gambar vektor SVG (hemat hingga 29.5%), dan kompresi HTML dengan validasi kelulusan 100% test suite.
 - **Fitur Mode Latihan Mandiri Khusus per Bidang:** Menu latihan mandiri kini menyediakan dropdown filter materi khusus per bidang (Bidang 1 s.d. Bidang 5) selain per subkategori dan database lengkap.
 - **Pembaruan Halaman Bantuan (Help) & Distribusi:** Tabel distribusi materi di Halaman Bantuan diperbarui dengan proporsi seimbang 1.000 butir soal berstandar Perda Kab. Tuban.
 

@@ -36,102 +36,161 @@ def format_size(bytes_size):
         return f"{bytes_size / (1024 * 1024):.2f} MB"
 
 # ==============================================================================
-# 1. PEMBERSIHAN FILE DI LUAR & DI DALAM FOLDER
+# 1. PEMBERSIHAN MENDALAM SELURUH FOLDER (DEEP SCAN & CLEAN)
 # ==============================================================================
+# Whitelist file Python aktif di dalam generator/
+ACTIVE_GENERATOR_FILES = {
+    "bank_bidang1_agama.py",
+    "bank_bidang2_pemdes.py",
+    "bank_bidang3_bahasa.py",
+    "bank_bidang4_umum.py",
+    "bank_bidang5_komputer.py",
+    "build_index.py",
+    "glossary_data.py",
+    "html_templates.py",
+    "js_engine.py",
+    "merge_and_validate.py",
+    "optimize_assets.py",
+    "practical_tasks_data.py",
+    "styles_css.py"
+}
+
+JUNK_DIR_NAMES = {
+    "__pycache__",
+    ".pytest_cache",
+    ".coverage",
+    "htmlcov",
+    "dev_scratch",
+    "scratch",
+    "temp",
+    "tmp",
+    ".cache"
+}
+
+JUNK_EXTENSIONS = (
+    ".tmp", ".temp", ".bak", ".backup", ".old", ".orig", "~",
+    ".swp", ".swo", ".swn", ".log", ".patch", ".diff",
+    ".pyc", ".pyo", ".pyd"
+)
+
+JUNK_FILENAMES = {
+    "Thumbs.db", "ehthumbs.db", "desktop.ini",
+    ".DS_Store", "._*", ".Spotlight-V100", ".Trashes"
+}
+
+STRUCTURAL_DIRS = {
+    os.path.normpath(ROOT_DIR),
+    os.path.normpath(os.path.join(ROOT_DIR, ".github")),
+    os.path.normpath(os.path.join(ROOT_DIR, ".github", "workflows")),
+    os.path.normpath(ASSETS_DIR),
+    os.path.normpath(CSS_DIR),
+    os.path.normpath(JS_DIR),
+    os.path.normpath(os.path.join(JS_DIR, "data")),
+    os.path.normpath(GENERATOR_DIR)
+}
+
 def clean_unnecessary_files():
     print("=" * 70)
-    print("1. PEMBERSIHAN FILE TIDAK DIPERLUKAN (DI LUAR & DI DALAM FOLDER)")
+    print("1. PEMBERSIHAN MENDALAM SELURUH FOLDER & SUBFOLDER (SEMUA EKSTENSI)")
     print("=" * 70)
     
     deleted_items = []
-    
-    # A. File .py di luar folder (root directory)
-    for f in os.listdir(ROOT_DIR):
-        full_path = os.path.join(ROOT_DIR, f)
-        if os.path.isfile(full_path) and f.endswith(".py"):
-            os.remove(full_path)
-            deleted_items.append(f"[Root] File Python luar folder: {f}")
-            
-    # B. File sampah OS dan editor di seluruh workspace
-    junk_patterns = ["Thumbs.db", "desktop.ini", ".DS_Store", "ehthumbs.db", "*.tmp", "*.bak", "*.swp", "*.log"]
-    for root, dirs, files in os.walk(ROOT_DIR):
-        for f in files:
-            if f in ["Thumbs.db", "desktop.ini", ".DS_Store", "ehthumbs.db"] or f.endswith((".tmp", ".bak", ".swp", ".log")):
-                full_path = os.path.join(root, f)
-                try:
-                    os.remove(full_path)
-                    rel = os.path.relpath(full_path, ROOT_DIR)
-                    deleted_items.append(f"[Sampah OS/Temp] {rel}")
-                except Exception as e:
-                    print(f"Gagal menghapus {full_path}: {e}")
-                    
-    # C. Hapus semua folder __pycache__ dan file .pyc
+    scanned_files_count = 0
+    scanned_dirs_count = 0
+
+    # Tahap 1: Pindai dan bersihkan folder cache/scratch usang di seluruh workspace
     for root, dirs, files in os.walk(ROOT_DIR, topdown=False):
-        for d in dirs:
-            if d == "__pycache__" or d == ".pytest_cache":
-                full_path = os.path.join(root, d)
+        # Abaikan direktori .git
+        if "/.git" in root.replace("\\", "/") or root.replace("\\", "/").endswith("/.git"):
+            continue
+            
+        scanned_dirs_count += len(dirs)
+        for d in list(dirs):
+            d_norm = d.lower()
+            if d_norm in JUNK_DIR_NAMES or d_norm.startswith("dev_scratch"):
+                full_dir_path = os.path.join(root, d)
                 try:
-                    shutil.rmtree(full_path)
-                    rel = os.path.relpath(full_path, ROOT_DIR)
-                    deleted_items.append(f"[Cache Python] {rel}/")
+                    shutil.rmtree(full_dir_path)
+                    rel = os.path.relpath(full_dir_path, ROOT_DIR)
+                    deleted_items.append(f"[Folder Usang/Cache] {rel}/")
                 except Exception as e:
-                    print(f"Gagal menghapus {full_path}: {e}")
+                    print(f"Gagal menghapus folder {full_dir_path}: {e}")
+
+    # Tahap 2: Pindai seluruh file di dalam setiap folder dan subfolder
+    for root, dirs, files in os.walk(ROOT_DIR):
+        if "/.git" in root.replace("\\", "/") or root.replace("\\", "/").endswith("/.git"):
+            continue
+
+        rel_root = os.path.relpath(root, ROOT_DIR)
+        is_generator_dir = (os.path.normpath(root) == os.path.normpath(GENERATOR_DIR))
+        is_root_dir = (os.path.normpath(root) == os.path.normpath(ROOT_DIR))
+
         for f in files:
-            if f.endswith((".pyc", ".pyo")):
-                full_path = os.path.join(root, f)
+            scanned_files_count += 1
+            full_path = os.path.join(root, f)
+            rel_file = os.path.relpath(full_path, ROOT_DIR)
+            f_lower = f.lower()
+
+            # A. File sampah OS / editor / log / backup di folder manapun
+            if f in JUNK_FILENAMES or f_lower.endswith(JUNK_EXTENSIONS):
                 try:
                     os.remove(full_path)
-                    rel = os.path.relpath(full_path, ROOT_DIR)
-                    deleted_items.append(f"[Bytecode] {rel}")
+                    deleted_items.append(f"[Sampah/Temp] {rel_file}")
+                    continue
                 except Exception as e:
                     print(f"Gagal menghapus {full_path}: {e}")
 
-    # D. Hapus folder dev_scratch (skrip investigasi lama)
-    dev_scratch_path = os.path.join(ROOT_DIR, "dev_scratch")
-    if os.path.exists(dev_scratch_path):
-        try:
-            shutil.rmtree(dev_scratch_path)
-            deleted_items.append("[Folder Usang] dev_scratch/ (10 file investigasi scratch lama)")
-        except Exception as e:
-            print(f"Gagal menghapus dev_scratch: {e}")
+            # B. File Python (*.py) di luar folder generator/ (apapun foldernya)
+            if f.endswith(".py"):
+                if not is_generator_dir:
+                    try:
+                        os.remove(full_path)
+                        deleted_items.append(f"[Stray Python] {rel_file} (Python hanya diperbolehkan di generator/)")
+                        continue
+                    except Exception as e:
+                        print(f"Gagal menghapus {full_path}: {e}")
+                else:
+                    # Di dalam generator/, hanya simpan file aktif
+                    if f not in ACTIVE_GENERATOR_FILES:
+                        try:
+                            os.remove(full_path)
+                            deleted_items.append(f"[Legacy Python] {rel_file} (modul generator usang/tidak aktif)")
+                            continue
+                        except Exception as e:
+                            print(f"Gagal menghapus {full_path}: {e}")
 
-    # E. Hapus file legacy generator yang sudah digantikan oleh 5 master bank
-    legacy_generator_files = [
-        "expand_bank.py",
-        "expand_bank_300.py",
-        "expand_bank_400.py",
-        "expand_bank_500.py",
-        "expand_bank_agama.py",
-        "expand_bank_bahasa.py",
-        "expand_bank_komputer.py",
-        "validate_data.py"
-    ]
-    for lf in legacy_generator_files:
-        full_path = os.path.join(GENERATOR_DIR, lf)
-        if os.path.exists(full_path):
-            try:
-                os.remove(full_path)
-                deleted_items.append(f"[Generator Legacy] generator/{lf}")
-            except Exception as e:
-                print(f"Gagal menghapus {full_path}: {e}")
+            # C. File duplikat di root yang identik dan sudah ada di assets/
+            if is_root_dir and f in ["logo.svg", "logo-full.svg"]:
+                asset_counterpart = os.path.join(ASSETS_DIR, f)
+                if os.path.exists(asset_counterpart):
+                    try:
+                        os.remove(full_path)
+                        deleted_items.append(f"[Duplikat Root] {f} (sudah ada di assets/{f})")
+                        continue
+                    except Exception as e:
+                        print(f"Gagal menghapus {full_path}: {e}")
 
-    # F. Hapus file duplikat di root jika sudah ada di dalam folder assets/
-    for dup in ["logo.svg"]:
-        root_dup = os.path.join(ROOT_DIR, dup)
-        asset_dup = os.path.join(ASSETS_DIR, dup)
-        if os.path.exists(root_dup) and os.path.exists(asset_dup):
-            try:
-                os.remove(root_dup)
-                deleted_items.append(f"[Duplikat Root] {dup} (sudah ada di assets/{dup})")
-            except Exception as e:
-                print(f"Gagal menghapus {root_dup}: {e}")
+    # Tahap 3: Hapus subfolder kosong yang tersisa (kecuali direktori struktur proyek)
+    for root, dirs, files in os.walk(ROOT_DIR, topdown=False):
+        if "/.git" in root.replace("\\", "/") or root.replace("\\", "/").endswith("/.git"):
+            continue
+        norm_root = os.path.normpath(root)
+        if norm_root not in STRUCTURAL_DIRS:
+            if not os.listdir(root):
+                try:
+                    os.rmdir(root)
+                    rel = os.path.relpath(root, ROOT_DIR)
+                    deleted_items.append(f"[Folder Kosong] {rel}/")
+                except Exception as e:
+                    pass
 
+    print(f"Pemeriksaan selesai: {scanned_files_count} file dan {scanned_dirs_count} folder dianalisis.")
     if deleted_items:
         for item in deleted_items:
-            print(f"  [OK] {item}")
-        print(f"\nTotal item yang dibersihkan: {len(deleted_items)} item.")
+            print(f"  [BERSIH] {item}")
+        print(f"\nTotal item yang berhasil dibersihkan: {len(deleted_items)} item.")
     else:
-        print("  [OK] Repositori sudah bersih, tidak ada file tidak berguna yang ditemukan.")
+        print("  [OK] Seluruh folder repositori sudah 100% bersih dari file tidak berguna.")
     print()
 
 
@@ -306,15 +365,19 @@ def optimize_html_files():
 # MAIN ENTRYPOINT
 # ==============================================================================
 def main():
+    import sys
     print("\n======================================================================")
     print("START: REPOSITORY CLEANUP & ASSET OPTIMIZER - CBT PERANGKAT DESA")
     print("======================================================================\n")
     
+    clean_only = "--clean-only" in sys.argv
     clean_unnecessary_files()
-    optimize_css()
-    optimize_js()
-    optimize_svg_assets()
-    optimize_html_files()
+    
+    if not clean_only:
+        optimize_css()
+        optimize_js()
+        optimize_svg_assets()
+        optimize_html_files()
     
     print("======================================================================")
     print("ALL CLEANUP & OPTIMIZATION TASKS COMPLETED SUCCESSFULLY!")

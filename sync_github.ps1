@@ -59,7 +59,7 @@ git add -A
 
 # 6. Commit perubahan
 Write-Host "[4/5] Membuat commit..." -ForegroundColor Green
-git commit -m "Release v5.0.0: Seimbangkan 1.000 butir bank soal (5 bidang @ 200 soal), isolasi ketat zero mixing, dan fitur latihan per bidang"
+git commit -m "Release v5.1.0: Pembersihan mendalam seluruh folder repositori, optimasi aset, dan perbaikan popup changelog"
 
 # 7. Push ke remote
 Write-Host "[5/5] Mengunggah perubahan ke GitHub..." -ForegroundColor Green

@@ -47,7 +47,7 @@ git add -A
 
 :: 6. Buat commit
 echo [4/5] Menyimpan commit lokal...
-git commit -m "Release v5.0.0: Seimbangkan 1.000 butir bank soal (5 bidang @ 200 soal), isolasi ketat zero mixing, dan fitur latihan per bidang"
+git commit -m "Release v5.1.0: Pembersihan mendalam seluruh folder repositori, optimasi aset, dan perbaikan popup changelog"
 
 :: 7. Dorong perubahan ke GitHub
 echo [5/5] Mengunggah (push) perubahan ke remote GitHub...

@@ -6,7 +6,7 @@
   <title>Simulasi Ujian Perangkat Desa Kabupaten Tuban | 5 Bidang Tertulis & Praktik Komputer</title>
   <meta name="description" content="Aplikasi simulasi resmi ujian perangkat desa Kabupaten Tuban. 5 bidang materi tertulis berurutan @ 25 soal (30 menit/bidang, total 125 soal) dan praktik komputer 10 butir. Nilai akhir gabungan tertulis (87,5) dan praktik (12,5).">
   <meta name="author" content="fusionproject.id">
-  <meta name="version" content="5.0.0">
+  <meta name="version" content="5.1.0">
   <meta name="copyright" content="Copyright by fusionproject.id">
   
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -26,7 +26,7 @@
         <div class="brand-text">
           <div class="brand-title-row">
             <h1>Simulasi CBT Perangkat Desa</h1>
-            <span class="version-badge" onclick="event.stopPropagation(); CBTApp.openVersionModal();" title="Versi v5.0.0 • Klik untuk Changelog">v5.0.0</span>
+            <span class="version-badge" onclick="event.stopPropagation(); CBTApp.openVersionModal();" title="Versi v5.1.0 • Klik untuk Changelog">v5.1.0</span>
           </div>
           <p id="topRegionLabel">Kabupaten Tuban • <span class="brand-copyright">Copyright by fusionproject.id</span></p>
         </div>
@@ -679,7 +679,7 @@
           <span style="font-size:0.7rem; color:#64748b;">Standar Resmi 125 Soal Tertulis (87,5 Poin) + 10 Praktik Komputer (12,5 Poin) = 100,00 Poin</span>
         </div>
         <div style="text-align:right;">
-          <span>Versi Aplikasi: <strong>v5.0.0</strong></span><br>
+          <span>Versi Aplikasi: <strong>v5.1.0</strong></span><br>
           <span style="color:#0f172a; font-weight:700;">Copyright by fusionproject.id</span>
         </div>
       </div>
@@ -942,7 +942,7 @@
           <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Format Resmi Tuban</a>
           <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Formula Skor 87,5 + 12,5</a>
           <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Tim Pengembang</a>
-          <a href="javascript:void(0)" onclick="CBTApp.openVersionModal()">Changelog v5.0.0</a>
+          <a href="javascript:void(0)" onclick="CBTApp.openVersionModal()">Changelog v5.1.0</a>
         </nav>
 
         <nav class="footer-nav-group" aria-label="Menu Resources">
@@ -1198,37 +1198,51 @@
   </div>
 
   <div id="modalVersionInfo" class="modal-backdrop no-print">
-    <div class="cbt-modal-box" style="max-width:620px;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <img src="assets/favicon.svg" alt="Logo" width="40" height="40" style="filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">
+    <div class="modal-dialog" style="max-width:680px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; padding-bottom:0.85rem; border-bottom:1px solid var(--slate-200);">
+        <div style="display:flex; align-items:center; gap:0.85rem;">
+          <div style="width:42px; height:42px; border-radius:var(--radius-md); background:var(--primary-900); display:flex; align-items:center; justify-content:center; padding:3px; box-shadow:0 2px 6px rgba(0,0,0,0.15); flex-shrink:0;">
+            <img src="assets/favicon.svg" alt="Logo" width="34" height="34" style="display:block;">
+          </div>
           <div>
-            <h3 style="font-size:1.2rem; font-weight:800; color:var(--primary-900); margin:0;">Catatan Rilis &amp; Riwayat Fitur</h3>
-            <p style="font-size:0.8rem; color:var(--slate-500); margin:0;">CBT Simulasi Ujian Perangkat Desa Kab. Tuban</p>
+            <h3 style="font-size:1.22rem; font-weight:800; color:var(--primary-900); margin:0; line-height:1.2;">Catatan Rilis &amp; Riwayat Fitur</h3>
+            <p style="font-size:0.8rem; color:var(--slate-500); margin:3px 0 0 0;">CBT Simulasi Ujian Perangkat Desa Kab. Tuban</p>
           </div>
         </div>
-        <button class="btn-close-modal" onclick="CBTApp.closeModals()">&times;</button>
+        <button class="btn-close-modal" onclick="CBTApp.closeModals()" title="Tutup" aria-label="Tutup">&times;</button>
       </div>
 
       <div style="background:var(--slate-50); border:1px solid var(--slate-200); border-radius:var(--radius-md); padding:0.85rem 1.15rem; margin-bottom:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
         <div>
-          <span style="font-size:1.05rem; font-weight:900; color:var(--primary-900);">Versi Aplikasi: <span style="color:var(--accent-gold-600);">v5.0.0</span></span>
-          <div style="font-size:0.78rem; color:var(--slate-600); margin-top:2px;">Hak Cipta: <strong>Copyright by fusionproject.id</strong></div>
+          <span style="font-size:1.05rem; font-weight:900; color:var(--primary-900);">Versi Aplikasi: <span style="color:var(--accent-gold-600); font-family:monospace; background:var(--accent-gold-50); padding:2px 8px; border-radius:4px; border:1px solid var(--accent-gold-200);">v5.1.0</span></span>
+          <div style="font-size:0.78rem; color:var(--slate-600); margin-top:3px;">Hak Cipta: <strong>Copyright by fusionproject.id</strong></div>
         </div>
-        <span class="badge-pill badge-verified" style="font-size:0.75rem;">Production Ready</span>
+        <span class="badge-pill badge-verified" style="font-size:0.75rem; font-weight:700;">Production Ready</span>
       </div>
 
       <h4 style="font-size:0.92rem; font-weight:800; color:var(--primary-900); margin-bottom:0.75rem;">Daftar Fitur &amp; Pembaruan Aplikasi:</h4>
-      <div style="display:flex; flex-direction:column; gap:0.75rem; font-size:0.82rem; max-height:320px; overflow-y:auto; padding-right:0.25rem; margin-bottom:1.25rem;">
+      <div class="modal-changelog-list">
 
         <div style="padding:0.75rem 0.9rem; background:#eff6ff; border-left:3px solid #2563eb; border-radius:var(--radius-sm);">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
-            <strong style="color:#1d4ed8; font-size:0.88rem;">Versi v5.0.0 (Pembaruan Arsitektur Besar)</strong>
+            <strong style="color:#1d4ed8; font-size:0.88rem;">Versi v5.1.0 (Pembersihan Menyeluruh Seluruh Folder &amp; Peningkatan UI)</strong>
             <span style="font-size:0.7rem; color:#64748b; font-weight:600;">Terbaru</span>
           </div>
           <ul style="margin:0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
-            <li><strong>Bank Soal Seimbang 1.000 Butir:</strong> Penyeimbangan master database bank soal menjadi tepat 200 butir soal per bidang untuk seluruh 5 bidang ujian (Total 1.000 butir soal: 200 Agama, 200 Pemdes, 200 Bahasa Indonesia, 200 Pengetahuan Umum, 200 Pengetahuan Komputer).</li>
-            <li><strong>Isolasi Ketat Antarbidang (Zero Mixing):</strong> Pemisahan bank soal setiap bidang ke dalam modul mandiri ber-<code>bidangId</code> dan ID berurutan rapi (1–200, 201–400, 401–600, 601–800, 801–1000) sehingga soal satu bidang tidak akan pernah keluar atau tercampur di bidang lain.</li>
+            <li><strong>Pembersihan Seluruh Folder &amp; Subfolder (Deep Cleanup):</strong> Otomasi workflow GitHub Actions (<code>cleanup-repo.yml</code>) dan modul Python (<code>optimize_assets.py</code>) untuk memindai serta menghapus seluruh file tidak berguna lintas seluruh ekstensi di seluruh direktori (file <code>.py</code> di luar folder generator, file temporary <code>.tmp</code>/<code>.bak</code>/<code>.swp</code>, cache python <code>__pycache__</code>/<code>.pyc</code>, log sampah, OS metadata <code>Thumbs.db</code>/<code>.DS_Store</code>, dan folder scratch).</li>
+            <li><strong>Perbaikan &amp; Redesain Popup Changelog:</strong> Rekonstruksi total dialog modal Catatan Rilis dengan background putih solid, backdrop blur, animasi halus <code>modalFadeIn</code>, custom scrollbar ramping, tombol tutup melingkar modern, dan dukungan penutupan fleksibel via tombol keyboard Escape maupun klik backdrop luar.</li>
+            <li><strong>Optimasi Aset Maksimal:</strong> Minifikasi CSS (penghematan 32%), kompresi JavaScript engine CBT, optimasi grafis SVG (penghematan s.d. 29.5%), dan kompresi bundle HTML.</li>
+          </ul>
+        </div>
+
+        <div style="padding:0.75rem 0.9rem; background:#f8fafc; border-left:3px solid #64748b; border-radius:var(--radius-sm);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+            <strong style="color:#334155; font-size:0.88rem;">Versi v5.0.0 (Pembaruan Arsitektur Besar)</strong>
+            <span style="font-size:0.7rem; color:#64748b;">Rilis Sebelumnya</span>
+          </div>
+          <ul style="margin:0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
+            <li><strong>Bank Soal Seimbang 1.000 Butir:</strong> Penyeimbangan master database bank soal menjadi tepat 200 butir soal per bidang untuk seluruh 5 bidang ujian (Total 1.000 butir: 200 Agama, 200 Pemdes, 200 Bahasa Indonesia, 200 Pengetahuan Umum, 200 Pengetahuan Komputer).</li>
+            <li><strong>Isolasi Ketat Antarbidang (Zero Mixing):</strong> Pemisahan fisik bank soal setiap bidang ke dalam modul mandiri ber-<code>bidangId</code> dan rentang ID berurutan rapi (1–200, 201–400, 401–600, 601–800, 801–1000) sehingga soal satu bidang tidak akan pernah keluar atau tercampur di bidang lain.</li>
             <li><strong>Fitur Mode Latihan Khusus per Bidang:</strong> Menu latihan mandiri kini dilengkapi dropdown filter khusus per bidang (Bidang 1 s.d. Bidang 5) selain per subkategori dan database lengkap.</li>
             <li><strong>Pembaruan Pusat Bantuan &amp; Regulasi:</strong> Tabel distribusi materi di Halaman Bantuan kini menyajikan proporsi seimbang 1.000 butir soal resmi Perda Kab. Tuban.</li>
           </ul>
@@ -1242,7 +1256,6 @@
           <ul style="margin:0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
             <li><strong>Ekspansi Bank Soal Bahasa Indonesia:</strong> Penambahan 40 butir soal baru (EYD V, tata naskah dinas desa, konjungsi antarkalimat, peluluhan fonem KTSP, nominal kas desa, dan kalimat efektif).</li>
             <li><strong>Eliminasi Kemiripan Soal:</strong> Refaktorisasi butir soal bernuansa serupa sehingga seluruh 25 soal Bahasa Indonesia per sesi ujian memiliki konsep dan opsi 100% unik tanpa pengulangan.</li>
-            <li><strong>Workflow Pembersih Repositori (cleanup-repo.yml):</strong> Otomasi GitHub Actions untuk menghapus file Python dan cache di luar folder secara otomatis.</li>
           </ul>
         </div>
 
@@ -1252,9 +1265,9 @@
             <span style="font-size:0.7rem; color:#64748b;">Rilis Sebelumnya</span>
           </div>
           <ul style="margin:0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
-            <li><strong>Landing Page Sederhana (Gambar 2):</strong> Tampilan depan minimalis dengan kartu identitas peserta dan tombol "Mulai Ujian" &amp; "Mulai Mode Latihan".</li>
-            <li><strong>Halaman Pusat Bantuan (Help):</strong> Rujukan regulasi, alur 5 bidang, tabel distribusi soal 625 butir, dan panduan praktik komputer dipindahkan ke halaman tersendiri.</li>
-            <li><strong>Menu Navigasi Modern (Gambar 3):</strong> Navigasi pill elegan, backdrop-blur, responsif mobile, dan pemilih skala font.</li>
+            <li><strong>Landing Page Sederhana:</strong> Tampilan depan minimalis dengan kartu identitas peserta dan tombol "Mulai Ujian" &amp; "Mulai Mode Latihan".</li>
+            <li><strong>Halaman Pusat Bantuan (Help):</strong> Rujukan regulasi, alur 5 bidang, tabel distribusi soal, dan panduan praktik komputer dipindahkan ke halaman tersendiri.</li>
+            <li><strong>Menu Navigasi Modern:</strong> Navigasi pill elegan, backdrop-blur, responsif mobile, dan pemilih skala font.</li>
             <li><strong>Footer direktori responsif:</strong> Menyediakan navigasi latihan, materi, bantuan, fitur aplikasi, dan tautan privasi.</li>
             <li>Penambahan <strong>Favicon SVG</strong> dan <strong>Logo Resmi Emblem</strong> Kabupaten Tuban yang tajam di semua layar.</li>
             <li>Optimasi pemilihan 125 soal unik tanpa duplikasi intra-sesi ujian.</li>
@@ -1284,7 +1297,7 @@
         <div style="padding:0.75rem 0.9rem; background:#f8fafc; border-left:3px solid #d97706; border-radius:var(--radius-sm);">
           <strong style="color:#b45309; font-size:0.88rem;">Versi v1.0.0 – v3.0.0</strong>
           <ul style="margin:0.35rem 0 0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
-            <li>Penyusunan Master Pool 625 butir soal lengkap pada 13 kategori materi berdasar regulasi perundang-undangan.</li>
+            <li>Penyusunan Master Pool bank soal berdasar regulasi perundang-undangan.</li>
             <li>Format 5 bidang materi ujian tertulis berurutan (sequential locking) dengan timer mandiri 30 menit per bidang.</li>
             <li>Ketahanan sesi ujian dari refresh atau peramban tertutup tanpa kehilangan progres.</li>
           </ul>
@@ -1292,8 +1305,8 @@
 
       </div>
 
-      <div class="modal-actions" style="justify-content:space-between; align-items:center;">
-        <span style="font-size:0.75rem; color:var(--slate-500);">© 2026 <strong>fusionproject.id</strong></span>
+      <div class="modal-actions" style="justify-content:space-between; align-items:center; margin-top:1.25rem; padding-top:0.85rem; border-top:1px solid var(--slate-200);">
+        <span style="font-size:0.78rem; color:var(--slate-500);">© 2026 <strong>fusionproject.id</strong> • Seluruh hak cipta dilindungi</span>
         <button class="btn btn-primary btn-sm" onclick="CBTApp.closeModals()">Tutup</button>
       </div>
     </div>
