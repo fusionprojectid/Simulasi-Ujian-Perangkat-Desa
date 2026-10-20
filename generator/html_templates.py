@@ -16,7 +16,7 @@ def get_html_body():
         <div class="brand-text">
           <div class="brand-title-row">
             <h1>Simulasi CBT Perangkat Desa</h1>
-            <span class="version-badge" onclick="event.stopPropagation(); CBTApp.openVersionModal();" title="Versi v4.5.0 • Klik untuk Changelog">v4.5.0</span>
+            <span class="version-badge" onclick="event.stopPropagation(); CBTApp.openVersionModal();" title="Versi v5.0.0 • Klik untuk Changelog">v5.0.0</span>
           </div>
           <p id="topRegionLabel">Kabupaten Tuban • <span class="brand-copyright">Copyright by fusionproject.id</span></p>
         </div>
@@ -164,7 +164,7 @@ def get_html_body():
         <div class="form-group" style="margin-bottom:1.25rem;">
           <label for="practiceCategorySelect" style="color:var(--slate-800);">Pilih Kategori Materi:</label>
           <select id="practiceCategorySelect" class="form-control">
-            <option value="all">Semua Materi (Database 585 Soal)</option>
+            <option value="all">Semua Materi (Database 1.000 Soal Lengkap)</option>
             <!-- Populated via JS -->
           </select>
         </div>
@@ -726,7 +726,7 @@ def get_html_body():
           <span style="font-size:0.7rem; color:#64748b;">Standar Resmi 125 Soal Tertulis (87,5 Poin) + 10 Praktik Komputer (12,5 Poin) = 100,00 Poin</span>
         </div>
         <div style="text-align:right;">
-          <span>Versi Aplikasi: <strong>v4.5.0</strong></span><br>
+          <span>Versi Aplikasi: <strong>v5.0.0</strong></span><br>
           <span style="color:#0f172a; font-weight:700;">Copyright by fusionproject.id</span>
         </div>
       </div>
@@ -879,9 +879,9 @@ def get_html_body():
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
           <div>
             <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-900);">2. Tabel Distribusi Soal &amp; Alokasi Waktu Ujian</h3>
-            <p style="font-size:0.85rem; color:var(--slate-600);">Rincian lengkap 125 butir soal ujian tertulis yang diundi secara acak dan bebas duplikasi dari master database 585 butir soal.</p>
+            <p style="font-size:0.85rem; color:var(--slate-600);">Rincian lengkap 125 butir soal ujian tertulis yang diundi secara acak dan bebas duplikasi dari master database 1.000 butir soal (5 bidang terisolasi masing-masing 200 soal).</p>
           </div>
-          <span class="badge-pill badge-cat">Total Bank Soal: 585 Butir</span>
+          <span class="badge-pill badge-cat">Total Bank Soal: 1.000 Butir</span>
         </div>
 
         <div class="table-container">
@@ -1001,7 +1001,7 @@ def get_html_body():
           <a href="javascript:void(0)" onclick="CBTApp.navigate('practice-config')">Mode Latihan Bebas</a>
           <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Praktik Naskah Dinas</a>
           <a href="javascript:void(0)" onclick="CBTApp.navigate('glossary')">Glosarium Istilah Desa</a>
-          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Bank Soal 585 Butir</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Bank Soal 625 Butir</a>
         </nav>
 
         <nav class="footer-nav-group" aria-label="Menu About">
@@ -1010,7 +1010,7 @@ def get_html_body():
           <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Format Resmi Tuban</a>
           <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Formula Skor 87,5 + 12,5</a>
           <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Tim Pengembang</a>
-          <a href="javascript:void(0)" onclick="CBTApp.openVersionModal()">Changelog v4.5.0</a>
+          <a href="javascript:void(0)" onclick="CBTApp.openVersionModal()">Changelog v5.0.0</a>
         </nav>
 
         <nav class="footer-nav-group" aria-label="Menu Resources">
@@ -1293,7 +1293,7 @@ def get_html_body():
 
       <div style="background:var(--slate-50); border:1px solid var(--slate-200); border-radius:var(--radius-md); padding:0.85rem 1.15rem; margin-bottom:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
         <div>
-          <span style="font-size:1.05rem; font-weight:900; color:var(--primary-900);">Versi Aplikasi: <span style="color:var(--accent-gold-600);">v4.5.0</span></span>
+          <span style="font-size:1.05rem; font-weight:900; color:var(--primary-900);">Versi Aplikasi: <span style="color:var(--accent-gold-600);">v5.0.0</span></span>
           <div style="font-size:0.78rem; color:var(--slate-600); margin-top:2px;">Hak Cipta: <strong>Copyright by fusionproject.id</strong></div>
         </div>
         <span class="badge-pill badge-verified" style="font-size:0.75rem;">Production Ready</span>
@@ -1302,15 +1302,42 @@ def get_html_body():
       <h4 style="font-size:0.92rem; font-weight:800; color:var(--primary-900); margin-bottom:0.75rem;">Daftar Fitur &amp; Pembaruan Aplikasi:</h4>
       <div style="display:flex; flex-direction:column; gap:0.75rem; font-size:0.82rem; max-height:320px; overflow-y:auto; padding-right:0.25rem; margin-bottom:1.25rem;">
         
-        <!-- v4.5.0 -->
+        <!-- v5.0.0 -->
         <div style="padding:0.75rem 0.9rem; background:#eff6ff; border-left:3px solid #2563eb; border-radius:var(--radius-sm);">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
-            <strong style="color:#1d4ed8; font-size:0.88rem;">Versi v4.5.0 (Pembaruan Terkini)</strong>
+            <strong style="color:#1d4ed8; font-size:0.88rem;">Versi v5.0.0 (Pembaruan Arsitektur Besar)</strong>
             <span style="font-size:0.7rem; color:#64748b; font-weight:600;">Terbaru</span>
           </div>
           <ul style="margin:0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
+            <li><strong>Bank Soal Seimbang 1.000 Butir:</strong> Penyeimbangan master database bank soal menjadi tepat 200 butir soal per bidang untuk seluruh 5 bidang ujian (Total 1.000 butir soal: 200 Agama, 200 Pemdes, 200 Bahasa Indonesia, 200 Pengetahuan Umum, 200 Pengetahuan Komputer).</li>
+            <li><strong>Isolasi Ketat Antarbidang (Zero Mixing):</strong> Pemisahan bank soal setiap bidang ke dalam modul mandiri ber-<code>bidangId</code> dan ID berurutan rapi (1–200, 201–400, 401–600, 601–800, 801–1000) sehingga soal satu bidang tidak akan pernah keluar atau tercampur di bidang lain.</li>
+            <li><strong>Fitur Mode Latihan Khusus per Bidang:</strong> Menu latihan mandiri kini dilengkapi dropdown filter khusus per bidang (Bidang 1 s.d. Bidang 5) selain per subkategori dan database lengkap.</li>
+            <li><strong>Pembaruan Pusat Bantuan &amp; Regulasi:</strong> Tabel distribusi materi di Halaman Bantuan kini menyajikan proporsi seimbang 1.000 butir soal resmi Perda Kab. Tuban.</li>
+          </ul>
+        </div>
+
+        <!-- v4.5.1 -->
+        <div style="padding:0.75rem 0.9rem; background:#f8fafc; border-left:3px solid #64748b; border-radius:var(--radius-sm);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+            <strong style="color:#334155; font-size:0.88rem;">Versi v4.5.1</strong>
+            <span style="font-size:0.7rem; color:#64748b;">Rilis Sebelumnya</span>
+          </div>
+          <ul style="margin:0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
+            <li><strong>Ekspansi Bank Soal Bahasa Indonesia:</strong> Penambahan 40 butir soal baru (EYD V, tata naskah dinas desa, konjungsi antarkalimat, peluluhan fonem KTSP, nominal kas desa, dan kalimat efektif).</li>
+            <li><strong>Eliminasi Kemiripan Soal:</strong> Refaktorisasi butir soal bernuansa serupa sehingga seluruh 25 soal Bahasa Indonesia per sesi ujian memiliki konsep dan opsi 100% unik tanpa pengulangan.</li>
+            <li><strong>Workflow Pembersih Repositori (cleanup-repo.yml):</strong> Otomasi GitHub Actions untuk menghapus file Python dan cache di luar folder secara otomatis.</li>
+          </ul>
+        </div>
+
+        <!-- v4.5.0 -->
+        <div style="padding:0.75rem 0.9rem; background:#f8fafc; border-left:3px solid #64748b; border-radius:var(--radius-sm);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+            <strong style="color:#334155; font-size:0.88rem;">Versi v4.5.0</strong>
+            <span style="font-size:0.7rem; color:#64748b;">Rilis Sebelumnya</span>
+          </div>
+          <ul style="margin:0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
             <li><strong>Landing Page Sederhana (Gambar 2):</strong> Tampilan depan minimalis dengan kartu identitas peserta dan tombol "Mulai Ujian" &amp; "Mulai Mode Latihan".</li>
-            <li><strong>Halaman Pusat Bantuan (Help):</strong> Rujukan regulasi, alur 5 bidang, tabel distribusi soal 585 butir, dan panduan praktik komputer dipindahkan ke halaman tersendiri.</li>
+            <li><strong>Halaman Pusat Bantuan (Help):</strong> Rujukan regulasi, alur 5 bidang, tabel distribusi soal 625 butir, dan panduan praktik komputer dipindahkan ke halaman tersendiri.</li>
             <li><strong>Menu Navigasi Modern (Gambar 3):</strong> Navigasi pill elegan, backdrop-blur, responsif mobile, dan pemilih skala font.</li>
             <li><strong>Footer direktori responsif:</strong> Menyediakan navigasi latihan, materi, bantuan, fitur aplikasi, dan tautan privasi.</li>
             <li>Penambahan <strong>Favicon SVG</strong> dan <strong>Logo Resmi Emblem</strong> Kabupaten Tuban yang tajam di semua layar.</li>
@@ -1344,7 +1371,7 @@ def get_html_body():
         <div style="padding:0.75rem 0.9rem; background:#f8fafc; border-left:3px solid #d97706; border-radius:var(--radius-sm);">
           <strong style="color:#b45309; font-size:0.88rem;">Versi v1.0.0 – v3.0.0</strong>
           <ul style="margin:0.35rem 0 0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
-            <li>Penyusunan Master Pool 585 butir soal lengkap pada 13 kategori materi berdasar regulasi perundang-undangan.</li>
+            <li>Penyusunan Master Pool 625 butir soal lengkap pada 13 kategori materi berdasar regulasi perundang-undangan.</li>
             <li>Format 5 bidang materi ujian tertulis berurutan (sequential locking) dengan timer mandiri 30 menit per bidang.</li>
             <li>Ketahanan sesi ujian dari refresh atau peramban tertutup tanpa kehilangan progres.</li>
           </ul>

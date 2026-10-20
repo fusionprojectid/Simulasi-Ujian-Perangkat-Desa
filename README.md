@@ -1,6 +1,6 @@
 # Simulasi Ujian Perangkat Desa Kabupaten Tuban — Computer Assisted Test (CBT)
 
-> **Versi:** `v4.5.0` • **Lisensi & Hak Cipta:** `Copyright by fusionproject.id` • **Status:** `Production Ready`
+> **Versi:** `v5.0.0` • **Lisensi & Hak Cipta:** `Copyright by fusionproject.id` • **Status:** `Production Ready`
 
 Aplikasi simulasi Computer Assisted Test (CAT/CBT) modern, interaktif, dan modular yang dirancang khusus untuk persiapan seleksi calon Perangkat Desa (Sekretaris Desa, Kaur, Kasi, dan Kepala Dusun) di **Kabupaten Tuban, Jawa Timur** serta mengacu pada regulasi pemerintahan desa di Indonesia.
 
@@ -124,52 +124,62 @@ Basis kode telah dipisahkan secara rapi dan modular ke dalam komponen HTML, CSS,
 ```text
 ├── index.html                    # Entry point aplikasi modular (HTML5 semantik & bersih)
 ├── index_standalone_bundle.html  # Berkas tunggal mandiri (bundle all-in-one untuk distribusi tanpa folder)
+├── favicon.svg                   # Favicon resmi terkompresi
+├── logo.svg                      # Logo emblem vektor terkompresi
 │
 ├── css/
-│   └── style.css                 # Desain sistem visual (Civic Navy & Gold, Responsive, Stepper, Widgets, Print)
+│   ├── style.css                 # Desain sistem visual (Civic Navy & Gold, Responsive, Stepper, Widgets, Print)
+│   └── style.min.css             # Versi minifikasi teroptimasi (penghematan 32.1%)
 │
 ├── js/
 │   ├── app.js                    # CBT Application Engine (State machine, timer, evaluator praktik, UI controller)
+│   ├── app.min.js                # Versi minifikasi teroptimasi
 │   └── data/
-│       ├── questions.js          # Master database 585 butir soal lengkap (opsi, kunci, pembahasan, sumber regulasi)
+│       ├── questions.js          # Master database 1.000 butir soal lengkap (opsi, kunci, pembahasan, sumber regulasi)
 │       ├── glossary.js           # Database 36 istilah resmi pemerintahan desa
 │       └── practical.js          # Master 10 butir tugas praktik komputer realistis (dua mode & rubrik)
 │
-├── generator/                    # Modul generator & builder Python (terisolasi rapi)
+├── assets/                       # Aset vektor branding (logo-full.svg, logo.svg) terkompresi
+│
+├── generator/                    # Modul generator & builder Python (terisolasi rapi di dalam folder)
 │   ├── build_index.py            # Script kompilasi/build otomatis Python untuk memvalidasi & menyinkronkan aset
-│   ├── merge_and_validate.py     # Assembler & validasi master pool 585 soal
-│   └── *.py                      # Modul data bank soal, template HTML, CSS, dan engine
+│   ├── optimize_assets.py        # Script pembersih file tidak berguna & pemroses optimasi CSS/JS/SVG/HTML
+│   ├── merge_and_validate.py     # Assembler & validasi master pool 1.000 butir soal
+│   ├── bank_bidang1_agama.py     # Bank master Bidang 1: Agama & Moderasi Beragama (200 soal)
+│   ├── bank_bidang2_pemdes.py    # Bank master Bidang 2: Pemerintahan Desa (200 soal)
+│   ├── bank_bidang3_bahasa.py    # Bank master Bidang 3: Bahasa Indonesia (200 soal)
+│   ├── bank_bidang4_umum.py      # Bank master Bidang 4: Pengetahuan Umum (200 soal)
+│   └── bank_bidang5_komputer.py  # Bank master Bidang 5: Pengetahuan Komputer (200 soal)
+│
+├── .github/workflows/            # Otomasi CI/CD GitHub Actions
+│   ├── cleanup-repo.yml          # Workflow pembersihan seluruh file tidak berguna di luar maupun di dalam folder
+│   ├── optimize-assets.yml       # Workflow optimasi CSS, JS, SVG, HTML & verifikasi pengujian otomatis
+│   └── deploy.yml                # Workflow deploy otomatis teroptimasi ke GitHub Pages
 │
 ├── test_suite.js                 # Suite pengujian komprehensif Node.js untuk integritas modular & kuota bank soal
 ├── test_full_audit.js            # Audit privasi 100% offline, zero network leaks, dan struktur regulasi
 ├── test_cbt_engine_sim.js        # Simulasi state machine end-to-end (5 bidang tertulis + 10 butir praktik 2 mode)
 ├── test_zero_repetition.js       # Pengujian siklus state machine tanpa pengulangan (Zero Repetition Engine)
+├── sync_github.bat               # Skrip one-click Windows Batch untuk optimasi, cleanup, dan push ke GitHub
+├── sync_github.ps1               # Skrip one-click PowerShell untuk sinkronisasi GitHub
 ├── .gitignore                    # Konfigurasi pengabaian file cache & scratch lokal
 └── README.md                     # Dokumentasi komprehensif proyek
 ```
 
 ---
 
-## 📚 Master Bank Soal 585 Butir (13 Kategori Materi)
+## 📚 Master Bank Soal 1.000 Butir (5 Bidang Terisolasi Masing-Masing 200 Soal)
 
-Seluruh 585 butir soal telah diaudit, memiliki 4 opsi unik, kunci jawaban terverifikasi, penjelasan mendalam, serta mencantumkan dasar hukum/regulasi:
+Master database bank soal kini berkapasitas **1.000 butir soal seimbang**, terisolasi secara ketat (*strict domain isolation*) ke dalam 5 modul mandiri ber-`bidangId` (1 s.d. 5) dan rentang ID berurutan rapi sehingga **soal bidang satu tidak akan pernah keluar di bidang lain dan tidak tercampur**:
 
-| No | Kategori Materi Soal | Kuota Ujian Tertulis | Jumlah di Master Pool | Distribusi Kesulitan | Fokus Materi Utama & Dasar Regulasi |
-|:---:|:---|:---:|:---:|:---:|:---|
-| 1 | Pemerintahan desa, struktur organisasi, tugas dan fungsi perangkat desa | 7 Soal (Bidang 2) | **100 Soal** | Mudah: 35, Sedang: 60, Sulit: 5 | UU 6/2014 jo. UU 3/2024, Permendagri 84/2015, PP 11/2019 (Siltap), syarat usia 20–42 th, pensiun 60 th, tugas Kaur/Kasi/Kasun. |
-| 2 | Peraturan perundang-undangan dan tata kelola pemerintahan | 4 Soal (Bidang 2) | **60 Soal** | Mudah: 18, Sedang: 38, Sulit: 4 | UU 12/2011, Permendagri 111/2014, Perda Tuban No. 2/2016 jo. No. 16/2021, Perbup Tuban 11/2022, hierarki peraturan perundang-undangan. |
-| 3 | Pancasila, UUD 1945, dan wawasan kebangsaan | 7 Soal (Bidang 4) | **50 Soal** | Mudah: 16, Sedang: 31, Sulit: 3 | Butir pengamalan Sila 1–5, Pembukaan UUD 1945 alinea IV, Pasal 1(2), 27(3), 30(1), Bhinneka Tunggal Ika, integritas aparatur negara. |
-| 4 | Administrasi pemerintahan, surat-menyurat, dan pengarsipan | 4 Soal (Bidang 2) | **50 Soal** | Mudah: 15, Sedang: 32, Sulit: 3 | Permendagri 47/2016 (5 buku administrasi desa), tata naskah dinas, nomor kode surat, buku ekspedisi, retensi arsip. |
-| 5 | Keuangan desa, APB Desa, dan aset desa | 4 Soal (Bidang 2) | **50 Soal** | Mudah: 15, Sedang: 31, Sulit: 4 | Permendagri 20/2018 (PKPKD, PPKD, Kaur Keuangan/Bendahara, 5 bidang belanja APBDes), Permendagri 1/2016 (pengelolaan aset desa). |
-| 6 | Pembangunan desa, perencanaan, dan pemberdayaan masyarakat | 3 Soal (Bidang 2) | **40 Soal** | Mudah: 12, Sedang: 26, Sulit: 2 | Permendesa PDTT 21/2020 (RPJM Desa 8 tahun, RKP Desa akhir September), Musrenbangdes, SDGs Desa, BUMDes (PP 11/2021). |
-| 7 | BPD, kelembagaan desa, dan musyawarah | 3 Soal (Bidang 2) | **25 Soal** | Mudah: 8, Sedang: 15, Sulit: 2 | UU 6/2014 Pasal 55, Permendagri 110/2016 (fungsi BPD, larangan rangkap jabatan), Musyawarah Desa (Musdes), pelaporan LKPPD 3 bulan. |
-| 8 | Bahasa Indonesia | 25 Soal (Bidang 3) | **35 Soal** | Mudah: 12, Sedang: 21, Sulit: 2 | EYD Edisi V (ejaan baku: antre, izin, kuitansi, risiko, hierarki), kapitalisasi gelar/jabatan naskah dinas, kalimat efektif bebas pleonasme. |
-| 9 | Matematika dan numerik | 6 Soal (Bidang 4) | **30 Soal** | Mudah: 9, Sedang: 19, Sulit: 2 | Persentase Silpa APBDes, konversi satuan luas lahan bengkok/kas desa (hektar, ru, bata), perhitungan pajak PPh 21/22 belanja barang, deret angka. |
-| 10 | Logika dan penalaran | 6 Soal (Bidang 4) | **25 Soal** | Mudah: 8, Sedang: 15, Sulit: 2 | Silogisme kategorial peraturan dinas, logika analitis jadwal dinas aparatur desa, modus ponens/tollens, mediasi batas desa. |
-| 11 | Pengetahuan umum | 6 Soal (Bidang 4) | **20 Soal** | Mudah: 7, Sedang: 11, Sulit: 2 | Sejarah Tuban (Adipati Ronggolawe, Hari Jadi 12 Nov 1293), Sunan Bonang, geografi Tuban, sistem otonomi daerah di Indonesia. |
-| 12 | Komputer dasar dan pelayanan publik | 25 Soal (Bidang 5) | **50 Soal** | Mudah: 17, Sedang: 30, Sulit: 3 | Perangkat keras/lunak, shortcut Windows/Office, Mail Merge, rumus Excel (`SUM`, `AVERAGE`, `IF`, `VLOOKUP`), keamanan data & UU PDP No. 27/2022. |
-| 13 | Pendidikan agama dan moderasi beragama | 25 Soal (Bidang 1) | **50 Soal** | Mudah: 17, Sedang: 30, Sulit: 3 | Fiqih jenazah desa, zakat fitrah & mal, wakaf UU 41/2004, UU Nikah 16/2019, moderasi beragama PBM 9 & 8/2006, etika aparatur anti-risywah, Sunan Bonang. |
-| **TOTAL** | **13 Kategori Materi** | **125 Soal** | **585 Soal** | **186 Mudah, 363 Sedang, 36 Sulit** | **100% Rujukan Regulasi Terverifikasi** |
+| No | Bidang Materi Ujian | Rentang ID Bank | Kuota Ujian Tertulis | Jumlah di Master Bank | Tingkat Kesulitan | Fokus Materi Utama & Dasar Regulasi |
+|:---:|:---|:---:|:---:|:---:|:---:|:---|
+| **1** | **Pendidikan Agama & Moderasi Beragama** | ID 1 – 200 | 25 Soal (Sesi 1) | **200 Soal** | Mudah: 50, Sedang: 125, Sulit: 25 | Fiqih jenazah desa, zakat fitrah & mal, wakaf UU 41/2004, UU Nikah 16/2019, moderasi beragama PBM 9 & 8/2006, etika aparatur anti-risywah, sejarah Sunan Bonang Tuban. |
+| **2** | **Pengetahuan Pemerintahan Desa** | ID 201 – 400 | 25 Soal (Sesi 2) | **200 Soal** | Mudah: 52, Sedang: 130, Sulit: 18 | UU 6/2014 jo. UU 3/2024, Permendagri 84/2015 (SOTK), PP 11/2019 (Siltap), Permendagri 20/2018 (APBDes & Keuangan Desa), Permendagri 1/2016 (Aset Desa), Permendesa 21/2020, Perda Tuban No. 2/2016 jo. No. 16/2021, Perbup Tuban 11/2022. |
+| **3** | **Bahasa Indonesia** | ID 401 – 600 | 25 Soal (Sesi 3) | **200 Soal** | Mudah: 48, Sedang: 132, Sulit: 20 | Tata bahasa baku EYD Edisi V, penulisan naskah dinas resmi (Permendagri 54/2010), surat undangan/edaran/berita acara desa, kapitalisasi jabatan, kalimat efektif tanpa pleonasme, diksi laporan APBDes. |
+| **4** | **Pengetahuan Umum** | ID 601 – 800 | 25 Soal (Sesi 4) | **200 Soal** | Mudah: 50, Sedang: 128, Sulit: 22 | Pancasila & butir pengamalan, UUD 1945, wawasan kebangsaan, matematika/numerik terapan desa (persentase realisasi APBDes/lahan bengkok), silogisme logika penalaran, sejarah & profil daerah Tuban (Hari Jadi 12 Nov 1293). |
+| **5** | **Pengetahuan Komputer** | ID 801 – 1000 | 25 Soal (Sesi 5) | **200 Soal** | Mudah: 46, Sedang: 126, Sulit: 28 | MS Word (margin F4, kop surat, mail merge, tabel), MS Excel (SUM, AVERAGE, IF, VLOOKUP, sort & filter), Siskeudes, Sipades, manajemen berkas PDF/ZIP, jaringan LAN/Wi-Fi, keamanan sandi, dan UU Pelindungan Data Pribadi No. 27/2022. |
+| **TOTAL** | **5 Bidang Ujian Tertulis** | **ID 1 – 1000** | **125 Soal** | **1.000 Soal** | **246 Mudah, 641 Sedang, 113 Sulit** | **100% Rujukan Regulasi Terverifikasi & Terisolasi 100% Bebas Campuran** |
 
 ---
 
@@ -208,10 +218,10 @@ node test_suite.js; node test_full_audit.js; node test_cbt_engine_sim.js; node t
 ```
 
 Hasil pengujian:
-- `test_suite.js`: 9/9 tes integritas file modular, ekstraksi 585 soal, 10 tugas praktik, rumus penilaian resmi 87,5 + 12,5 = 100,0, dan rendering teks berformat lulus 100%.
-- `test_full_audit.js`: Audit keamanan offline 100% tanpa CDN eksternal, validasi bank soal 585 butir, distribusi materi, dan simulasi penilaian resmi lulus 100%.
+- `test_suite.js`: 9/9 tes integritas file modular, ekstraksi 1.000 soal, 10 tugas praktik, rumus penilaian resmi 87,5 + 12,5 = 100,0, dan rendering teks berformat lulus 100%.
+- `test_full_audit.js`: Audit keamanan offline 100% tanpa CDN eksternal, validasi bank soal 1.000 butir (5 bidang @ 200 butir), distribusi materi, dan simulasi penilaian resmi lulus 100%.
 - `test_cbt_engine_sim.js`: Simulasi state machine end-to-end mengerjakan 5 bidang materi tertulis berurutan (125 soal) dan seluruh 10 butir tugas praktik komputer (kedua mode), penguncian sesi, dan perhitungan nilai akhir lulus 100%.
-- `test_zero_repetition.js`: Verifikasi integritas bank soal 585 butir (0 duplikasi bank soal) dan keunikan 125 butir soal per sesi ujian (1 soal keluar di 1 sesi ujian).
+- `test_zero_repetition.js`: Verifikasi integritas bank soal 1.000 butir (0 duplikasi bank soal), isolasi 100% antarbidang (zero mixing), dan keunikan 125 butir soal per sesi ujian (1 soal keluar di 1 sesi ujian).
 
 ### 3. Mengompilasi Ulang Aset (Build System)
 Jika Anda memperbarui bank soal di file sumber Python, jalankan script pembangun:
@@ -219,17 +229,68 @@ Jika Anda memperbarui bank soal di file sumber Python, jalankan script pembangun
 python generator/build_index.py
 ```
 
-### 4. Deploy Otomatis ke GitHub Pages & Pembersihan Berkas (CI/CD)
-Proyek ini dilengkapi dengan workflow GitHub Actions di `.github/workflows/deploy.yml`. Begitu Anda melakukan push atau menjalankan `sync_github.bat` / `sync_github.ps1`:
-1. **Pengujian Otomatis Cloud:** Seluruh 4 test suite dijalankan untuk memverifikasi integritas materi dan engine CBT.
-2. **Pembersihan Berkas Non-Web:** Sebelum aset diunggah ke GitHub Pages, pipeline secara otomatis:
-   - Menghapus seluruh file `.py` di root direktori (di luar folder).
-   - Menghapus skrip sinkronisasi (`sync_github.*`) dan berkas test runner (`test_*.js`).
-   - Menghapus folder `generator/`, `dev_scratch/`, dan cache python agar tidak terunggah ke web.
-   - Menghapus file di luar folder jika file dengan nama yang sama sudah ada di dalam folder (`assets/`, `css/`, `js/`).
-3. **Deploy Bersih ke GitHub Pages:** Hanya berkas web murni (`index.html`, `index_standalone_bundle.html`, `css/`, `js/`, `assets/`, `favicon.svg`, `logo.svg`) yang dipublikasikan secara online.
-4. Aplikasi CBT dapat langsung dibuka dan dikerjakan secara online di HP, tablet, maupun laptop melalui alamat:
-   `https://<username>.github.io/<nama-repo>/`
+### 4. Pembersihan File Tidak Berguna & Optimasi Aset Mandiri
+Proyek ini menyediakan tool optimasi mandiri di [`generator/optimize_assets.py`](file:///d:/FusionProject/Ujian/generator/optimize_assets.py) yang dapat dijalankan secara lokal kapan saja:
+```bash
+python generator/optimize_assets.py
+```
+**Operasi yang Dilakukan Secara Otomatis:**
+1. **Pembersihan File Luar & Dalam Folder:**
+   - Menghapus seluruh file skrip `.py` yang berada di luar folder (root).
+   - Menghapus folder usang `dev_scratch/` dan seluruh file analisis sementara.
+   - Menghapus modul generator lama yang sudah tidak terpakai (`expand_bank*.py`, `validate_data.py`).
+   - Menghapus direktori cache `__pycache__` dan file compiled `.pyc`.
+   - Menghapus file sampah OS (`Thumbs.db`, `.DS_Store`, `desktop.ini`).
+   - Menghapus file duplikat di root jika file identik sudah tersedia di subfolder (`assets/logo.svg`).
+2. **Optimasi CSS:**
+   - Membaca `css/style.css` (53.4 KB) dan menghasilkan `css/style.min.css` (36.3 KB) dengan **penghematan 32.1%**.
+   - Menghapus komentar, baris kosong, dan spasi redundan secara aman tanpa merusak CSS custom properties (`--primary-900`) maupun media query responsif.
+3. **Optimasi JavaScript:**
+   - Mengompresi `js/app.js` (150.4 KB) menjadi `js/app.min.js` (143.2 KB) secara aman dengan mempertahankan string template dan regex parser OpenXML.
+4. **Optimasi Berkas Vektor SVG:**
+   - Mengompresi `favicon.svg` (2.97 KB $\rightarrow$ 2.10 KB, **-29.5%**), `assets/logo.svg` (3.51 KB $\rightarrow$ 2.57 KB, **-26.9%**), dan `assets/logo-full.svg` (3.09 KB $\rightarrow$ 2.56 KB, **-17.0%**).
+5. **Optimasi Berkas HTML:**
+   - Mengompresi `index.html` (92.4 KB $\rightarrow$ 86.2 KB, **-6.7%**) dan `index_standalone_bundle.html`.
+
+---
+
+### 5. Alur Otomasi CI/CD GitHub Actions
+
+Repositori ini dilengkapi 3 alur kerja (*workflows*) GitHub Actions otomatis yang terintegrasi di folder `.github/workflows/`:
+
+#### A. Workflow Pembersihan Repositori (`.github/workflows/cleanup-repo.yml`)
+- **Pemicu:** Dijalankan secara terjadwal setiap minggu (*weekly cron*), via manual trigger (*workflow_dispatch*), atau saat push file root.
+- **Tugas Utama:**
+  - Membersihkan file `.py` di root direktori.
+  - Membersihkan folder usang `dev_scratch/`, modul generator legacy, file cache `__pycache__`, dan file sampah OS.
+  - Melakukan `git commit` dan `git push` otomatis jika ditemukan file yang perlu dibersihkan.
+
+#### B. Workflow Optimasi Aset (`.github/workflows/optimize-assets.yml`)
+- **Pemicu:** Otomatis berjalan saat terjadi push atau pull-request yang mengubah berkas di folder `css/`, `js/`, `assets/`, `generator/`, atau `index.html`.
+- **Tugas Utama:**
+  1. Menjalankan skrip `generator/optimize_assets.py` untuk menghasilkan `style.min.css`, `app.min.js`, kompresi SVG, dan HTML.
+  2. Menjalankan seluruh 4 test suite Node.js (`test_suite.js`, `test_full_audit.js`, `test_cbt_engine_sim.js`, `test_zero_repetition.js`) untuk memvalidasi bahwa hasil optimasi 100% aman dan berfungsi sempurna.
+  3. Meng-commit dan mengunggah kembali aset teroptimasi ke branch repositori.
+
+#### C. Workflow Deployment Bersih ke GitHub Pages (`.github/workflows/deploy.yml`)
+- **Pemicu:** Otomatis berjalan pada setiap push ke branch `main` atau `master`.
+- **Tugas Utama:**
+  1. Memverifikasi kelulusan 100% dari 4 test suite.
+  2. Menjalankan optimasi aset terbaru (`generator/optimize_assets.py`).
+  3. Mengisolasi lingkungan web hanya menyertakan berkas web murni (`index.html`, `index_standalone_bundle.html`, `css/`, `js/`, `assets/`, `favicon.svg`, `logo.svg`). Berkas pengujian, generator, script sinkronisasi, dan source python tidak akan terunggah ke web.
+  4. Mempublikasikan aplikasi web langsung aktif ke GitHub Pages:
+     `https://<username>.github.io/<nama-repo>/`
+
+---
+
+### 6. Sinkronisasi Cepat One-Click (`sync_github.bat` / `sync_github.ps1`)
+Untuk pengguna Windows, tersedia skrip one-click yang menggabungkan seluruh alur di atas:
+- Cukup dobel-klik **`sync_github.bat`** (atau jalankan `.\sync_github.ps1` di PowerShell).
+- Skrip akan otomatis:
+  1. Menjalankan pembersihan file liar dan kompresi aset melalui `optimize_assets.py`.
+  2. Melepaskan tracking git pada folder/berkas legacy (`git rm --cached`).
+  3. Merekam seluruh perubahan (`git add -A`).
+  4. Membuat commit terstruktur dan melakukan `git push` ke repositori GitHub.
 
 ---
 
@@ -272,7 +333,20 @@ Proyek ini dilengkapi dengan workflow GitHub Actions di `.github/workflows/deplo
 
 ### 3. Catatan Rilis & Riwayat Fitur (Changelog)
 
-#### **v4.5.0 (Rilis Terkini)**
+#### **v5.0.0 (Rilis Terkini — Perombakan Arsitektur Besar)**
+- **Penyeimbangan Bank Soal 1.000 Butir (200 Soal per Bidang):** Restrukturisasi master bank soal menjadi tepat 200 butir soal per bidang untuk seluruh 5 bidang ujian (200 Agama, 200 Pemdes, 200 Bahasa Indonesia, 200 Pengetahuan Umum, 200 Pengetahuan Komputer).
+- **Isolasi Ketat Antarbidang (Zero Mixing):** Pemisahan fisik file modul bank soal (`bank_bidang1_agama.py` s.d. `bank_bidang5_komputer.py`) dengan nomor ID unik berurutan (1–200, 201–400, 401–600, 601–800, 801–1000) dan filter `q.bidangId === cfg.id` saat pengundian sesi ujian sehingga soal bidang satu tidak akan pernah keluar atau tercampur di bidang lain.
+- **Workflow Pembersihan Repositori Otomatis (cleanup-repo.yml):** Workflow GitHub Actions komprehensif yang otomatis membersihkan file `.py` di luar folder, folder usang `dev_scratch/`, modul generator legacy, cache python, file sampah OS, dan file duplikat baik di luar maupun di dalam subfolder.
+- **Workflow & Skrip Optimasi Aset Mandiri (optimize-assets.yml & optimize_assets.py):** Workflow optimasi otomatis yang meminifikasi CSS (`style.min.css`, hemat 32.1%), kompresi JavaScript (`app.min.js`), optimasi gambar vektor SVG (hemat hingga 29.5%), dan kompresi HTML dengan validasi kelulusan 100% test suite.
+- **Fitur Mode Latihan Mandiri Khusus per Bidang:** Menu latihan mandiri kini menyediakan dropdown filter materi khusus per bidang (Bidang 1 s.d. Bidang 5) selain per subkategori dan database lengkap.
+- **Pembaruan Halaman Bantuan (Help) & Distribusi:** Tabel distribusi materi di Halaman Bantuan diperbarui dengan proporsi seimbang 1.000 butir soal berstandar Perda Kab. Tuban.
+
+#### **v4.5.1**
+- **Ekspansi Bank Soal Bahasa Indonesia (75 Butir):** Penambahan 40 butir soal baru (EYD V, tata naskah dinas desa, konjungsi antarkalimat, peluluhan fonem KTSP, nominal kas desa, dan kalimat efektif).
+- **Eliminasi Kemiripan Soal:** Refaktorisasi butir soal bernuansa serupa sehingga seluruh 25 soal Bahasa Indonesia per sesi ujian memiliki konsep dan opsi 100% unik tanpa pengulangan.
+- **Workflow Pembersih Repositori (cleanup-repo.yml):** Otomasi GitHub Actions untuk menghapus file Python dan cache di luar folder secara otomatis.
+
+#### **v4.5.0**
 - **Landing Page Sederhana & Bersih (Gambar 2):** Halaman depan kini tampil minimalis dan terfokus dengan kartu identitas peserta (Nama, Desa & Kecamatan, Fokus Regulasi) serta 2 tombol aksi utama: **"Mulai Ujian"** dan **"Mulai Mode Latihan"**.
 - **Halaman Khusus Pusat Bantuan (Help):** Seluruh keterangan format ujian, tabel distribusi bank soal 585 butir, alur sekuensial 5 bidang, panduan praktik komputer, formula penilaian 87,5 + 12,5 = 100,0, dan rujukan hukum telah dipindahkan ke halaman tersendiri (`Bantuan`).
 - **Menu Navigasi Modern & Minimalis (Gambar 3):** Desain navbar yang jauh lebih simpel, modern, dan elegan dengan tombol pill ber-backdrop blur, lencana versi aktif `v4.5.0`, drawer responsif mobile, dan pemilih skala font.

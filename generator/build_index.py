@@ -38,7 +38,7 @@ def build_all_assets():
     # 2. Export js/data/questions.js
     q_path = os.path.join(js_data_dir, "questions.js")
     with open(q_path, "w", encoding="utf-8") as f:
-        f.write("// Master Database 585 Soal CBT Perangkat Desa Kabupaten Tuban\n")
+        f.write("// Master Database 1000 Soal CBT Perangkat Desa Kabupaten Tuban\n")
         f.write("window.__MASTER_QUESTIONS__ = ")
         json.dump(ALL_QUESTIONS, f, ensure_ascii=False)
         f.write(";\nwindow.MASTER_QUESTIONS = window.__MASTER_QUESTIONS__;\n")
@@ -83,7 +83,7 @@ def build_all_assets():
   <title>Simulasi Ujian Perangkat Desa Kabupaten Tuban | 5 Bidang Tertulis & Praktik Komputer</title>
   <meta name="description" content="Aplikasi simulasi resmi ujian perangkat desa Kabupaten Tuban. 5 bidang materi tertulis berurutan @ 25 soal (30 menit/bidang, total 125 soal) dan praktik komputer 10 butir. Nilai akhir gabungan tertulis (87,5) dan praktik (12,5).">
   <meta name="author" content="fusionproject.id">
-  <meta name="version" content="4.5.0">
+  <meta name="version" content="5.0.0">
   <meta name="copyright" content="Copyright by fusionproject.id">
   <!-- Official Favicon & App Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -120,7 +120,7 @@ def build_all_assets():
   <title>Simulasi Ujian Perangkat Desa Kabupaten Tuban | 5 Bidang Tertulis & Praktik Komputer</title>
   <meta name="description" content="Aplikasi simulasi resmi ujian perangkat desa Kabupaten Tuban. 5 bidang materi tertulis berurutan @ 25 soal (30 menit/bidang, total 125 soal) dan praktik komputer 10 butir. Nilai akhir gabungan tertulis (87,5) dan praktik (12,5).">
   <meta name="author" content="fusionproject.id">
-  <meta name="version" content="4.5.0">
+  <meta name="version" content="5.0.0">
   <meta name="copyright" content="Copyright by fusionproject.id">
   <!-- Official Favicon & App Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -152,7 +152,7 @@ def build_all_assets():
     print("[OK] Seluruh aset modular dan bundle berhasil diperbarui:")
     print(f"     - index.html (Modular): {os.path.getsize(index_path):,} bytes")
     print(f"     - css/style.css: {os.path.getsize(css_path):,} bytes")
-    print(f"     - js/data/questions.js (585 Soal): {os.path.getsize(q_path):,} bytes")
+    print(f"     - js/data/questions.js (625 Soal): {os.path.getsize(q_path):,} bytes")
     print(f"     - js/data/glossary.js (36 Istilah): {os.path.getsize(g_path):,} bytes")
     print(f"     - js/data/practical.js (10 Praktik): {os.path.getsize(p_path):,} bytes")
     print(f"     - js/app.js (CBT Engine): {os.path.getsize(app_path):,} bytes")

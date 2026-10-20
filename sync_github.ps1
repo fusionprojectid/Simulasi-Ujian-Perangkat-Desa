@@ -27,32 +27,31 @@ if (-not (Test-Path ".git")) {
     Write-Host ""
 }
 
-# 3. Bersihkan file .py liar atau duplikat yang berada di luar folder (root)
-Write-Host "[1/5] Memeriksa dan membersihkan file liar di luar folder..." -ForegroundColor Green
-Get-ChildItem -Path . -Filter "*.py" -File | ForEach-Object {
-    $name = $_.Name
-    if (Test-Path "generator/$name") {
-        Write-Host "Menghapus file di luar folder: $name (sudah ada di generator/)" -ForegroundColor Yellow
-        Remove-Item $_.FullName -Force
-    }
-    elseif (Test-Path "dev_scratch/$name") {
-        Write-Host "Menghapus file di luar folder: $name (sudah ada di dev_scratch/)" -ForegroundColor Yellow
-        Remove-Item $_.FullName -Force
-    }
+# 3. Jalankan Pembersihan Seluruh File Tidak Diperlukan & Optimasi Aset
+Write-Host "[1/5] Menjalankan pembersihan file liar dan optimasi aset (CSS, JS, SVG, HTML)..." -ForegroundColor Green
+$pythonCmd = Get-Command python -ErrorAction SilentlyContinue
+if ($pythonCmd) {
+    python generator/optimize_assets.py
+} else {
+    Write-Host "[INFO] Python tidak terdeteksi di PATH, melewati optimasi lokal..." -ForegroundColor Yellow
 }
 
-# 4. Lepaskan tracking dev_scratch jika sebelumnya pernah terunggah
+# 4. Lepaskan tracking dev_scratch, file liar, dan file usang dari index GitHub
 Write-Host "[2/5] Menghapus tracking cache file lama & folder scratch dari index GitHub..." -ForegroundColor Green
 git rm -r --cached dev_scratch/ 2>$null
-$scratchFiles = @(
+$legacyFiles = @(
     "audit_deep.py", "audit_questions.py", "export_modular_assets.py",
     "find_duplicates.py", "find_js_lines.py", "inspect_analysis.py",
     "inspect_komputer.py", "print_early_komp.py", "print_komp.py",
-    "verify_pool_integrity.py"
+    "verify_pool_integrity.py", "expand_bank.py", "expand_bank_300.py",
+    "expand_bank_400.py", "expand_bank_500.py", "expand_bank_agama.py",
+    "expand_bank_bahasa.py", "expand_bank_komputer.py", "validate_data.py"
 )
-foreach ($f in $scratchFiles) {
+foreach ($f in $legacyFiles) {
     git rm --cached $f 2>$null
 }
+git rm -r --cached generator/__pycache__ 2>$null
+git rm -r --cached __pycache__ 2>$null
 
 # 5. Rekam seluruh perubahan
 Write-Host "[3/5] Merekam seluruh berkas (git add -A)..." -ForegroundColor Green
@@ -60,7 +59,7 @@ git add -A
 
 # 6. Commit perubahan
 Write-Host "[4/5] Membuat commit..." -ForegroundColor Green
-git commit -m "Release v4.5.0: Update changelog rilis, footer copyright by fusionproject.id, dan optimasi pembersihan deploy.yml"
+git commit -m "Release v5.0.0: Seimbangkan 1.000 butir bank soal (5 bidang @ 200 soal), isolasi ketat zero mixing, dan fitur latihan per bidang"
 
 # 7. Push ke remote
 Write-Host "[5/5] Mengunggah perubahan ke GitHub..." -ForegroundColor Green

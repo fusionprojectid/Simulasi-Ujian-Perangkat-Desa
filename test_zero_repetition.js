@@ -88,11 +88,11 @@ const MASTER_QUESTIONS = context.window.MASTER_QUESTIONS;
 const generateTubanExamSections = context.generateTubanExamSections;
 
 // 1. Bank Soal Integrity: Zero duplicate questions in database
-console.log("[1] Memeriksa Duplikasi di Bank Soal Master (585 Butir)...");
+console.log("[1] Memeriksa Duplikasi di Bank Soal Master (1.000 Butir)...");
 const allIds = MASTER_QUESTIONS.map(q => q.id);
 const uniqueIds = new Set(allIds);
-if (uniqueIds.size !== MASTER_QUESTIONS.length) {
-  console.error(`FAIL: Ditemukan duplikasi ID di bank soal! (${uniqueIds.size} unik vs ${MASTER_QUESTIONS.length} total)`);
+if (uniqueIds.size !== MASTER_QUESTIONS.length || MASTER_QUESTIONS.length !== 1000) {
+  console.error(`FAIL: Ditemukan masalah kuota/duplikasi ID di bank soal! (${uniqueIds.size} unik vs ${MASTER_QUESTIONS.length} total, target 1000)`);
   process.exit(1);
 }
 console.log(`  -> LULUS: Seluruh ${MASTER_QUESTIONS.length} butir soal di Bank Soal memiliki ID unik tanpa duplikasi.`);
@@ -142,8 +142,20 @@ sections1.forEach((sec, idx) => {
   }
 });
 
+// 5. Verifikasi Isolasi Ketat Antarbidang (Zero Mixing):
+console.log("\n[5] Verifikasi Isolasi Ketat Antarbidang (Zero Mixing):");
+sections1.forEach(sec => {
+  sec.questions.forEach(q => {
+    if (q.bidangId !== sec.bidangId) {
+      console.error(`FAIL: Terjadi pencampuran soal! Soal ID ${q.originalId} (Bidang ${q.bidangId}) masuk ke Sesi ${sec.bidangId}`);
+      process.exit(1);
+    }
+  });
+  console.log(`  -> Sesi Bidang ${sec.bidangId} (${sec.shortName}): 100% Terisolasi (Semua 25 soal murni milik Bidang ${sec.bidangId})`);
+});
+
 console.log("\n=========================================================================");
-console.log("SELURUH PENGUJIAN KEUNIKAN BANK SOAL & SESI UJIAN LULUS 100%!");
-console.log("Format Sesuai Ketentuan: Bank Soal 0 Duplikasi & 1 Soal Keluar di 1 Sesi Ujian");
+console.log("SELURUH PENGUJIAN KEUNIKAN BANK SOAL & ISOLASI BIDANG LULUS 100%!");
+console.log("Format Sesuai Ketentuan: 1.000 Soal Seimbang, Terisolasi Antarbidang & Bebas Duplikasi!");
 console.log("=========================================================================");
 

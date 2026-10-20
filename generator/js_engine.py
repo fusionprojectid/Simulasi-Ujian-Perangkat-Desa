@@ -9,7 +9,7 @@ Session Persistence, and Full Review.
 def get_js_engine():
     return r'''
   <script>
-    // Master Database of 585 Questions (Injected from Python)
+    // Master Database of 625 Questions (Injected from Python)
     const MASTER_QUESTIONS = window.__MASTER_QUESTIONS__;
 
     // Master Database of 36 Village Terms (Injected from Python)
@@ -147,15 +147,15 @@ def get_js_engine():
         let pickedQuestions = [];
 
         if (cfg.subQuotas) {
-          // Distributed across sub-categories (strictly unique per session)
+          // Distributed across sub-categories (strictly unique per session, strictly isolated to cfg.id)
           Object.entries(cfg.subQuotas).forEach(([catName, quota]) => {
-            const pool = masterList.filter(q => q.category === catName);
+            const pool = masterList.filter(q => q.bidangId === cfg.id && q.category === catName);
             const shuffled = randomize ? shuffleArray(pool) : [...pool];
             pickedQuestions.push(...shuffled.slice(0, quota));
           });
         } else {
-          // Single category (Agama, Bahasa Indonesia, Komputer)
-          const pool = masterList.filter(q => cfg.categories.includes(q.category));
+          // Single category or full bidang pool (strictly isolated by cfg.id)
+          const pool = masterList.filter(q => q.bidangId === cfg.id);
           const shuffled = randomize ? shuffleArray(pool) : [...pool];
           pickedQuestions.push(...shuffled.slice(0, cfg.count));
         }
@@ -313,14 +313,7 @@ def get_js_engine():
 
         let html = '';
         BIDANG_CONFIG.forEach((b, idx) => {
-          let poolCount = 0;
-          if (b.subQuotas) {
-            Object.keys(b.subQuotas).forEach(c => {
-              poolCount += MASTER_QUESTIONS.filter(q => q.category === c).length;
-            });
-          } else {
-            poolCount = MASTER_QUESTIONS.filter(q => b.categories.includes(q.category)).length;
-          }
+          const poolCount = MASTER_QUESTIONS.filter(q => q.bidangId === b.id).length;
 
           html += `
             <tr>
@@ -355,12 +348,20 @@ def get_js_engine():
         const pSelect = document.getElementById('practiceCategorySelect');
         if (!pSelect) return;
 
-        let options = '<option value="all">Semua Kategori (Database 585 Soal)</option>';
+        let options = '<option value="all">Semua Bidang & Materi (Database 1.000 Soal Lengkap)</option>';
+        options += '<optgroup label="--- PILIH KHUSUS PER BIDANG (200 SOAL / BIDANG) ---">';
+        BIDANG_CONFIG.forEach(b => {
+          const count = MASTER_QUESTIONS.filter(q => q.bidangId === b.id).length;
+          options += `<option value="bidang_${b.id}">${b.title} (${count} Soal)</option>`;
+        });
+        options += '</optgroup>';
+        options += '<optgroup label="--- PILIH SUBKATEGORI SPESIFIK ---">';
         const distinctCats = [...new Set(MASTER_QUESTIONS.map(q => q.category))];
         distinctCats.forEach(cat => {
           const count = MASTER_QUESTIONS.filter(q => q.category === cat).length;
           options += `<option value="${cat}">${cat} (${count} Soal)</option>`;
         });
+        options += '</optgroup>';
         pSelect.innerHTML = options;
       },
 
@@ -2836,17 +2837,29 @@ def get_js_engine():
         const count = countSelect ? parseInt(countSelect.value, 10) : 25;
         const doShuffle = shuffleSelect ? shuffleSelect.value === 'yes' : true;
 
-        let pool = selectedCat === 'all'
-          ? [...MASTER_QUESTIONS]
-          : MASTER_QUESTIONS.filter(q => q.category === selectedCat);
+        let pool = [];
+        let labelName = 'Latihan Mandiri';
+        if (selectedCat === 'all') {
+          pool = [...MASTER_QUESTIONS];
+          labelName = 'Semua Bidang (Master Bank 1.000 Soal)';
+        } else if (selectedCat.startsWith('bidang_')) {
+          const bId = parseInt(selectedCat.replace('bidang_', ''), 10);
+          pool = MASTER_QUESTIONS.filter(q => q.bidangId === bId);
+          const matchedCfg = BIDANG_CONFIG.find(b => b.id === bId);
+          labelName = matchedCfg ? matchedCfg.title : `Bidang ${bId}`;
+        } else {
+          pool = MASTER_QUESTIONS.filter(q => q.category === selectedCat);
+          labelName = selectedCat;
+        }
+
         const shuffledPool = doShuffle ? shuffleArray(pool) : [...pool];
         const sampled = shuffledPool.slice(0, Math.min(count, pool.length));
 
         const formatted = sampled.map((q, idx) => ({
           ...q,
           number: idx + 1,
-          bidangId: 0,
-          bidangName: 'Latihan Mandiri',
+          bidangId: q.bidangId || 0,
+          bidangName: labelName,
           options: doShuffle ? shuffleArray([...q.options]) : [...q.options],
           answer: doShuffle ? -1 : q.answer, // Computed below
           originalAnswer: q.answer

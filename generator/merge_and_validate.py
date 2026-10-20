@@ -1,45 +1,40 @@
 # -*- coding: utf-8 -*-
 """
-Script Validasi dan Penggabungan Master Pool 550 Soal CBT Perangkat Desa
-Menggabungkan:
-- Q1_100: Soal 1 s.d. 100 dari validate_data.py
-- Q101_200: Soal 101 s.d. 200 dari expand_bank.py
-- Q201_300: Soal 201 s.d. 300 dari expand_bank_300.py
-- Q301_400: Soal 301 s.d. 400 dari expand_bank_400.py
-- Q401_500: Soal 401 s.d. 500 dari expand_bank_500.py
-- Q501_550: Soal 501 s.d. 550 dari expand_bank_agama.py
-Total: 550 Butir Soal Seimbang (13 Kategori Materi Lengkap).
+Script Validasi dan Penggabungan Master Bank 1.000 Soal CBT Perangkat Desa Kabupaten Tuban
+Menggabungkan 5 Bidang Ujian Terisolasi Masing-Masing 200 Soal:
+- Bidang 1: Pendidikan Agama & Moderasi Beragama (200 Butir: ID 1 - 200)
+- Bidang 2: Pengetahuan Pemerintahan Desa (200 Butir: ID 201 - 400)
+- Bidang 3: Bahasa Indonesia (200 Butir: ID 401 - 600)
+- Bidang 4: Pengetahuan Umum (200 Butir: ID 601 - 800)
+- Bidang 5: Pengetahuan Komputer (200 Butir: ID 801 - 1000)
+Total: Tepat 1.000 Butir Soal Seimbang, Terisolasi Bebas Campuran Antarbidang.
 """
-from validate_data import QUESTIONS as Q1_100
-from expand_bank import NEW_QUESTIONS as Q101_200
-from expand_bank_300 import QUESTIONS_201_300 as Q201_300
-from expand_bank_400 import QUESTIONS_301_400 as Q301_400
-from expand_bank_500 import QUESTIONS_401_500 as Q401_500
-from expand_bank_agama import QUESTIONS_501_550 as Q501_550
-from expand_bank_komputer import QUESTIONS_551_585 as Q551_585
+from bank_bidang1_agama import QUESTIONS_BIDANG_1
+from bank_bidang2_pemdes import QUESTIONS_BIDANG_2
+from bank_bidang3_bahasa import QUESTIONS_BIDANG_3
+from bank_bidang4_umum import QUESTIONS_BIDANG_4
+from bank_bidang5_komputer import QUESTIONS_BIDANG_5
 
-ALL_QUESTIONS = Q1_100 + Q101_200 + Q201_300 + Q301_400 + Q401_500 + Q501_550 + Q551_585
+ALL_QUESTIONS = (
+    QUESTIONS_BIDANG_1 +
+    QUESTIONS_BIDANG_2 +
+    QUESTIONS_BIDANG_3 +
+    QUESTIONS_BIDANG_4 +
+    QUESTIONS_BIDANG_5
+)
 
-print(f"Total pertanyaan terkumpul dalam master pool: {len(ALL_QUESTIONS)} butir soal.")
+print(f"Total pertanyaan terkumpul dalam master bank: {len(ALL_QUESTIONS)} butir soal.")
 
-expected_distribution = {
-    "Pemerintahan desa, struktur organisasi, tugas dan fungsi perangkat desa": 100,
-    "Peraturan perundang-undangan dan tata kelola pemerintahan": 60,
-    "Pancasila, UUD 1945, dan wawasan kebangsaan": 50,
-    "Administrasi pemerintahan, surat-menyurat, dan pengarsipan": 50,
-    "Keuangan desa, APB Desa, dan aset desa": 50,
-    "Pembangunan desa, perencanaan, dan pemberdayaan masyarakat": 40,
-    "BPD, kelembagaan desa, dan musyawarah": 25,
-    "Bahasa Indonesia": 35,
-    "Matematika dan numerik": 30,
-    "Logika dan penalaran": 25,
-    "Pengetahuan umum": 20,
-    "Komputer dasar dan pelayanan publik": 50,
-    "Pendidikan agama dan moderasi beragama": 50
+expected_bidang_counts = {
+    1: 200,
+    2: 200,
+    3: 200,
+    4: 200,
+    5: 200
 }
 
 ids = set()
-cat_counts = {}
+bidang_counts = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
 
 for idx, q in enumerate(ALL_QUESTIONS):
     expected_id = idx + 1
@@ -47,21 +42,33 @@ for idx, q in enumerate(ALL_QUESTIONS):
     assert q["id"] not in ids, f"Duplicate ID {q['id']}"
     ids.add(q["id"])
     
+    bidang_id = q.get("bidangId")
+    assert bidang_id in expected_bidang_counts, f"Invalid bidangId {bidang_id} at ID {q['id']}"
+    bidang_counts[bidang_id] += 1
+    
+    # Strict range verification
+    if expected_id <= 200:
+        assert bidang_id == 1, f"Question ID {expected_id} should belong to Bidang 1, got {bidang_id}"
+    elif expected_id <= 400:
+        assert bidang_id == 2, f"Question ID {expected_id} should belong to Bidang 2, got {bidang_id}"
+    elif expected_id <= 600:
+        assert bidang_id == 3, f"Question ID {expected_id} should belong to Bidang 3, got {bidang_id}"
+    elif expected_id <= 800:
+        assert bidang_id == 4, f"Question ID {expected_id} should belong to Bidang 4, got {bidang_id}"
+    else:
+        assert bidang_id == 5, f"Question ID {expected_id} should belong to Bidang 5, got {bidang_id}"
+    
     assert len(q["options"]) == 4, f"Options not 4 for ID {q['id']}"
     assert q["answer"] in [0, 1, 2, 3], f"Invalid answer for ID {q['id']}: {q['answer']}"
     
     assert q["question"].strip(), f"Empty question for ID {q['id']}"
     assert q["explanation"].strip(), f"Empty explanation for ID {q['id']}"
     assert q["source"].strip(), f"Empty source for ID {q['id']}"
-    
-    cat = q["category"]
-    cat_counts[cat] = cat_counts.get(cat, 0) + 1
 
-print("\nVerifikasi Distribusi 585 Soal Master Pool:")
-for cat, exp in expected_distribution.items():
-    act = cat_counts.get(cat, 0)
-    status = "OK" if act == exp else "MISMATCH"
-    print(f"  [{status}] {cat}: {act}/{exp}")
-    assert act == exp, f"Category '{cat}' mismatch: {act} != {exp}"
+print("\nVerifikasi Distribusi 1.000 Soal Master Bank (5 Bidang @ 200 Soal):")
+for b_id, count in sorted(bidang_counts.items()):
+    status = "OK" if count == 200 else "MISMATCH"
+    print(f"  [{status}] Bidang {b_id}: {count}/200 butir")
 
-print("\n[SUKSES] Seluruh 585 butir soal terverifikasi 100% valid, seimbang, lengkap, dan siap digunakan!")
+assert len(ALL_QUESTIONS) == 1000, f"Expected 1000 questions, got {len(ALL_QUESTIONS)}"
+print("\n[SUKSES] Seluruh 1.000 butir soal terverifikasi 100% valid, seimbang, terisolasi ketat, dan siap digunakan!")

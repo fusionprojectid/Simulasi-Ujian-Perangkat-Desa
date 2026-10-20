@@ -30,55 +30,45 @@ if (!htmlContent.includes('src="js/app.js"')) throw new Error("index.html tidak 
 
 console.log("  -> LULUS: File HTML, CSS, dan JS terpisah secara modular dan tertaut sempurna.");
 
-// 2. Ekstraksi Master Pool 585 Soal dari js/data/questions.js
-console.log("\n[TEST 2] Ekstraksi Master Database 585 Soal...");
+// 2. Ekstraksi Master Pool 1.000 Soal dari js/data/questions.js
+console.log("\n[TEST 2] Ekstraksi Master Database 1.000 Soal...");
 const qContent = fs.readFileSync(questionsPath, 'utf-8');
 const sandbox = { window: {} };
 vm.createContext(sandbox);
 vm.runInContext(qContent, sandbox);
 const MASTER_QUESTIONS = sandbox.window.MASTER_QUESTIONS;
 
-if (!Array.isArray(MASTER_QUESTIONS) || MASTER_QUESTIONS.length !== 585) {
-  throw new Error(`Master pool harus berjumlah 585 butir, didapat ${MASTER_QUESTIONS ? MASTER_QUESTIONS.length : 0}`);
+if (!Array.isArray(MASTER_QUESTIONS) || MASTER_QUESTIONS.length !== 1000) {
+  throw new Error(`Master pool harus berjumlah 1.000 butir, didapat ${MASTER_QUESTIONS ? MASTER_QUESTIONS.length : 0}`);
 }
 console.log(`  -> LULUS: Ditemukan ${MASTER_QUESTIONS.length} butir soal.`);
 
-// 3. Integritas Data dan Sumber Regulasi Terverifikasi (585 Soal)
+// 3. Integritas Data dan Sumber Regulasi Terverifikasi (1.000 Soal)
 const catCounts = {};
+const bidangCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+
 MASTER_QUESTIONS.forEach((q, i) => {
   if (q.id !== i + 1) throw new Error(`ID tidak urut pada indeks ${i}`);
+  if (!q.bidangId || ![1, 2, 3, 4, 5].includes(q.bidangId)) throw new Error(`bidangId tidak valid pada ID ${q.id}`);
   if (!q.question || !q.question.trim()) throw new Error(`Pertanyaan kosong pada ID ${q.id}`);
   if (!Array.isArray(q.options) || q.options.length !== 4) throw new Error(`Opsi harus tepat 4 pada ID ${q.id}`);
   if (![0, 1, 2, 3].includes(q.answer)) throw new Error(`Kunci jawaban tidak valid pada ID ${q.id}`);
   if (!q.explanation || !q.explanation.trim()) throw new Error(`Pembahasan kosong pada ID ${q.id}`);
   if (!q.source || !q.source.trim()) throw new Error(`Rujukan regulasi kosong pada ID ${q.id}`);
+  
+  bidangCounts[q.bidangId] = (bidangCounts[q.bidangId] || 0) + 1;
   catCounts[q.category] = (catCounts[q.category] || 0) + 1;
 });
-console.log("[TEST 3] Integritas 585 Soal, Kunci, Pembahasan, & Rujukan Regulasi: LULUS");
+console.log("[TEST 3] Integritas 1.000 Soal, Kunci, Pembahasan, & Rujukan Regulasi: LULUS");
 
-// 4. Validasi Distribusi 13 Kategori di Master Database (585 Butir)
-const EXPECTED_POOL_CATS = {
-  "Pemerintahan desa, struktur organisasi, tugas dan fungsi perangkat desa": 100,
-  "Peraturan perundang-undangan dan tata kelola pemerintahan": 60,
-  "Pancasila, UUD 1945, dan wawasan kebangsaan": 50,
-  "Administrasi pemerintahan, surat-menyurat, dan pengarsipan": 50,
-  "Keuangan desa, APB Desa, dan aset desa": 50,
-  "Pembangunan desa, perencanaan, dan pemberdayaan masyarakat": 40,
-  "BPD, kelembagaan desa, dan musyawarah": 25,
-  "Bahasa Indonesia": 35,
-  "Matematika dan numerik": 30,
-  "Logika dan penalaran": 25,
-  "Pengetahuan umum": 20,
-  "Komputer dasar dan pelayanan publik": 50,
-  "Pendidikan agama dan moderasi beragama": 50
-};
-
-for (const [cat, expected] of Object.entries(EXPECTED_POOL_CATS)) {
-  if (catCounts[cat] !== expected) {
-    throw new Error(`Distribusi pool ${cat} salah: didapat ${catCounts[cat]}, harusnya ${expected}`);
+// 4. Validasi Penyeimbangan 5 Bidang (Masing-Masing Tepat 200 Butir)
+const EXPECTED_BIDANG = { 1: 200, 2: 200, 3: 200, 4: 200, 5: 200 };
+for (const [bId, expected] of Object.entries(EXPECTED_BIDANG)) {
+  if (bidangCounts[bId] !== expected) {
+    throw new Error(`Distribusi Bidang ${bId} salah: didapat ${bidangCounts[bId]}, harusnya ${expected}`);
   }
 }
-console.log("[TEST 4] Distribusi 13 Kategori pada Master Pool (585 Butir): LULUS");
+console.log("[TEST 4] Penyeimbangan 5 Bidang Ujian (Masing-Masing Tepat 200 Butir): LULUS");
 
 // 5. Ekstraksi Praktik Komputer (10 Butir) dari js/data/practical.js
 console.log("\n[TEST 5] Ekstraksi 10 Butir Praktik Komputer...");
@@ -183,14 +173,14 @@ if (renderedFilename !== "2026_SK-Kades_No-05_Pengangkatan.pdf") {
   throw new Error(`Nama berkas berekstensi/ber-underscore rusak: ${renderedFilename}`);
 }
 
-// Verifikasi Soal 480
-const q480 = MASTER_QUESTIONS.find(q => q.id === 480);
-if (!q480) throw new Error("Soal ID 480 tidak ditemukan");
-if (!q480.options[0].includes('*ex-officio*')) throw new Error("Opsi kunci ID 480 harus berformat *ex-officio*");
-if (q480.options[3] !== "Kepala Desa menjabat secara ex-officio sebagai Penasihat BUMDes.") {
-  throw new Error(`Opsi pengecoh ID 480 harus tegak biasa tanpa miring: ${q480.options[3]}`);
+// Verifikasi Soal 433 (Uji Huruf Miring/Italics EYD V)
+const q433 = MASTER_QUESTIONS.find(q => q.id === 433);
+if (!q433) throw new Error("Soal ID 433 tidak ditemukan");
+if (!q433.options[0].includes('*ex-officio*')) throw new Error("Opsi kunci ID 433 harus berformat *ex-officio*");
+if (q433.options[3] !== "Kepala Desa menjabat secara ex-officio sebagai Penasihat BUMDes.") {
+  throw new Error(`Opsi pengecoh ID 433 harus tegak biasa tanpa miring: ${q433.options[3]}`);
 }
-console.log("  -> LULUS: formatRichText berfungsi sempurna & Soal 480 terverifikasi.");
+console.log("  -> LULUS: formatRichText berfungsi sempurna & Soal 433 terverifikasi.");
 
 console.log("\n==================================================================");
 console.log("SELURUH 9 PENGUJIAN MODULAR COMPREHENSIVE SUITE LULUS 100%!");

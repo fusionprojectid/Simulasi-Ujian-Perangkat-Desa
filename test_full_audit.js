@@ -37,9 +37,9 @@ secretKeywords.forEach(sec => {
 console.log("  -> LULUS: Bebas dari hardcoded API key, token otentikasi, atau rahasia server.");
 
 // -----------------------------------------------------------------------------
-// PENGUJIAN B: AUDIT BANK SOAL (585 SOAL & 13 KATEGORI)
+// PENGUJIAN B: AUDIT BANK SOAL (1.000 SOAL & 5 BIDANG TERISOLASI)
 // -----------------------------------------------------------------------------
-console.log("\n[TEST B] Audit Bank Soal 585 Butir & Kunci Jawaban...");
+console.log("\n[TEST B] Audit Bank Soal 1.000 Butir & Kunci Jawaban...");
 const vm = require('vm');
 const questionsPath = path.join(__dirname, 'js', 'data', 'questions.js');
 const qSandbox = { window: {} };
@@ -47,12 +47,12 @@ vm.createContext(qSandbox);
 vm.runInContext(fs.readFileSync(questionsPath, 'utf-8'), qSandbox);
 const MASTER_QUESTIONS = qSandbox.window.MASTER_QUESTIONS;
 
-if (!Array.isArray(MASTER_QUESTIONS) || MASTER_QUESTIONS.length !== 585) {
-  throw new Error(`Ukuran database harus 585, didapat ${MASTER_QUESTIONS ? MASTER_QUESTIONS.length : 0}`);
+if (!Array.isArray(MASTER_QUESTIONS) || MASTER_QUESTIONS.length !== 1000) {
+  throw new Error(`Ukuran database harus 1.000, didapat ${MASTER_QUESTIONS ? MASTER_QUESTIONS.length : 0}`);
 }
 
 const idSet = new Set();
-const catCounts = {};
+const bidangCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
 const diffCounts = {};
 let noSourceCount = 0;
 
@@ -61,6 +61,9 @@ MASTER_QUESTIONS.forEach((q, idx) => {
   if (idSet.has(q.id)) throw new Error(`Duplikat ID ${q.id}`);
   idSet.add(q.id);
 
+  if (!q.bidangId || ![1, 2, 3, 4, 5].includes(q.bidangId)) throw new Error(`bidangId tidak valid pada ID ${q.id}`);
+  bidangCounts[q.bidangId] = (bidangCounts[q.bidangId] || 0) + 1;
+
   if (!q.question || !q.question.trim()) throw new Error(`Pertanyaan kosong pada ID ${q.id}`);
   if (!Array.isArray(q.options) || q.options.length !== 4) throw new Error(`Opsi bukan 4 pada ID ${q.id}`);
   if (new Set(q.options).size !== 4) throw new Error(`Opsi kembar di ID ${q.id}`);
@@ -68,12 +71,14 @@ MASTER_QUESTIONS.forEach((q, idx) => {
   if (!q.explanation || !q.explanation.trim()) throw new Error(`Pembahasan kosong di ID ${q.id}`);
   if (!q.source || !q.source.trim()) noSourceCount++;
 
-  catCounts[q.category] = (catCounts[q.category] || 0) + 1;
   diffCounts[q.difficulty] = (diffCounts[q.difficulty] || 0) + 1;
 });
 
 if (noSourceCount > 0) throw new Error(`Ada ${noSourceCount} soal tanpa sumber`);
-console.log(`  -> LULUS: 585 butir soal lengkap, 4 opsi unik, 1 kunci valid, pembahasan memadai, dan 100% bersumber.`);
+for (let b = 1; b <= 5; b++) {
+  if (bidangCounts[b] !== 200) throw new Error(`Bidang ${b} tidak seimbang: didapat ${bidangCounts[b]}, harus 200`);
+}
+console.log(`  -> LULUS: 1.000 butir soal lengkap (5 bidang @ 200 soal), 4 opsi unik, 1 kunci valid, pembahasan memadai, dan 100% bersumber.`);
 console.log(`  -> Distribusi Kesulitan: Mudah=${diffCounts['mudah']}, Sedang=${diffCounts['sedang']}, Sulit=${diffCounts['sulit']}`);
 
 // -----------------------------------------------------------------------------
