@@ -1669,16 +1669,16 @@ NEW_QUESTIONS = [
         "number": 196,
         "category": "Pengetahuan umum",
         "difficulty": "mudah",
-        "question": "Konsep pembagian kekuasaan negara menjadi tiga cabang (Eksekutif, Legislatif, dan Yudikatif) dikenal dengan teori...",
+        "question": "Sungai terpanjang di Pulau Jawa yang mengalir melintasi kawasan perbatasan bagian selatan Kabupaten Tuban (seperti Kecamatan Soko, Rengel, Plumpang, dan Widang) menuju muara di pesisir utara Jawa adalah...",
         "options": [
-            "Trias Politika",
-            "Dwi Fungsi",
-            "Monarki Parlementer",
-            "Birokrasi Weberian"
+            "Sungai Bengawan Solo",
+            "Sungai Brantas",
+            "Sungai Citarum",
+            "Sungai Serayu"
         ],
         "answer": 0,
-        "explanation": "Trias Politika (yang dipopulerkan oleh Montesquieu) membagi kekuasaan negara ke dalam cabang legislatif, eksekutif, dan yudikatif.",
-        "source": "Ilmu Negara dan Teori Konstitusi",
+        "explanation": "Sungai Bengawan Solo melintasi bagian selatan wilayah Kabupaten Tuban. Daerah aliran sungai ini sangat penting bagi irigasi lahan pertanian namun juga memerlukan kewaspadaan terhadap mitigasi bencana banjir luapan.",
+        "source": "Balai Besar Wilayah Sungai (BBWS) Bengawan Solo; Profil Geografi Tuban",
         "sourceType": "umum"
     },
     {
@@ -1686,16 +1686,16 @@ NEW_QUESTIONS = [
         "number": 197,
         "category": "Pengetahuan umum",
         "difficulty": "mudah",
-        "question": "Lagu kebangsaan 'Indonesia Raya' diciptakan oleh Wage Rudolf Supratman dan pertama kali dikumandangkan secara resmi pada peristiwa bersejarah...",
+        "question": "Karya seni kriya tradisional khas pedesaan Kabupaten Tuban yang sangat unik karena proses pembuatannya dimulai dari pemintalan kapas lokal, ditenun secara tradisional, lalu dibatik tulis disebut...",
         "options": [
-            "Kongres Pemuda II tanggal 28 Oktober 1928",
-            "Proklamasi Kemerdekaan 17 Agustus 1945",
-            "Sidang Pertama BPUPKI 29 Mei 1945",
-            "Peristiwa Rengasdengklok 16 Agustus 1945"
+            "Batik Tulis Tenun Gedog",
+            "Kain Songket Palembang",
+            "Kain Ulos Batak",
+            "Kain Sasirangan"
         ],
         "answer": 0,
-        "explanation": "Lagu Indonesia Raya pertama kali diperdengarkan dengan gesekan biola WR Supratman pada Kongres Pemuda II tanggal 28 Oktober 1928 di Jakarta.",
-        "source": "Sejarah Nasional Indonesia; UU No. 24 Tahun 2009",
+        "explanation": "Batik Gedog adalah warisan budaya takbenda khas Kabupaten Tuban (terutama di Kecamatan Kerek). Keunikannya terletak pada bahan dasar kain tenun kapas manual (gedog) yang bertekstur tebal khas lalu dibatik tulis tangan.",
+        "source": "Dinas Kebudayaan, Kepemudaan dan Olahraga serta Pariwisata Kab. Tuban",
         "sourceType": "umum"
     },
 
@@ -1723,17 +1723,17 @@ NEW_QUESTIONS = [
         "id": 199,
         "number": 199,
         "category": "Komputer dasar dan pelayanan publik",
-        "difficulty": "sedang",
-        "question": "Fungsi rumus logika pada Microsoft Excel yang digunakan untuk menghasilkan keterangan berdasarkan pengujian kondisi tertentu (contoh: jika nilai sel C2 >= 75 maka 'Lulus', jika tidak maka 'Remedial') adalah...",
+        "difficulty": "mudah",
+        "question": "Perangkat keras masukan (input device) yang sering digunakan di kantor desa untuk memindai dokumen fisik kertas (seperti KTP, Kartu Keluarga, atau sertifikat tanah) menjadi berkas digital berformat PDF atau gambar adalah...",
         "options": [
-            "=IF(C2>=75; \"Lulus\"; \"Remedial\")",
-            "=SUM(C2:75)",
-            "=COUNT(C2; \"Lulus\")",
-            "=AVERAGE(C2:Lulus)"
+            "Scanner (Pemindai)",
+            "Printer (Pencetak)",
+            "Speaker (Pengeras Suara)",
+            "Plotter"
         ],
         "answer": 0,
-        "explanation": "Fungsi `=IF(kondisi; nilai_jika_benar; nilai_jika_salah)` adalah rumus logika spreadsheet untuk menguji kriteria kelulusan atau status data.",
-        "source": "Kompetensi Praktik Komputer / Microsoft Excel",
+        "explanation": "Scanner (pemindai) adalah perangkat keras input yang berfungsi mendigitalkan berkas fisik kertas ke dalam komputer dalam bentuk dokumen elektronik (.pdf atau .jpg) guna pengarsipan atau pelayanan publik online.",
+        "source": "Dasar Pengoperasian Komputer Perkantoran & Digitalisasi Kearsipan",
         "sourceType": "teknologi"
     },
     {

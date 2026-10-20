@@ -311,16 +311,16 @@ QUESTIONS_201_300 = [
     "id": 220,
     "category": "Pemerintahan desa, struktur organisasi, tugas dan fungsi perangkat desa",
     "difficulty": "sedang",
-    "question": "Pemberhentian sementara perangkat desa dicabut dan direhabilitasi nama baiknya oleh Kepala Desa apabila...",
+    "question": "Berdasarkan Permendagri No. 83 Tahun 2015 jo. Permendagri No. 67 Tahun 2017, Kepala Desa memberhentikan sementara perangkat desa setelah...",
     "options": [
-      "Masyarakat dusun berdemonstrasi menuntut pemulihan",
-      "Pengadilan memutus bebas atau tidak terbukti bersalah dan putusan telah inkracht",
-      "Telah lewat waktu 1 tahun sejak penonaktifan",
-      "Membayar ganti rugi kepada kas desa"
+      "Ditetapkan sebagai tersangka dalam tindak pidana korupsi, terorisme, makar, atau tindak pidana dengan ancaman penjara paling singkat 5 tahun",
+      "Mendapat teguran lisan satu kali dari BPD",
+      "Mengajukan izin cuti tahunan selama 1 minggu",
+      "Terlambat hadir dalam apel pagi balai desa"
     ],
-    "answer": 1,
-    "explanation": "Permendagri No. 67 Tahun 2017 Pasal 8 ayat (3) menegaskan bahwa perangkat desa yang diberhentikan sementara setelah diputus bebas oleh pengadilan yang berkekuatan hukum tetap, harus direhabilitasi dan diaktifkan kembali.",
-    "source": "Permendagri No. 67 Tahun 2017 Pasal 8"
+    "answer": 0,
+    "explanation": "Permendagri No. 83 Tahun 2015 Pasal 6 ayat (1) menegaskan bahwa perangkat desa diberhentikan sementara oleh Kepala Desa setelah ditetapkan sebagai tersangka tindak pidana korupsi, terorisme, makar, atau tindak pidana dengan ancaman minimal 5 tahun.",
+    "source": "Permendagri No. 83 Tahun 2015 jo. Permendagri No. 67 Tahun 2017 Pasal 6"
   },
 
   # =========================================================================
@@ -529,16 +529,16 @@ QUESTIONS_201_300 = [
     "id": 234,
     "category": "Pancasila, UUD 1945, dan wawasan kebangsaan",
     "difficulty": "sedang",
-    "question": "Pasal 18B ayat (2) UUD NRI Tahun 1945 menegaskan pengakuan negara terhadap...",
+    "question": "Pasal 18 ayat (1) UUD Negara Republik Indonesia Tahun 1945 menyatakan bahwa Negara Kesatuan Republik Indonesia dibagi atas daerah-daerah provinsi dan daerah provinsi itu dibagi atas...",
     "options": [
-      "Pemerintah daerah otonom seluas-luasnya",
-      "Kesatuan-kesatuan masyarakat hukum adat beserta hak-hak tradisionalnya sepanjang masih hidup dan sesuai prinsip NKRI",
-      "Kewenangan mutlak kepala desa mengelola tanah",
-      "Hak veto pemerintah desa terhadap peraturan daerah"
+      "Kabupaten dan kota, yang tiap-tiap provinsi, kabupaten, dan kota itu mempunyai pemerintahan daerah, yang diatur dengan undang-undang",
+      "Daerah swapraja dan daerah istimewa otonom mutlak",
+      "Karesidenan dan kawedanan yang dipimpin wedana",
+      "Wilayah kesatuan adat tanpa otonomi daerah"
     ],
-    "answer": 1,
-    "explanation": "Pasal 18B ayat (2) UUD 1945: 'Negara mengakui dan menghormati kesatuan-kesatuan masyarakat hukum adat beserta hak-hak tradisionalnya sepanjang masih hidup dan sesuai dengan perkembangan masyarakat dan prinsip NKRI'.",
-    "source": "UUD NRI Tahun 1945 Pasal 18B ayat (2)"
+    "answer": 0,
+    "explanation": "Pasal 18 ayat (1) UUD 1945: 'Negara Kesatuan Republik Indonesia dibagi atas daerah-daerah provinsi dan daerah provinsi itu dibagi atas kabupaten dan kota, yang tiap-tiap provinsi, kabupaten, dan kota itu mempunyai pemerintahan daerah, yang diatur dengan undang-undang'.",
+    "source": "UUD NRI Tahun 1945 Pasal 18 ayat (1)"
   },
   {
     "id": 235,
@@ -788,16 +788,16 @@ QUESTIONS_201_300 = [
     "id": 251,
     "category": "Administrasi pemerintahan, surat-menyurat, dan pengarsipan",
     "difficulty": "sedang",
-    "question": "Dokumen resmi yang dibuat sebagai bukti terjadinya suatu peristiwa, rapat, serah terima barang/jabatan, atau pemeriksaan fisik disebut...",
+    "question": "Naskah dinas resmi yang dikeluarkan oleh Kepala Desa sebagai penugasan resmi kepada perangkat desa untuk melaksanakan tugas kedinasan, bimbingan teknis, atau dinas luar daerah disebut...",
     "options": [
-      "Nota Dinas",
-      "Lembar Disposisi",
-      "Berita Acara",
-      "Surat Tugas"
+      "Surat Perintah Tugas (Surat Tugas)",
+      "Surat Keterangan Kematian",
+      "Surat Pengantar Nikah",
+      "Surat Rekomendasi Camat"
     ],
-    "answer": 2,
-    "explanation": "Berita Acara merupakan naskah dinas yang berisi pernyataan sah mengenai pelaksanaan suatu kegiatan atau serah terima pekerjaan/jabatan.",
-    "source": "Permendagri Tata Naskah Dinas Pemerintahan"
+    "answer": 0,
+    "explanation": "Surat Tugas atau Surat Perintah Tugas (SPT) adalah naskah dinas dari atasan kepada bawahan yang memuat perintah untuk melaksanakan tugas kedinasan tertentu sesuai fungsi tugasnya.",
+    "source": "Permendagri No. 1 Tahun 2023 tentang Tata Naskah Dinas Pemerintah Daerah"
   },
   {
     "id": 252,
@@ -867,16 +867,16 @@ QUESTIONS_201_300 = [
     "id": 256,
     "category": "Keuangan desa, APB Desa, dan aset desa",
     "difficulty": "sedang",
-    "question": "Sesuai Permendagri No. 1 Tahun 2016, jangka waktu sewa tanah kas desa atau aset desa lainnya ditetapkan paling lama...",
+    "question": "Berdasarkan Permendagri No. 1 Tahun 2016 tentang Pengelolaan Aset Desa, pemanfaatan aset desa berupa Bangun Guna Serah (BGS) atau Bangun Serah Guna (BSG) dapat dilaksanakan dengan jangka waktu paling lama...",
     "options": [
-      "1 tahun saja",
-      "3 tahun dan dapat diperpanjang",
-      "10 tahun penuh",
-      "25 tahun sesuai hak guna bangunan"
+      "20 (dua puluh) tahun dan dapat diperpanjang",
+      "3 (tiga) tahun saja",
+      "50 tahun tanpa evaluasi",
+      "100 tahun sesuai hak guna bangunan"
     ],
-    "answer": 1,
-    "explanation": "Permendagri No. 1 Tahun 2016 Pasal 11 ayat (3) menegaskan bahwa jangka waktu sewa aset desa paling lama 3 (tiga) tahun dan dapat diperpanjang.",
-    "source": "Permendagri No. 1 Tahun 2016 Pasal 11"
+    "answer": 0,
+    "explanation": "Permendagri No. 1 Tahun 2016 Pasal 13 ayat (4) menyatakan bahwa jangka waktu Bangun Guna Serah (BGS) dan Bangun Serah Guna (BSG) aset desa paling lama 20 tahun dan dapat diperpanjang setelah persetujuan BPD.",
+    "source": "Permendagri No. 1 Tahun 2016 Pasal 13"
   },
   {
     "id": 257,
@@ -897,16 +897,16 @@ QUESTIONS_201_300 = [
     "id": 258,
     "category": "Keuangan desa, APB Desa, dan aset desa",
     "difficulty": "mudah",
-    "question": "Sisa Lebih Pembiayaan Anggaran (Silpa) tahun sebelumnya dalam APB Desa tahun berjalan dikelompokkan ke dalam struktur...",
+    "question": "Dalam struktur APB Desa, kelompok Pengeluaran Pembiayaan menurut Permendagri No. 20 Tahun 2018 antara lain dialokasikan untuk...",
     "options": [
-      "Pendapatan Asli Desa",
-      "Penerimaan Pembiayaan",
-      "Pengeluaran Pembiayaan",
-      "Belanja Tak Terduga"
+      "Penyertaan modal desa pada BUMDes dan pembentukan dana cadangan",
+      "Pembayaran gaji penghasilan tetap Kepala Desa bulanan",
+      "Pemberian bantuan sosial BLT-DD",
+      "Belanja semen dan pasir proyek fisik jalan"
     ],
-    "answer": 1,
-    "explanation": "Silpa tahun anggaran sebelumnya merupakan pos Penerimaan Pembiayaan yang digunakan untuk mendanai kegiatan tahun berjalan.",
-    "source": "Permendagri No. 20 Tahun 2018 Pasal 27"
+    "answer": 0,
+    "explanation": "Permendagri No. 20 Tahun 2018 Pasal 28 menetapkan bahwa Pengeluaran Pembiayaan terdiri atas pembentukan dana cadangan dan penyertaan modal desa (misalnya modal BUMDes).",
+    "source": "Permendagri No. 20 Tahun 2018 Pasal 28"
   },
   {
     "id": 259,
@@ -942,16 +942,16 @@ QUESTIONS_201_300 = [
     "id": 261,
     "category": "Keuangan desa, APB Desa, dan aset desa",
     "difficulty": "sedang",
-    "question": "Aplikasi komputer resmi terpadu yang dikembangkan BPKP dan Kemendagri untuk tata kelola penatausahaan keuangan desa adalah...",
+    "question": "Untuk mencegah penyimpangan kas dan mempercepat transparansi, transaksi belanja APB Desa kini diintegrasikan secara digital dengan aplikasi perbankan CMS Desa (Cash Management System). Manfaat utama CMS Desa adalah...",
     "options": [
-      "SIMDA",
-      "SISKEUDES",
-      "SIPADES",
-      "PRODESKEL"
+      "Melaksanakan transaksi pembayaran belanja desa secara non-tunai langsung dari Rekening Kas Desa ke rekening penerima/rekanan",
+      "Menghapus kewajiban verifikasi SPP oleh Sekretaris Desa",
+      "Memperbolehkan penarikan tunai tanpa tanda tangan Kepala Desa",
+      "Menggantikan seluruh musyawarah perencanaan desa"
     ],
-    "answer": 1,
-    "explanation": "Siskeudes (Sistem Keuangan Desa) adalah aplikasi resmi BPKP-Kemendagri untuk pengelolaan APB Desa.",
-    "source": "Pedoman Pengelolaan Keuangan Desa Kemendagri & BPKP"
+    "answer": 0,
+    "explanation": "Implementasi Transaksi Non-Tunai (CMS Perbankan yang terintegrasi dengan Siskeudes) memastikan pembayaran belanja APBDes langsung tertransfer ke rekening rekanan/penerima secara akuntabel, terekam perbankan, dan meminimalkan risiko 'fraud' uang tunai.",
+    "source": "Surat Edaran Kemendagri & Bank Indonesia tentang Implementasi Transaksi Non-Tunai Pemerintah Desa"
   },
   {
     "id": 262,
@@ -1130,15 +1130,15 @@ QUESTIONS_201_300 = [
     "id": 273,
     "category": "BPD, kelembagaan desa, dan musyawarah",
     "difficulty": "sedang",
-    "question": "Penyampaian Laporan Keterangan Penyelenggaraan Pemerintahan Desa (LKPPD) oleh Kepala Desa kepada BPD dilakukan secara tertulis dalam jangka waktu...",
+    "question": "Laporan Keterangan Penyelenggaraan Pemerintahan Desa (LKPPD) yang disampaikan secara tertulis oleh Kepala Desa kepada BPD setiap akhir tahun anggaran digunakan oleh BPD untuk...",
     "options": [
-      "Paling lambat 30 hari setelah tahun anggaran berakhir",
-      "Paling lambat 3 (tiga) bulan setelah berakhirnya tahun anggaran",
-      "Setiap akhir bulan berjalan",
-      "Hanya pada akhir masa jabatan Kepala Desa"
+      "Bahan evaluasi kinerja Kepala Desa dan menyusun catatan strategis serta rekomendasi pengawasan BPD",
+      "Menjatuhkan sanksi pemecatan langsung kepada perangkat desa",
+      "Mengambil alih seluruh wewenang eksekutif Kepala Desa",
+      "Menolak pencairan dana transfer APBN tahun berikutnya"
     ],
-    "answer": 1,
-    "explanation": "Berdasarkan Permendagri No. 46 Tahun 2016 Pasal 8 ayat (1), LKPPD disampaikan secara tertulis kepada BPD paling lambat 3 bulan setelah tahun anggaran berakhir.",
+    "answer": 0,
+    "explanation": "Permendagri No. 46 Tahun 2016 Pasal 8 ayat (3) menegaskan LKPPD digunakan oleh BPD sebagai bahan pertimbangan dalam membuat catatan strategis dan evaluasi kinerja penyelenggaraan pemerintahan desa.",
     "source": "Permendagri No. 46 Tahun 2016 Pasal 8"
   },
   {
@@ -1461,15 +1461,15 @@ QUESTIONS_201_300 = [
     "id": 294,
     "category": "Pengetahuan umum",
     "difficulty": "mudah",
-    "question": "Secara administratif, Kabupaten Tuban di sebelah utara berbatasan langsung dengan...",
+    "question": "Secara administratif kewilayahan, Kabupaten Tuban di sebelah timur berbatasan langsung dengan wilayah kabupaten...",
     "options": [
       "Kabupaten Lamongan",
-      "Laut Jawa",
       "Kabupaten Bojonegoro",
-      "Kabupaten Rembang"
+      "Kabupaten Rembang",
+      "Kabupaten Gresik"
     ],
-    "answer": 1,
-    "explanation": "Batas wilayah Kabupaten Tuban: Utara: Laut Jawa; Timur: Kab. Lamongan; Selatan: Kab. Bojonegoro; Barat: Kab. Rembang dan Kab. Blora (Jawa Tengah).",
+    "answer": 0,
+    "explanation": "Batas wilayah Kabupaten Tuban: sebelah utara berbatasan dengan Laut Jawa, sebelah timur dengan Kabupaten Lamongan, sebelah selatan dengan Kabupaten Bojonegoro, dan sebelah barat dengan Kabupaten Rembang (Jawa Tengah).",
     "source": "Profil Wilayah dan Geografi Pemerintah Kabupaten Tuban"
   },
   {
@@ -1506,16 +1506,16 @@ QUESTIONS_201_300 = [
     "id": 297,
     "category": "Pengetahuan umum",
     "difficulty": "mudah",
-    "question": "Makam tokoh penyebar agama Islam yang merupakan ayah dari Sunan Drajat dan Sunan Bonang, yang berada di Desa Gesikharjo, Kecamatan Palang, Tuban adalah...",
+    "question": "Salah satu destinasi wisata alam dan sumber mata air alami di Kabupaten Tuban yang terletak di kawasan hutan lindung dengan air yang jernih dan aliran sungai bertingkat adalah...",
     "options": [
-      "Sunan Kalijaga",
-      "Syekh Maulana Ibrahim Asmoroqondi",
-      "Sunan Muria",
-      "Syekh Subakir"
+      "Mata Air Krawak (Sendang Krawak)",
+      "Kawah Ijen",
+      "Air Terjun Sedudo",
+      "Telaga Sarangan"
     ],
-    "answer": 1,
-    "explanation": "Makam Syekh Maulana Ibrahim Asmoroqondi (ayah Sunan Ampel / kakek Sunan Bonang) terletak di Gesikharjo, Kecamatan Palang, Kabupaten Tuban.",
-    "source": "Sejarah Kebudayaan Islam Tuban & Situs Cagar Budaya Jatim"
+    "answer": 0,
+    "explanation": "Mata Air Krawak dan Sendang Asmoro (Kecamatan Singgahan/Montong) merupakan objek wisata alam sumber air alami yang terkenal di Kabupaten Tuban, mengalir di antara perbukitan kapur dan hutan jati asri.",
+    "source": "Dinas Kebudayaan, Kepemudaan dan Olahraga serta Pariwisata Kab. Tuban"
   },
 
   # =========================================================================
@@ -1524,17 +1524,17 @@ QUESTIONS_201_300 = [
   {
     "id": 298,
     "category": "Komputer dasar dan pelayanan publik",
-    "difficulty": "sedang",
-    "question": "Dalam Microsoft Excel, rumus yang tepat untuk menghitung jumlah sel yang memenuhi kriteria tertentu (misalnya menghitung warga penerima bansos kategori 'LANSIA') adalah...",
+    "difficulty": "mudah",
+    "question": "Sistem operasi (Operating System) seperti Microsoft Windows atau Linux pada komputer kantor desa memiliki fungsi utama sebagai...",
     "options": [
-      "=SUMIF(...)",
-      "=COUNTIF(...)",
-      "=AVERAGEIF(...)",
-      "=LOOKUP(...)"
+      "Perangkat lunak dasar yang mengelola seluruh perangkat keras (hardware) dan menyediakan antarmuka bagi pengguna untuk menjalankan aplikasi",
+      "Alat pencetak dokumen fisik menjadi lembaran kertas",
+      "Kabel penghubung arus listrik dari stopkontak ke komputer",
+      "Perangkat penyimpan cadangan daya saat listrik PLN padam"
     ],
-    "answer": 1,
-    "explanation": "Fungsi =COUNTIF digunakan untuk mencacah/menghitung frekuensi banyaknya sel yang memenuhi syarat/kriteria tertentu.",
-    "source": "Modul Komputer Perkantoran Microsoft Excel"
+    "answer": 0,
+    "explanation": "Sistem Operasi (OS) adalah program sistem komputer yang mengendalikan dan mengoordinasikan perangkat keras (CPU, RAM, Harddisk, I/O) serta menjadi platform tempat aplikasi perkantoran dijalankan.",
+    "source": "Dasar Sistem Komputer & TIK; Standar Kompetensi Kerja Nasional Indonesia (SKKNI)"
   },
   {
     "id": 299,

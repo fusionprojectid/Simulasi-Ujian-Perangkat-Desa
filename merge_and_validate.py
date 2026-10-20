@@ -16,8 +16,9 @@ from expand_bank_300 import QUESTIONS_201_300 as Q201_300
 from expand_bank_400 import QUESTIONS_301_400 as Q301_400
 from expand_bank_500 import QUESTIONS_401_500 as Q401_500
 from expand_bank_agama import QUESTIONS_501_550 as Q501_550
+from expand_bank_komputer import QUESTIONS_551_585 as Q551_585
 
-ALL_QUESTIONS = Q1_100 + Q101_200 + Q201_300 + Q301_400 + Q401_500 + Q501_550
+ALL_QUESTIONS = Q1_100 + Q101_200 + Q201_300 + Q301_400 + Q401_500 + Q501_550 + Q551_585
 
 print(f"Total pertanyaan terkumpul dalam master pool: {len(ALL_QUESTIONS)} butir soal.")
 
@@ -33,7 +34,7 @@ expected_distribution = {
     "Matematika dan numerik": 30,
     "Logika dan penalaran": 25,
     "Pengetahuan umum": 20,
-    "Komputer dasar dan pelayanan publik": 15,
+    "Komputer dasar dan pelayanan publik": 50,
     "Pendidikan agama dan moderasi beragama": 50
 }
 
@@ -56,11 +57,11 @@ for idx, q in enumerate(ALL_QUESTIONS):
     cat = q["category"]
     cat_counts[cat] = cat_counts.get(cat, 0) + 1
 
-print("\nVerifikasi Distribusi 550 Soal Master Pool:")
+print("\nVerifikasi Distribusi 585 Soal Master Pool:")
 for cat, exp in expected_distribution.items():
     act = cat_counts.get(cat, 0)
     status = "OK" if act == exp else "MISMATCH"
     print(f"  [{status}] {cat}: {act}/{exp}")
     assert act == exp, f"Category '{cat}' mismatch: {act} != {exp}"
 
-print("\n[SUKSES] Seluruh 550 butir soal terverifikasi 100% valid, seimbang, lengkap, dan siap digunakan!")
+print("\n[SUKSES] Seluruh 585 butir soal terverifikasi 100% valid, seimbang, lengkap, dan siap digunakan!")

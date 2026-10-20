@@ -853,31 +853,31 @@ QUESTIONS_401_500 = [
     "id": 455,
     "category": "Keuangan desa, APB Desa, dan aset desa",
     "difficulty": "sedang",
-    "question": "Buku pembantu dalam penatausahaan keuangan desa yang khusus mencatat pemotongan dan penyetoran pajak (PPN dan PPh) ke Kas Negara adalah...",
+    "question": "Berdasarkan Permendagri No. 20 Tahun 2018, buku pembantu yang digunakan oleh Kaur Keuangan (Bendahara Desa) untuk mencatat seluruh transaksi penerimaan dan pengeluaran yang dilakukan melalui rekening perbankan kas desa adalah...",
     "options": [
       "Buku Pembantu Pajak",
-      "Buku Kas Umum",
       "Buku Pembantu Bank",
-      "Buku Kas Pembantu Panjar"
+      "Buku Kas Pembantu Panjar",
+      "Buku Inventaris Hasil Pembangunan"
     ],
-    "answer": 0,
-    "explanation": "Buku Pembantu Pajak merupakan buku wajib yang dipegang Bendahara Desa untuk mencatat transaksi penerimaan dan penyetoran pajak negara ke kas negara melalui sistem e-billing.",
-    "source": "Permendagri No. 20 Tahun 2018 Lampiran Penatausahaan Keuangan"
+    "answer": 1,
+    "explanation": "Buku Pembantu Bank merupakan buku pembantu dalam penatausahaan keuangan desa yang digunakan untuk mencatat seluruh mutasi debet dan kredit pada Rekening Kas Desa (RKD) secara tertib.",
+    "source": "Permendagri No. 20 Tahun 2018 Lampiran Penatausahaan Keuangan Desa"
   },
   {
     "id": 456,
     "category": "Keuangan desa, APB Desa, dan aset desa",
     "difficulty": "sedang",
-    "question": "Kepala Desa wajib menyampaikan Laporan Realisasi Pelaksanaan APB Desa Semester Pertama kepada Bupati melalui Camat paling lambat pada...",
+    "question": "Kepala Desa wajib menyampaikan Laporan Pertanggungjawaban (LPJ) Realisasi Pelaksanaan APB Desa kepada Bupati/Wali Kota melalui Camat setiap akhir tahun anggaran, paling lambat pada...",
     "options": [
-      "Akhir bulan Maret tahun berjalan",
-      "Akhir bulan Juli tahun berjalan",
-      "Akhir bulan Oktober tahun berjalan",
-      "Akhir bulan Desember tahun berjalan"
+      "1 bulan setelah akhir tahun anggaran (akhir Januari)",
+      "3 bulan setelah akhir tahun anggaran (akhir Maret)",
+      "6 bulan setelah akhir tahun anggaran (akhir Juni)",
+      "Akhir tahun anggaran berjalan (31 Desember)"
     ],
     "answer": 1,
-    "explanation": "Permendagri No. 20 Tahun 2018 Pasal 68 ayat (1) menyatakan bahwa laporan realisasi pelaksanaan APB Desa semester pertama disampaikan paling lambat pada akhir bulan Juli tahun berjalan.",
-    "source": "Permendagri No. 20 Tahun 2018 Pasal 68 ayat (1)"
+    "explanation": "Permendagri No. 20 Tahun 2018 Pasal 70 ayat (1) mengatur bahwa Kepala Desa menyampaikan laporan pertanggungjawaban realisasi pelaksanaan APB Desa kepada Bupati/Wali Kota melalui Camat paling lambat 3 (tiga) bulan setelah akhir tahun anggaran berkenaan yang ditetapkan dengan Peraturan Desa.",
+    "source": "Permendagri No. 20 Tahun 2018 Pasal 70 ayat (1)"
   },
   {
     "id": 457,
@@ -928,16 +928,16 @@ QUESTIONS_401_500 = [
     "id": 460,
     "category": "Keuangan desa, APB Desa, dan aset desa",
     "difficulty": "sedang",
-    "question": "Pengadaan Barang dan Jasa di Desa mengutamakan swakelola dengan prinsip Padat Karya Tunai Desa (PKTD). Tujuan utama dari prinsip ini adalah...",
+    "question": "Berdasarkan Peraturan LKPP No. 12 Tahun 2019 tentang Pedoman Pengadaan Barang/Jasa di Desa, bentuk dokumen bukti perjanjian pengadaan barang/jasa melalui Penyedia yang bernilai di atas Rp50.000.000,00 sampai dengan Rp200.000.000,00 adalah...",
     "options": [
-      "Memberikan keuntungan maksimal bagi kontraktor besar luar kota",
-      "Menyerap tenaga kerja warga setempat, memanfaatkan bahan baku lokal, dan menggerakkan ekonomi desa",
-      "Menghindari kewajiban membayar upah tenaga kerja",
-      "Memperlambat penyelesaian proyek fisik desa"
+      "Bukti Pembelian / Nota Kontan",
+      "Kuitansi bermeterai",
+      "Surat Perjanjian Kerja (SPK)",
+      "Surat Perjanjian (Kontrak formal)"
     ],
-    "answer": 1,
-    "explanation": "Prinsip Padat Karya Tunai Desa (PKTD) bertujuan memberdayakan masyarakat desa, memperluas kesempatan kerja lokal, dan mengalirkan dana desa langsung ke masyarakat setempat.",
-    "source": "Peraturan LKPP No. 12 Tahun 2019 & SKB 4 Menteri tentang PKTD"
+    "answer": 2,
+    "explanation": "Perka LKPP No. 12 Tahun 2019 mengatur bentuk bukti transaksi: Bukti pembelian (s.d. Rp10 jt), Kuitansi (s.d. Rp50 jt), Surat Perjanjian Kerja/SPK (di atas Rp50 jt s.d. Rp200 jt), dan Surat Perjanjian Kontrak (di atas Rp200 jt).",
+    "source": "Peraturan LKPP No. 12 Tahun 2019 tentang Pengadaan Barang/Jasa di Desa"
   },
   {
     "id": 461,
@@ -976,17 +976,17 @@ QUESTIONS_401_500 = [
   {
     "id": 463,
     "category": "Pembangunan desa, perencanaan, dan pemberdayaan masyarakat",
-    "difficulty": "mudah",
-    "question": "Berdasarkan Permendesa PDTT No. 21 Tahun 2020, tahapan siklus tahunan penyusunan RKP Desa secara resmi dimulai pada...",
+    "difficulty": "sedang",
+    "question": "Dalam tahapan penyusunan Rencana Kerja Pemerintah Desa (RKP Desa), tujuan dilakukannya pencermatan ulang terhadap dokumen RPJM Desa adalah...",
     "options": [
-      "Bulan Januari tahun berjalan",
-      "Bulan Juli tahun berjalan",
-      "Bulan Oktober tahun berjalan",
-      "Bulan Desember tahun berjalan"
+      "Mengubah visi dan misi Kepala Desa yang telah ditetapkan sebelumnya",
+      "Menyelaraskan rencana program tahunan dengan arah kebijakan pembangunan 8 tahun serta mengevaluasi program yang belum terlaksana di tahun sebelumnya",
+      "Menghapus program pemberdayaan masyarakat agar anggaran fokus pada kantor desa",
+      "Mengganti susunan pengurus BPD dan lembaga desa"
     ],
     "answer": 1,
-    "explanation": "Permendesa No. 21 Tahun 2020 Pasal 34 ayat (1) menyatakan penyusunan RKP Desa dimulai pada bulan Juli tahun berjalan dengan pembentukan tim penyusun RKP Desa oleh Kepala Desa.",
-    "source": "Permendesa PDTT No. 21 Tahun 2020 Pasal 34"
+    "explanation": "Pencermatan ulang RPJM Desa dalam penyusunan RKP Desa bertujuan untuk menyelaraskan program kegiatan prioritas tahun berjalan dengan dokumen perencanaan jangka menengah (RPJMDes) serta meninjau kegiatan luncuran yang belum terealisasi pada tahun sebelumnya.",
+    "source": "Permendesa PDTT No. 21 Tahun 2020 tentang Pedoman Umum Pembangunan dan Pemberdayaan Masyarakat Desa"
   },
   {
     "id": 464,
@@ -1245,10 +1245,10 @@ QUESTIONS_401_500 = [
       "Kepala Desa menjabat secara *ex-officio* sebagai Penasihat BUMDes.",
       "Kepala Desa menjabat secara EX-OFFICIO sebagai Penasihat BUMDes.",
       "Kepala Desa menjabat secara 'ex-officio' sebagai Penasihat BUMDes.",
-      "Kepala Desa menjabat secara _ex-officio_ sebagai Penasihat BUMDes."
+      "Kepala Desa menjabat secara ex-officio sebagai Penasihat BUMDes."
     ],
     "answer": 0,
-    "explanation": "Huruf miring dipakai untuk menuliskan kata atau ungkapan dalam bahasa daerah atau bahasa asing yang belum diserap ke dalam bahasa Indonesia (seperti istilah Latin 'ex-officio').",
+    "explanation": "Huruf miring dipakai untuk menuliskan kata atau ungkapan dalam bahasa daerah atau bahasa asing yang belum diserap ke dalam bahasa Indonesia (seperti istilah Latin 'ex-officio'). Pilihan lain salah karena dicetak tegak biasa tanpa miring, menggunakan huruf kapital seluruhnya, atau sekadar diapit tanda petik.",
     "source": "EYD Edisi V Penggunaan Huruf Miring"
   },
   {
@@ -1477,46 +1477,46 @@ QUESTIONS_401_500 = [
     "id": 495,
     "category": "Pengetahuan umum",
     "difficulty": "mudah",
-    "question": "Makam Syekh Maulana Ibrahim Asmoro Qondi, ayahanda dari Sunan Ampel yang menjadi salah satu destinasi wisata religi utama di Tuban, terletak di...",
+    "question": "Komoditas buah hortikultura unggulan nasional khas Kabupaten Tuban yang memiliki cita rasa manis seperti madu, berdaging buah tebal, dan telah resmi bersertifikat varietas unggul nasional dari Kementerian Pertanian RI adalah...",
     "options": [
-      "Desa Gesikharjo, Kecamatan Palang, Kabupaten Tuban",
-      "Kecamatan Jatirogo",
-      "Kecamatan Senori",
-      "Kecamatan Montong"
+      "Durian Montong",
+      "Belimbing Tasikmadu",
+      "Salak Pondoh",
+      "Jeruk Nipis Bancar"
     ],
-    "answer": 0,
-    "explanation": "Makam Syekh Maulana Ibrahim Asmoro Qondi terletak di Desa Gesikharjo, Kecamatan Palang, Kabupaten Tuban di tepi jalur Pantura.",
-    "source": "Wisata Budaya dan Sejarah Religi Tuban"
+    "answer": 1,
+    "explanation": "Belimbing Tasikmadu adalah varietas buah unggulan khas Kabupaten Tuban (sentra budidaya di Desa Tasikmadu, Kecamatan Palang) yang telah dilepas secara nasional oleh Kementerian Pertanian karena keunggulan rasa manis madu, aroma harum, dan ukuran buahnya yang besar.",
+    "source": "Profil Potensi Pertanian dan Hortikultura Kabupaten Tuban"
   },
   {
     "id": 496,
     "category": "Pengetahuan umum",
     "difficulty": "mudah",
-    "question": "Lembaga kekuasaan kehakiman di Indonesia yang memiliki wewenang menguji undang-undang terhadap Undang-Undang Dasar NRI 1945 (judicial review) adalah...",
+    "question": "Dalam aspek kesiapsiagaan mitigasi bencana alam di wilayah Kabupaten Tuban, potensi kerawanan bencana musiman yang sering melanda desa-desa dataran rendah di sepanjang hilir Daerah Aliran Sungai (DAS) Bengawan Solo saat puncak musim hujan adalah...",
     "options": [
-      "Mahkamah Agung",
-      "Mahkamah Konstitusi",
-      "Komisi Yudisial",
-      "Kejaksaan Agung"
+      "Banjir luapan air sungai (banjir genangan)",
+      "Gempa bumi tektonik berkekuatan tinggi",
+      "Erupsi gunung berapi aktif",
+      "Tsunami gelombang pasang tinggi"
     ],
-    "answer": 1,
-    "explanation": "Mahkamah Konstitusi (MK) berwenang mengadili pada tingkat pertama dan terakhir yang putusannya bersifat final untuk menguji undang-undang terhadap UUD NRI 1945.",
-    "source": "UUD NRI 1945 Pasal 24C ayat (1)"
+    "answer": 0,
+    "explanation": "Wilayah Kabupaten Tuban bagian timur dan selatan yang dilintasi hilir Sungai Bengawan Solo (seperti Kecamatan Rengel, Soko, Plumpang, dan Widang) secara periodik menghadapi ancaman banjir luapan Bengawan Solo saat musim penghujan, sehingga memerlukan kesiapsiagaan aparatur desa dalam mitigasi dan evakuasi.",
+    "source": "Profil Geografis & BPBD Kabupaten Tuban"
   },
   {
     "id": 497,
     "category": "Pengetahuan umum",
     "difficulty": "sedang",
-    "question": "Berdasarkan Undang-Undang No. 24 Tahun 2009, rasio resmi perbandingan lebar dan panjang Bendera Sang Saka Merah Putih adalah...",
+    "question": "Kementerian Desa PDTT mengembangkan konsep pembangunan berbasis data terpadu yang melokalisasi 17 Tujuan Pembangunan Berkelanjutan (SDGs) global PBB dengan menambahkan 1 tujuan khas kearifan lokal Indonesia (tujuan ke-18), yaitu...",
     "options": [
-      "Lebar 1 bagian berbanding panjang 2 bagian (1 : 2)",
-      "Lebar 2 bagian berbanding panjang 3 bagian (2 : 3)",
-      "Lebar 3 bagian berbanding panjang 4 bagian (3 : 4)",
-      "Lebar 1 bagian berbanding panjang 1 bagian (1 : 1)"
+      "Pemanfaatan kecerdasan buatan serba digital di pelosok desa",
+      "Kelembagaan Desa Dinamis dan Budaya Desa Adaptif",
+      "Industrialisasi pabrik multinasional di kawasan pedesaan",
+      "Swastanisasi pengelolaan seluruh tanah kas desa"
     ],
     "answer": 1,
-    "explanation": "UU No. 24 Tahun 2009 Pasal 4 ayat (1) menyatakan Bendera Negara Sang Merah Putih berbentuk empat persegi panjang dengan ukuran lebar 2/3 (dua pertiga) dari panjang (perbandingan lebar : panjang = 2 : 3).",
-    "source": "UU No. 24 Tahun 2009 Pasal 4 ayat (1)"
+    "explanation": "SDGs Desa mengadaptasi 17 tujuan pembangunan berkelanjutan global dari PBB dan menambahkan tujuan ke-18, yaitu 'Kelembagaan Desa Dinamis dan Budaya Desa Adaptif' untuk mempertahankan kearifan lokal, tradisi gotong royong, dan kelembagaan adat di desa.",
+    "source": "Permendesa PDTT No. 21 Tahun 2020 tentang SDGs Desa"
   },
 
   # =========================================================================
@@ -1525,32 +1525,32 @@ QUESTIONS_401_500 = [
   {
     "id": 498,
     "category": "Komputer dasar dan pelayanan publik",
-    "difficulty": "sedang",
-    "question": "Fitur pada aplikasi Microsoft Excel yang digunakan untuk mengunci baris judul kolom agar tetap terlihat saat lembar kerja digulirkan (scroll) jauh ke bawah adalah...",
+    "difficulty": "mudah",
+    "question": "Dalam pengelolaan administrasi kantor modern, format berkas digital standar yang digunakan secara berurutan untuk dokumen pengolah kata yang dapat diedit, lembar kerja hitung/tabel, dan dokumen arsip final yang tata letaknya terkunci portabel adalah...",
     "options": [
-      "Wrap Text",
-      "Freeze Panes",
-      "Merge & Center",
-      "Conditional Formatting"
+      ".mp3, .avi, dan .jpg",
+      ".docx, .xlsx, dan .pdf",
+      ".exe, .zip, dan .html",
+      ".txt, .bmp, dan .apk"
     ],
     "answer": 1,
-    "explanation": "Freeze Panes pada tab View berfungsi membekukan (freeze) baris atau kolom tertentu sehingga tetap terlihat saat lembar kerja di-scroll.",
-    "source": "Panduan Aplikasi Microsoft Excel Kearsipan"
+    "explanation": "Ekstensi berkas standar perkantoran adalah: .docx untuk dokumen pengolah kata (Microsoft Word), .xlsx untuk lembar sebar/spreadsheet (Microsoft Excel), dan .pdf (Portable Document Format) untuk dokumen final terarsip yang tidak mudah bergeser formatnya.",
+    "source": "Standar Operasional Komputer Administrasi Perkantoran"
   },
   {
     "id": 499,
     "category": "Komputer dasar dan pelayanan publik",
     "difficulty": "mudah",
-    "question": "Rumus logika IF pada Microsoft Excel yang benar untuk memberikan keterangan 'LULUS' jika nilai seleksi di sel C5 sekurang-kurangnya 75, dan 'TIDAK LULUS' jika kurang dari 75 adalah...",
+    "question": "Pada sistem operasi komputer Windows, kombinasi tombol keyboard yang digunakan untuk menghapus file/berkas secara langsung dan permanen tanpa memindahkannya terlebih dahulu ke tempat penampungan sampah sementara (Recycle Bin) adalah...",
     "options": [
-      "=IF(C5>=75, 'LULUS', 'TIDAK LULUS')",
-      "=IF(C5>=75; \"LULUS\"; \"TIDAK LULUS\")",
-      "=CHECK(C5=75, LULUS, TIDAK LULUS)",
-      "=SUMIF(C5>=75, LULUS)"
+      "Ctrl + Delete",
+      "Shift + Delete",
+      "Alt + Delete",
+      "Windows + Delete"
     ],
     "answer": 1,
-    "explanation": "Sintaks formula IF di Excel: =IF(logical_test; value_if_true; value_if_false). String teks diapit tanda petik dua ganda (\"LULUS\"; \"TIDAK LULUS\").",
-    "source": "Dasar Formula Microsoft Excel"
+    "explanation": "Menekan Shift + Delete akan menghapus berkas terpilih secara langsung dari media penyimpanan secara permanen (bypassing Recycle Bin), sedangkan tombol Delete biasa hanya memindahkan berkas ke Recycle Bin.",
+    "source": "Dasar Sistem Operasi Microsoft Windows"
   },
   {
     "id": 500,

@@ -1654,17 +1654,17 @@ QUESTIONS = [
         "id": 95,
         "number": 95,
         "category": "Pengetahuan umum",
-        "difficulty": "mudah",
-        "question": "Kabupaten Tuban dikenal luas dengan julukan 'Bumi Wali'. Tokoh Walisongo yang berpusat dakwah dan dimakamkan di pusat Kota Tuban (dekat Alun-alun Tuban) adalah...",
+        "difficulty": "sedang",
+        "question": "Secara geomorfologi dan bentang alam, sebagian besar wilayah Kabupaten Tuban bagian tengah dan selatan didominasi oleh perbukitan kapur yang merupakan bagian dari...",
         "options": [
-            "Sunan Giri (Raden Paku)",
-            "Sunan Bonang (Raden Makhdum Ibrahim)",
-            "Sunan Drajat (Raden Qasim)",
-            "Sunan Kalijaga (Raden Said)"
+            "Pegunungan Kendeng Utara / Zona Karst Kapur Utara",
+            "Pegunungan Dieng",
+            "Pegunungan Bromo Tengger",
+            "Dataran Tinggi Ijen"
         ],
-        "answer": 1,
-        "explanation": "Makam Sunan Bonang (Raden Makhdum Ibrahim), salah satu tokoh Walisongo terkemuka, berada di Kelurahan Kutorejo, Kecamatan Tuban, persis di barat Masjid Agung Tuban.",
-        "source": "Dinas Kebudayaan, Kepemudaan dan Olahraga serta Pariwisata Kab. Tuban",
+        "answer": 0,
+        "explanation": "Kabupaten Tuban memiliki karakteristik bentang alam perbukitan kapur yang termasuk dalam Pegunungan Kapur Utara (Kendeng Utara). Kondisi karst ini kaya akan sumber daya mineral gamping yang menopang industri dan menciptakan goa-goa alam khas Tuban.",
+        "source": "Profil Geografis Kabupaten Tuban; Bappeda Kab. Tuban",
         "sourceType": "umum"
     },
     {
@@ -1672,16 +1672,16 @@ QUESTIONS = [
         "number": 96,
         "category": "Pengetahuan umum",
         "difficulty": "mudah",
-        "question": "Berdasarkan Undang-Undang Nomor 23 Tahun 2014 tentang Pemerintahan Daerah, hierarki tingkatan pemerintahan di Indonesia yang tepat adalah...",
+        "question": "Wilayah pesisir Kabupaten Tuban memiliki potensi perikanan dan maritim yang sangat besar karena membentang di sepanjang pantai utara Laut Jawa dengan panjang garis pantai sekitar...",
         "options": [
-            "Pemerintah Pusat - Pemerintah Provinsi - Pemerintah Kabupaten/Kota - Kecamatan - Desa/Kelurahan",
-            "Pemerintah Pusat - Pemerintah Kabupaten - Pemerintah Provinsi - Desa - Kecamatan",
-            "Pemerintah Daerah - Pemerintah Dusun - Pemerintah Rukun Warga - Pemerintah Rukun Tetangga",
-            "Pemerintah Negara - Pemerintah Federal - Pemerintah Wilayah - Pemerintah Suku"
+            "65 kilometer",
+            "15 kilometer",
+            "150 kilometer",
+            "300 kilometer"
         ],
         "answer": 0,
-        "explanation": "Susunan pemerintahan daerah di NKRI berjenjang dari Pusat -> Provinsi -> Kabupaten/Kota -> Kecamatan -> Desa/Kelurahan.",
-        "source": "UU No. 23 Tahun 2014 tentang Pemerintahan Daerah",
+        "explanation": "Kabupaten Tuban memiliki garis pantai sepanjang kurang lebih 65 km yang membentang dari Kecamatan Bancar di sebelah barat hingga Kecamatan Palang di sebelah timur, menjadikannya salah satu daerah pesisir strategis di Jawa Timur.",
+        "source": "Dinas Kelautan dan Perikanan Kabupaten Tuban",
         "sourceType": "umum"
     },
     {
@@ -1689,16 +1689,16 @@ QUESTIONS = [
         "number": 97,
         "category": "Pengetahuan umum",
         "difficulty": "mudah",
-        "question": "Jumlah bulu pada lambang negara Garuda Pancasila melambangkan hari kemerdekaan Indonesia (17 Agustus 1945). Manakah rincian jumlah bulu yang benar?",
+        "question": "Salah satu komoditas perkebunan ikonik dan khas dari Kabupaten Tuban yang menghasilkan minuman tradisional legen dan gula merah cetak adalah...",
         "options": [
-            "17 helai bulu sayap, 8 helai bulu ekor, 19 helai di bawah perisai/pangkal ekor, dan 45 helai bulu leher",
-            "17 helai bulu leher, 8 helai bulu sayap, 19 helai bulu ekor, dan 45 helai bulu kaki",
-            "45 helai bulu sayap, 19 helai bulu ekor, 17 helai bulu leher, dan 8 helai bulu cakar",
-            "8 helai bulu leher, 17 helai bulu sayap, 45 helai bulu ekor, dan 19 helai bulu kepala"
+            "Pohon Siwalan (Lontar)",
+            "Pohon Karet",
+            "Pohon Kelapa Sawit",
+            "Pohon Cengkeh"
         ],
         "answer": 0,
-        "explanation": "Sesuai UU No. 24 Tahun 2009, lambang Garuda Pancasila memiliki: 17 helai bulu pada masing-masing sayap, 8 helai bulu pada ekor, 19 helai bulu di bawah perisai/pangkal ekor, dan 45 helai bulu di leher.",
-        "source": "UU No. 24 Tahun 2009 tentang Lambang Negara",
+        "explanation": "Pohon Siwalan (Lontar) adalah tanaman khas yang tumbuh subur di wilayah pesisir dan perbukitan kapur Kabupaten Tuban. Nira pohon siwalan diolah menjadi minuman khas legen serta gula merah siwalan.",
+        "source": "Dinas Pertanian dan Ketahanan Pangan Kabupaten Tuban",
         "sourceType": "umum"
     },
 
@@ -1710,16 +1710,16 @@ QUESTIONS = [
         "number": 98,
         "category": "Komputer dasar dan pelayanan publik",
         "difficulty": "mudah",
-        "question": "Dalam pengelolaan tabel data penduduk desa menggunakan program Microsoft Excel, rumus fungsi yang digunakan untuk menghitung jumlah total angka pada suatu kolom (misal menjumlahkan total penerima beras dari sel B2 sampai B25) adalah...",
+        "question": "Perangkat keras (hardware) komputer yang berfungsi sebagai 'otak' pemroses utama instruksi program, perhitungan aritmetika, dan pengendalian sistem komputer adalah...",
         "options": [
-            "=SUM(B2:B25)",
-            "=AVERAGE(B2:B25)",
-            "=COUNT(B2:B25)",
-            "=MAX(B2:B25)"
+            "CPU (Central Processing Unit / Processor)",
+            "Monitor",
+            "Keyboard",
+            "Power Supply Unit"
         ],
         "answer": 0,
-        "explanation": "Fungsi `=SUM(...)` pada Microsoft Excel / aplikasi spreadsheet digunakan khusus untuk menjumlahkan seluruh nilai angka dalam rentang sel yang ditentukan.",
-        "source": "Kompetensi Praktik Komputer / Microsoft Excel Dasar",
+        "explanation": "CPU (Central Processing Unit) atau Prosesor adalah unit pemroses utama yang berfungsi mengeksekusi instruksi data dan mengendalikan jalannya seluruh perangkat komputer.",
+        "source": "Kompetensi Dasar TIK & Sistem Komputer; Standar SKKNI Operator Komputer",
         "sourceType": "teknologi"
     },
     {

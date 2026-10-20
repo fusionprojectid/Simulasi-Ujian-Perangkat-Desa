@@ -25,17 +25,17 @@ QUESTIONS_301_400 = [
   {
     "id": 301,
     "category": "Pemerintahan desa, struktur organisasi, tugas dan fungsi perangkat desa",
-    "difficulty": "mudah",
-    "question": "Berdasarkan Undang-Undang No. 3 Tahun 2024 tentang Perubahan Kedua atas UU No. 6 Tahun 2014, berapa lamakah masa jabatan Kepala Desa dalam satu periode?",
+    "difficulty": "sedang",
+    "question": "Berdasarkan Undang-Undang Nomor 3 Tahun 2024 Pasal 26 ayat (3) dan Pasal 50A, Kepala Desa dan Perangkat Desa berhak menerima jaminan sosial dan tunjangan purnatugas, yang meliputi...",
     "options": [
-      "5 tahun terhitung sejak tanggal pelantikan",
-      "6 tahun terhitung sejak tanggal pelantikan",
-      "8 tahun terhitung sejak tanggal pelantikan",
-      "9 tahun terhitung sejak tanggal pelantikan"
+      "Jaminan kesehatan, ketenagakerjaan, dan tunjangan purnatugas 1 kali di akhir masa jabatan sesuai kemampuan keuangan desa",
+      "Gaji pensiun bulanan seumur hidup dari APBN setara PNS pusat",
+      "Kepemilikan permanen tanah kas desa/bengkok tanpa batas waktu",
+      "Bebas dari segala kewajiban hukum pajak dan retribusi daerah"
     ],
-    "answer": 2,
-    "explanation": "UU No. 3 Tahun 2024 Pasal 39 ayat (1) menegaskan bahwa Kepala Desa memegang jabatan selama 8 (delapan) tahun terhitung sejak tanggal pelantikan dan dapat menjabat paling banyak 2 (dua) kali masa jabatan secara berturut-turut atau tidak secara berturut-turut.",
-    "source": "UU No. 3 Tahun 2024 Pasal 39 ayat (1)"
+    "answer": 0,
+    "explanation": "UU No. 3 Tahun 2024 secara tegas memperkuat hak Kepala Desa dan Perangkat Desa untuk memperoleh jaminan kesehatan, jaminan ketenagakerjaan, tunjangan purnatugas 1 (satu) kali di akhir masa pengabdian, serta perlindungan hukum kedinasan.",
+    "source": "UU No. 3 Tahun 2024 Pasal 26 ayat (3) dan Pasal 50A"
   },
   {
     "id": 302,
@@ -131,16 +131,16 @@ QUESTIONS_301_400 = [
     "id": 308,
     "category": "Pemerintahan desa, struktur organisasi, tugas dan fungsi perangkat desa",
     "difficulty": "mudah",
-    "question": "Berdasarkan PP No. 11 Tahun 2019, besaran penghasilan tetap (Siltap) Sekretaris Desa per bulan paling sedikit adalah...",
+    "question": "Berdasarkan Peraturan Pemerintah (PP) Nomor 11 Tahun 2019, sumber utama pendanaan yang digunakan untuk membayar Penghasilan Tetap (Siltap) dan tunjangan Kepala Desa serta Perangkat Desa dianggarkan dalam APB Desa yang bersumber dari...",
     "options": [
-      "100% dari gaji pokok PNS Golongan II/a",
-      "110% dari gaji pokok PNS Golongan II/a",
-      "120% dari gaji pokok PNS Golongan II/a",
-      "125% dari gaji pokok PNS Golongan II/a"
+      "Alokasi Dana Desa (ADD) yang bersumber dari APBD Kabupaten",
+      "Dana Desa (DD) yang bersumber dari APBN",
+      "Iuran swadaya wajib masyarakat dusun",
+      "Pendapatan dari denda penertiban ternak warga"
     ],
-    "answer": 1,
-    "explanation": "PP No. 11 Tahun 2019 Pasal 81 ayat (2) huruf b menetapkan besaran penghasilan tetap Sekretaris Desa paling sedikit Rp2.224.420,00 setara 110% dari gaji pokok PNS golongan ruang II/a.",
-    "source": "PP No. 11 Tahun 2019 Pasal 81 ayat (2) huruf b"
+    "answer": 0,
+    "explanation": "PP No. 11 Tahun 2019 Pasal 81 ayat (1) menegaskan bahwa penghasilan tetap Kepala Desa, Sekretaris Desa, dan Perangkat Desa lainnya dianggarkan dalam APB Desa yang bersumber dari Alokasi Dana Desa (ADD).",
+    "source": "PP No. 11 Tahun 2019 Pasal 81 ayat (1)"
   },
   {
     "id": 309,
@@ -161,16 +161,16 @@ QUESTIONS_301_400 = [
     "id": 310,
     "category": "Pemerintahan desa, struktur organisasi, tugas dan fungsi perangkat desa",
     "difficulty": "sedang",
-    "question": "Kaur Keuangan dalam struktur Pemerintah Desa memiliki peran penting dalam pengelolaan keuangan desa, yaitu bertindak sebagai...",
+    "question": "Dalam tata kelola penatausahaan keuangan desa, Kaur Keuangan (Bendahara Desa) dilarang mencairkan atau membayarkan uang belanja APB Desa apabila...",
     "options": [
-      "Pemegang Kekuasaan Pengelolaan Keuangan Desa (PKPKD)",
-      "Koordinator Pengelola Keuangan Desa",
-      "Bendahara Desa",
-      "Auditor Internal Desa"
+      "Dokumen transaksi belum diverifikasi oleh Sekretaris Desa dan belum disetujui melalui SPP sah oleh Kepala Desa",
+      "Penerima pembayaran belum menjadi nasabah bank swasta nasional",
+      "Warga dusun belum menghadiri musyawarah khusus",
+      "Kepala BPD sedang tidak berada di kantor balai desa"
     ],
-    "answer": 2,
-    "explanation": "Permendagri No. 20 Tahun 2018 Pasal 7 mengatur bahwa Kaur Keuangan melaksanakan fungsi kebendaharaan dan bertindak sebagai Bendahara Desa yang mengelola rekening kas desa dan penatausahaan bukti kas.",
-    "source": "Permendagri No. 20 Tahun 2018 Pasal 7"
+    "answer": 0,
+    "explanation": "Permendagri No. 20 Tahun 2018 Pasal 51 dan 54 menegaskan bahwa Bendahara Desa hanya dapat membayarkan belanja atas dasar Surat Permintaan Pembayaran (SPP) sah yang telah diverifikasi kelengkapannya oleh Sekretaris Desa dan disetujui Kepala Desa.",
+    "source": "Permendagri No. 20 Tahun 2018 Pasal 51 dan 54"
   },
   {
     "id": 311,
@@ -345,31 +345,31 @@ QUESTIONS_301_400 = [
     "id": 322,
     "category": "Peraturan perundang-undangan dan tata kelola pemerintahan",
     "difficulty": "sedang",
-    "question": "Bagaimanakah status kekuatan hukum Peraturan Desa (Perdes) menurut ketentuan Undang-Undang No. 12 Tahun 2011 Pasal 8?",
+    "question": "Berdasarkan Undang-Undang Nomor 12 Tahun 2011 Pasal 15, materi muatan tentang ketentuan sanksi pidana (kurungan atau denda) hanya dapat dimuat dalam peraturan perundang-undangan tingkat...",
     "options": [
-      "Tidak memiliki kekuatan hukum karena tidak tercantum dalam Pasal 7 ayat (1)",
-      "Diakui keberadaannya dan memiliki kekuatan hukum mengikat sepanjang diperintahkan peraturan yang lebih tinggi atau dibentuk berdasarkan kewenangan",
-      "Hanya mengikat aparatur desa dan tidak mengikat seluruh warga desa",
-      "Hanya berlaku sebagai norma kesepakatan adat tanpa sanksi formal"
+      "Undang-Undang, Peraturan Daerah Provinsi, dan Peraturan Daerah Kabupaten/Kota",
+      "Peraturan Desa dan Peraturan Kepala Desa",
+      "Peraturan Menteri dan Keputusan Camat",
+      "Semua tingkatan produk hukum tanpa terkecuali"
     ],
-    "answer": 1,
-    "explanation": "UU No. 12 Tahun 2011 Pasal 8 ayat (1) dan (2) menegaskan bahwa jenis peraturan perundang-undangan selain dalam Pasal 7 (termasuk Perdes) diakui keberadaannya dan berkekuatan hukum mengikat sepanjang diperintahkan oleh peraturan yang lebih tinggi atau dibentuk berdasarkan kewenangan.",
-    "source": "UU No. 12 Tahun 2011 Pasal 8"
+    "answer": 0,
+    "explanation": "Pasal 15 UU No. 12 Tahun 2011 menegaskan materi muatan mengenai sanksi pidana hanya boleh dimuat dalam Undang-Undang dan Peraturan Daerah (Provinsi/Kabupaten/Kota). Perdes dilarang memuat sanksi pidana kurungan.",
+    "source": "UU No. 12 Tahun 2011 Pasal 15"
   },
   {
     "id": 323,
     "category": "Peraturan perundang-undangan dan tata kelola pemerintahan",
     "difficulty": "sedang",
-    "question": "Berdasarkan Permendagri No. 111 Tahun 2014, jenis peraturan resmi yang berlaku di tingkat pemerintahan desa terdiri atas...",
+    "question": "Berdasarkan Permendagri No. 111 Tahun 2014, Badan Permusyawaratan Desa (BPD) berhak mengajukan usulan Rancangan Peraturan Desa inisiatif, KECUALI terhadap rancangan perdes tentang...",
     "options": [
-      "Peraturan Desa, Peraturan Kepala Desa, dan Peraturan Bersama Kepala Desa",
-      "Peraturan Daerah, Peraturan Bupati, dan Keputusan Camat",
-      "Peraturan Desa, Petunjuk Teknis Desa, dan Peraturan Dusun",
-      "Undang-Undang Desa, Tata Tertib Desa, dan Piagam Kerukunan Warga"
+      "Rancangan Perdes tentang RPJM Desa, RKP Desa, APB Desa, dan Laporan Pertanggungjawaban Realisasi APB Desa",
+      "Rancangan Perdes tentang Pelestarian Sumber Air Desa",
+      "Rancangan Perdes tentang Pengelolaan Sampah Dusun",
+      "Rancangan Perdes tentang Penertiban Hewan Liar"
     ],
     "answer": 0,
-    "explanation": "Permendagri No. 111 Tahun 2014 Pasal 2 mengatur bahwa jenis peraturan di desa terdiri atas: a. Peraturan Desa (Perdes), b. Peraturan Kepala Desa (Perkades), dan c. Peraturan Bersama Kepala Desa (Permakades).",
-    "source": "Permendagri No. 111 Tahun 2014 Pasal 2"
+    "explanation": "Permendagri No. 111 Tahun 2014 Pasal 8 mengatur BPD berhak mengusulkan rancangan Perdes, kecuali untuk rancangan RPJM Desa, RKP Desa, APB Desa, dan LPJ Realisasi APB Desa yang merupakan wewenang mutlak Pemerintah Desa.",
+    "source": "Permendagri No. 111 Tahun 2014 Pasal 8"
   },
   {
     "id": 324,
@@ -390,16 +390,16 @@ QUESTIONS_301_400 = [
     "id": 325,
     "category": "Peraturan perundang-undangan dan tata kelola pemerintahan",
     "difficulty": "mudah",
-    "question": "Media publikasi resmi pemerintah desa yang digunakan untuk mengundangkan Peraturan Kepala Desa (Perkades) dan Peraturan Bersama Kepala Desa adalah...",
+    "question": "Peraturan Kepala Desa (Perkades) yang bersifat pengaturan teknis operasional mulai berlaku sah dan memiliki kekuatan hukum mengikat sejak...",
     "options": [
-      "Berita Desa",
-      "Lembaran Desa",
-      "Warta Mingguan Desa",
-      "Buku Catatan Sekretaris Desa"
+      "Tanggal diundangkannya dalam Berita Desa oleh Sekretaris Desa",
+      "Tanggal diucapkannya pidato oleh Kepala Desa di balai desa",
+      "Tanggal disetujuinya oleh rapat keluarga Kepala Desa",
+      "Tiga tahun setelah tanggal penetapan"
     ],
     "answer": 0,
-    "explanation": "Permendagri No. 111 Tahun 2014 Pasal 23 mengatur bahwa Peraturan Kepala Desa dan Peraturan Bersama Kepala Desa diundangkan dalam Berita Desa oleh Sekretaris Desa.",
-    "source": "Permendagri No. 111 Tahun 2014 Pasal 23"
+    "explanation": "Permendagri No. 111 Tahun 2014 Pasal 24 ayat (2) menyatakan bahwa Peraturan Kepala Desa mulai berlaku dan mempunyai kekuatan hukum mengikat sejak tanggal diundangkan dalam Berita Desa oleh Sekretaris Desa.",
+    "source": "Permendagri No. 111 Tahun 2014 Pasal 24"
   },
   {
     "id": 326,
@@ -435,16 +435,16 @@ QUESTIONS_301_400 = [
     "id": 328,
     "category": "Peraturan perundang-undangan dan tata kelola pemerintahan",
     "difficulty": "sulit",
-    "question": "Rancangan Peraturan Desa manakah yang wajib dievaluasi oleh Bupati/Walikota melalui Camat sebelum ditetapkan menjadi Perdes?",
+    "question": "Berdasarkan Permendagri No. 111 Tahun 2014 dan Permendagri No. 20 Tahun 2018, hasil evaluasi Camat atas Rancangan Peraturan Desa tentang APB Desa wajib disampaikan kepada Kepala Desa paling lambat...",
     "options": [
-      "Rancangan Perdes tentang Kebersihan Dusun dan Penertiban Ternak",
-      "Rancangan Perdes tentang APB Desa, Pungutan Desa, Tata Ruang, dan Susunan Organisasi Pemerintah Desa",
-      "Rancangan Perdes tentang Pembentukan Karang Taruna",
-      "Rancangan Perdes tentang Jam Belajar Malam Siswa"
+      "20 (dua puluh) hari kerja sejak diterimanya rancangan peraturan desa oleh Camat",
+      "3 hari kerja sejak pengajuan",
+      "60 hari kalender tanpa batasan",
+      "6 bulan setelah tahun anggaran dimulai"
     ],
-    "answer": 1,
-    "explanation": "UU No. 6 Tahun 2014 Pasal 69 ayat (4) menyatakan bahwa rancangan Peraturan Desa tentang APB Desa, pungutan, tata ruang, dan organisasi Pemerintah Desa harus mendapatkan evaluasi Bupati/Walikota sebelum ditetapkan.",
-    "source": "UU No. 6 Tahun 2014 Pasal 69 ayat (4)"
+    "answer": 0,
+    "explanation": "Permendagri No. 20 Tahun 2018 Pasal 38 ayat (2) menetapkan bahwa evaluasi rancangan Perdes APB Desa oleh bupati/camat dilakukan paling lama 20 (dua puluh) hari kerja sejak diterima.",
+    "source": "Permendagri No. 111 Tahun 2014 Pasal 13 jo. Permendagri No. 20 Tahun 2018 Pasal 38"
   },
   {
     "id": 329,
@@ -683,16 +683,16 @@ QUESTIONS_301_400 = [
     "id": 344,
     "category": "Administrasi pemerintahan, surat-menyurat, dan pengarsipan",
     "difficulty": "mudah",
-    "question": "Buku yang digunakan sebagai tanda bukti penerimaan pengiriman surat dinas desa kepada pihak lain disebut...",
+    "question": "Dalam tata persuratan desa, buku administrasi umum yang digunakan untuk mencatat seluruh surat dinas yang diterima oleh pemerintah desa secara kronologis disebut...",
     "options": [
-      "Buku Notula Rapat",
-      "Buku Ekspedisi",
-      "Buku Lembaran Desa",
-      "Buku Rencana Anggaran"
+      "Buku Agenda Surat Masuk",
+      "Buku Notula Musyawarah",
+      "Buku Kas Pembantu Bank",
+      "Buku Tamu Umum"
     ],
-    "answer": 1,
-    "explanation": "Buku Ekspedisi berfungsi mencatat pengiriman surat dinas serta memuat kolom tanda tangan penerima surat sebagai tanda bukti fisik penerimaan.",
-    "source": "Permendagri No. 47 Tahun 2016"
+    "answer": 0,
+    "explanation": "Buku Agenda Surat Masuk mencatat nomor urut, tanggal penerimaan, tanggal dan nomor surat masuk, instansi pengirim, perihal/isi ringkas surat, dan disposisi tindak lanjut.",
+    "source": "Permendagri No. 47 Tahun 2016 tentang Administrasi Pemerintahan Desa"
   },
   {
     "id": 345,
@@ -897,16 +897,16 @@ QUESTIONS_301_400 = [
     "id": 358,
     "category": "Keuangan desa, APB Desa, dan aset desa",
     "difficulty": "sedang",
-    "question": "Sisa Lebih Pembiayaan Anggaran (SiLPA) tahun anggaran sebelumnya dalam APB Desa tahun berjalan dicatatkan pada pos...",
+    "question": "Dalam struktur APB Desa, apabila total estimasi belanja desa lebih besar daripada total estimasi pendapatan desa, maka kondisi anggaran tersebut mengalami...",
     "options": [
-      "Pendapatan Asli Desa (PADes)",
-      "Pendapatan Transfer",
-      "Penerimaan Pembiayaan",
-      "Belanja Tak Terduga"
+      "Defisit anggaran, yang ditutup melalui pos Penerimaan Pembiayaan",
+      "Surplus anggaran, yang dibagikan tunai kepada warga desa",
+      "Keseimbangan mutlak tanpa sisa",
+      "Kebangkrutan administrasi desa"
     ],
-    "answer": 2,
-    "explanation": "Permendagri No. 20 Tahun 2018 mengatur bahwa SiLPA tahun sebelumnya dicatat pada pos Penerimaan Pembiayaan dalam struktur APB Desa tahun berjalan.",
-    "source": "Permendagri No. 20 Tahun 2018 Pasal 27"
+    "answer": 0,
+    "explanation": "Permendagri No. 20 Tahun 2018 Pasal 13 mengatur bahwa selisih antara Pendapatan Desa dan Belanja Desa menghasilkan surplus atau defisit. Bila belanja lebih besar daripada pendapatan maka terjadi defisit, yang ditutup melalui pos Penerimaan Pembiayaan (misal SiLPA tahun sebelumnya).",
+    "source": "Permendagri No. 20 Tahun 2018 Pasal 13 dan 26"
   },
   {
     "id": 359,
@@ -941,17 +941,17 @@ QUESTIONS_301_400 = [
   {
     "id": 361,
     "category": "Keuangan desa, APB Desa, dan aset desa",
-    "difficulty": "mudah",
-    "question": "Aplikasi komputer resmi yang dikembangkan oleh BPKP dan Kemendagri untuk memudahkan tata kelola dan penatausahaan keuangan desa secara terstandar adalah...",
+    "difficulty": "sedang",
+    "question": "Berdasarkan Permendagri No. 20 Tahun 2018, Surat Permintaan Pembayaran (SPP) yang diajukan oleh Pelaksana Kegiatan Anggaran untuk memperoleh uang muka kerja guna mendanai kegiatan operasional lapangan dinamakan...",
     "options": [
-      "SIPD (Sistem Informasi Pembangunan Daerah)",
-      "Siskeudes (Sistem Keuangan Desa)",
-      "Sipades (Sistem Pengelolaan Aset Desa)",
-      "Prodeskel (Profil Desa dan Kelurahan)"
+      "SPP Panjar (Uang Muka)",
+      "SPP Definitif",
+      "Surat Kuasa Khusus",
+      "Kuitansi Pelunasan Total"
     ],
-    "answer": 1,
-    "explanation": "Siskeudes (Sistem Keuangan Desa) adalah aplikasi resmi BPKP dan Kemendagri untuk perencanaan, penganggaran, penatausahaan, dan pelaporan APB Desa.",
-    "source": "Instruksi Bersama BPKP dan Kemendagri tentang Siskeudes"
+    "answer": 0,
+    "explanation": "Permendagri No. 20 Tahun 2018 Pasal 51 ayat (2) menyebutkan jenis pengajuan SPP terdiri atas SPP Panjar (uang muka kerja yang dipertanggungjawabkan kemudian) dan SPP Definitif (setelah pekerjaan/barang diterima).",
+    "source": "Permendagri No. 20 Tahun 2018 Pasal 51"
   },
   {
     "id": 362,
@@ -1006,31 +1006,31 @@ QUESTIONS_301_400 = [
     "id": 365,
     "category": "Pembangunan desa, perencanaan, dan pemberdayaan masyarakat",
     "difficulty": "sedang",
-    "question": "Siapakah yang bertindak selaku Ketua Tim Penyusun Rencana Kerja Pemerintah Desa (RKP Desa)?",
+    "question": "Berdasarkan Permendesa PDTT No. 21 Tahun 2020, Tim Penyusun Rencana Kerja Pemerintah Desa (RKP Desa) dibentuk dengan jumlah anggota berjumlah...",
     "options": [
-      "Kepala Desa",
-      "Sekretaris Desa",
-      "Ketua BPD",
-      "Kepala Seksi Pembangunan"
+      "Paling sedikit 7 orang dan paling banyak 11 orang, dengan mengikutsertakan perempuan paling sedikit 30%",
+      "Hanya 3 orang staf kantor desa",
+      "Tepat 25 orang perwakilan setiap RT",
+      "Seluruh warga desa yang hadir musdes"
     ],
-    "answer": 1,
-    "explanation": "Permendesa No. 21 Tahun 2020 Pasal 35 menyebutkan Tim Penyusun RKP Desa dibentuk oleh Kepala Desa dengan susunan Pembina: Kades, Ketua: Sekdes, Sekretaris: Kaur Perencanaan, dan anggota dari perangkat desa/kader/masyarakat.",
+    "answer": 0,
+    "explanation": "Permendesa PDTT No. 21 Tahun 2020 Pasal 35 ayat (3) menetapkan Tim Penyusun RKP Desa berjumlah ganjil paling sedikit 7 orang dan paling banyak 11 orang dengan keterwakilan perempuan minimal 30%.",
     "source": "Permendesa PDTT No. 21 Tahun 2020 Pasal 35"
   },
   {
     "id": 366,
     "category": "Pembangunan desa, perencanaan, dan pemberdayaan masyarakat",
     "difficulty": "sedang",
-    "question": "Daftar Usulan RKP Desa (DU-RKP Desa) adalah dokumen yang memuat usulan program kegiatan pembangunan desa yang akan diajukan ke...",
+    "question": "Peraturan Desa tentang Rencana Kerja Pemerintah Desa (Perdes RKP Desa) untuk tahun anggaran berikutnya wajib disepakati dan ditetapkan bersama oleh Kepala Desa dan BPD paling lambat pada...",
     "options": [
-      "Musyawarah Perencanaan Pembangunan Kecamatan (Musrenbangcam) untuk dibiayai APBD Kabupaten/Provinsi/APBN",
-      "Rapat pengurus arisan dusun",
-      "Lembaga donor internasional secara mandiri",
-      "Pasar lelang komoditas desa"
+      "Tanggal 30 September tahun anggaran berjalan",
+      "Tanggal 31 Desember tahun anggaran berjalan",
+      "Bulan Januari tahun berkenaan",
+      "Bulan Juni tahun berjalan"
     ],
     "answer": 0,
-    "explanation": "DU-RKP Desa adalah daftar usulan prioritas program desa yang tidak mampu dibiayai oleh APB Desa untuk dibawa ke Musrenbang tingkat kecamatan agar didanai APBD.",
-    "source": "Permendesa PDTT No. 21 Tahun 2020 Pasal 44"
+    "explanation": "Permendesa PDTT No. 21 Tahun 2020 Pasal 43 ayat (1) menegaskan bahwa RKP Desa ditetapkan dengan Peraturan Desa paling lambat akhir bulan September tahun berjalan.",
+    "source": "Permendesa PDTT No. 21 Tahun 2020 Pasal 43"
   },
   {
     "id": 367,
@@ -1115,15 +1115,15 @@ QUESTIONS_301_400 = [
     "id": 372,
     "category": "BPD, kelembagaan desa, dan musyawarah",
     "difficulty": "sedang",
-    "question": "Berdasarkan Undang-Undang No. 3 Tahun 2024, berapakah masa keanggotaan Badan Permusyawaratan Desa (BPD) dalam satu periode?",
+    "question": "Berdasarkan Undang-Undang Nomor 3 Tahun 2024 tentang Desa, anggota Badan Permusyawaratan Desa (BPD) dapat memegang masa keanggotaan paling banyak...",
     "options": [
-      "5 tahun sejak pengucapan sumpah/janji",
-      "6 tahun sejak pengucapan sumpah/janji",
-      "8 tahun sejak pengucapan sumpah/janji",
-      "9 tahun sejak pengucapan sumpah/janji"
+      "2 (dua) kali masa keanggotaan secara berturut-turut atau tidak secara berturut-turut (total maksimal 16 tahun)",
+      "3 kali masa jabatan berturut-turut",
+      "1 kali periode saja tanpa hak dipilih kembali",
+      "Seumur hidup tanpa batas periode"
     ],
-    "answer": 2,
-    "explanation": "UU No. 3 Tahun 2024 Pasal 56 ayat (2) menyelaraskan masa jabatan anggota BPD menjadi 8 (delapan) tahun terhitung sejak tanggal pengucapan sumpah/janji dan dapat dipilih maksimal 2 kali masa jabatan.",
+    "answer": 0,
+    "explanation": "UU No. 3 Tahun 2024 Pasal 56 ayat (2) menyatakan anggota BPD memegang jabatan selama 8 tahun dan dapat dipilih paling banyak 2 (dua) kali masa jabatan secara berturut-turut atau tidak secara berturut-turut.",
     "source": "UU No. 3 Tahun 2024 Pasal 56 ayat (2)"
   },
   {
@@ -1333,16 +1333,16 @@ QUESTIONS_301_400 = [
     "id": 386,
     "category": "Matematika dan numerik",
     "difficulty": "sedang",
-    "question": "Pembangunan rabat beton jalan desa dapat diselesaikan oleh 12 orang pekerja dalam waktu 20 hari. Jika pekerjaan tersebut ditargetkan selesai dalam 15 hari, berapa jumlah pekerja yang dibutuhkan seluruhnya?",
+    "question": "Pemerintah Desa mengalokasikan anggaran pembangunan pos kesehatan desa sebesar Rp40.000.000,00. Dari total anggaran tersebut, 60% dialokasikan untuk belanja material bangunan, 30% untuk upah tenaga kerja lokal, dan sisanya untuk biaya operasional Tim Pelaksana Kegiatan (TPK). Berapakah nominal anggaran untuk operasional TPK?",
     "options": [
-      "14 orang",
-      "16 orang",
-      "18 orang",
-      "20 orang"
+      "Rp4.000.000,00",
+      "Rp6.000.000,00",
+      "Rp8.000.000,00",
+      "Rp10.000.000,00"
     ],
-    "answer": 1,
-    "explanation": "Perbandingan berbalik nilai: (12 pekerja x 20 hari) / 15 hari = 240 / 15 = 16 orang pekerja.",
-    "source": "Aritmetika Perbandingan Berbalik Nilai"
+    "answer": 0,
+    "explanation": "Persentase operasional TPK = 100% - (60% + 30%) = 10%. Nominal operasional TPK = 10% x Rp40.000.000,00 = Rp4.000.000,00.",
+    "source": "Matematika Keuangan APB Desa / Perhitungan Anggaran Biaya"
   },
   {
     "id": 387,
@@ -1460,32 +1460,32 @@ QUESTIONS_301_400 = [
   {
     "id": 394,
     "category": "Pengetahuan umum",
-    "difficulty": "mudah",
-    "question": "Hari Jadi Kabupaten Tuban diperingati setiap tanggal 12 November mengacu pada peristiwa bersejarah...",
+    "difficulty": "sedang",
+    "question": "Pada masa keemasan Kerajaan Singasari dan Majapahit abad ke-13 hingga ke-15, wilayah Kabupaten Tuban memegang peranan sangat penting dalam percaturan ekonomi Nusantara sebagai...",
     "options": [
-      "Peresmian Pelabuhan Tuban oleh Pemerintah Kolonial",
-      "Pelantikan Raden Haryo Ronggolawe sebagai Adipati Tuban pertama pada 12 November 1293",
-      "Kunjungan Presiden Soekarno ke Tuban",
-      "Berdirinya Pabrik Semen Indonesia di Tuban"
+      "Bandar pelabuhan niaga maritim internasional utama tempat bersandarnya kapal dagang mancanegara (Tiongkok, Arab, dan Gujarat)",
+      "Pusat penempaan senjata keris utama kerajaan di pedalaman",
+      "Lumbung padi utama pegunungan kapur",
+      "Pusat pemerintahan istana Majapahit"
     ],
-    "answer": 1,
-    "explanation": "Hari Jadi Kabupaten Tuban ditetapkan tanggal 12 November 1293 berdasarkan pelantikan Raden Haryo Ronggolawe sebagai Adipati Tuban pertama oleh Raden Wijaya Raja Majapahit.",
-    "source": "Sejarah Resmi Hari Jadi Kabupaten Tuban"
+    "answer": 0,
+    "explanation": "Tuban merupakan pelabuhan utama Kerajaan Majapahit (kambang putih) di pesisir utara Jawa Timur, menjadi pintu gerbang perdagangan maritim internasional rempah-rempah dan keramik sutra.",
+    "source": "Sejarah Maritim Nusantara; Ensiklopedia Sejarah Tuban"
   },
   {
     "id": 395,
     "category": "Pengetahuan umum",
     "difficulty": "mudah",
-    "question": "Makam tokoh Wali Songo penyebar agama Islam yang terkenal dengan tembang 'Tombo Ati' dan dakwah menggunakan gamelan Bonang terletak di pusat Kabupaten Tuban, yaitu makam...",
+    "question": "Kawasan perbukitan kapur (karst) di wilayah barat Kabupaten Tuban menjadi lokasi beroperasinya salah satu industri manufaktur strategis nasional terbesar di Indonesia, yaitu...",
     "options": [
-      "Sunan Giri",
-      "Sunan Bonang (Raden Makhdum Ibrahim)",
-      "Sunan Drajat",
-      "Sunan Kalijaga"
+      "Industri Pabrik Semen (PT Semen Indonesia / SIG Pabrik Tuban)",
+      "Pabrik Peleburan Timah",
+      "Pabrik Kertas Tisu",
+      "Kawasan Industri Perakitan Pesawat Terbang"
     ],
-    "answer": 1,
-    "explanation": "Sunan Bonang (Raden Makhdum Ibrahim), putra Sunan Ampel, dimakamkan di Kelurahan Kutorejo di sebelah barat Masjid Agung Tuban.",
-    "source": "Sejarah Wali Songo & Pariwisata Religi Tuban"
+    "answer": 0,
+    "explanation": "Kabupaten Tuban memiliki deposit batu gamping/kapur melimpah yang menopang kompleks industri pabrik semen PT Semen Indonesia (Persero) Tbk di wilayah Kerek dan Merakurak.",
+    "source": "Dinas Perindustrian dan Perdagangan Kabupaten Tuban"
   },
   {
     "id": 396,
@@ -1506,16 +1506,16 @@ QUESTIONS_301_400 = [
     "id": 397,
     "category": "Pengetahuan umum",
     "difficulty": "sedang",
-    "question": "Semboyan 'Bhinneka Tunggal Ika' pada lambang negara Garuda Pancasila dikutip dari karya sastra zaman Majapahit, yaitu Kitab Sutasoma yang dikarang oleh...",
+    "question": "Salah satu hidangan kuliner tradisional khas pesisir dan pedesaan Kabupaten Tuban yang terkenal bercita rasa sangat pedas dan menggunakan kuah santan bumbu rempah kuning adalah...",
     "options": [
-      "Mpu Prapanca",
-      "Mpu Tantular",
-      "Mpu Sedah",
-      "Mpu Panuluh"
+      "Rajungan Pedas dan Becek Mentok khas Tuban",
+      "Rawon Daging Surabaya",
+      "Gudeg Nangka Manis",
+      "Rujak Cingur Petis"
     ],
-    "answer": 1,
-    "explanation": "Frasa 'Bhinneka Tunggal Ika tan hana dharma mangrwa' berasal dari Kakawin Sutasoma karya Mpu Tantular pada era Kerajaan Majapahit abad ke-14.",
-    "source": "Sejarah Lambang Negara Republik Indonesia"
+    "answer": 0,
+    "explanation": "Rajungan Pedas dan Becek Mentok adalah kuliner khas legendaris Kabupaten Tuban yang bercita rasa pedas gurih kaya rempah khas pesisir laut Jawa.",
+    "source": "Pariwisata dan Kuliner Khas Kabupaten Tuban"
   },
 
   # =========================================================================
@@ -1525,45 +1525,45 @@ QUESTIONS_301_400 = [
     "id": 398,
     "category": "Komputer dasar dan pelayanan publik",
     "difficulty": "mudah",
-    "question": "Pada aplikasi Microsoft Excel, fungsi rumus yang tepat untuk menjumlahkan angka secara otomatis pada rentang sel B4 sampai B20 adalah...",
+    "question": "Ketika staf pelayanan desa sedang mengetik dokumen dan tiba-tiba aplikasi pengolah kata macet/membeku (keterangan 'Not Responding'), kombinasi tombol cepat untuk membuka Task Manager guna menutup paksa aplikasi yang macet adalah...",
     "options": [
-      "=AVERAGE(B4:B20)",
-      "=SUM(B4:B20)",
-      "=COUNT(B4:B20)",
-      "=TOTAL(B4:B20)"
+      "Ctrl + Shift + Esc (atau Ctrl + Alt + Del)",
+      "Ctrl + Alt + Tab",
+      "Alt + Shift + Enter",
+      "Windows + Spasi"
     ],
-    "answer": 1,
-    "explanation": "Fungsi =SUM() digunakan untuk menjumlahkan nilai numerik pada suatu rentang (range) sel dalam Microsoft Excel.",
-    "source": "Dasar Formula Microsoft Excel"
+    "answer": 0,
+    "explanation": "Kombinasi tombol `Ctrl + Shift + Esc` (atau `Ctrl + Alt + Del`) langsung membuka Windows Task Manager. Di Task Manager, pengguna dapat memilih aplikasi yang bermasalah lalu mengklik 'End Task' untuk menutup paksa aplikasi yang membeku tanpa harus merestart paksa komputer.",
+    "source": "Troubleshooting Sistem Operasi Windows & Perawatan Komputer Kantor"
   },
   {
     "id": 399,
     "category": "Komputer dasar dan pelayanan publik",
     "difficulty": "mudah",
-    "question": "Fitur pada Microsoft Word yang digunakan oleh staf desa untuk mencetak surat undangan atau surat keterangan warga secara massal dengan format sama tetapi data nama/alamat penerima berbeda adalah...",
+    "question": "Komponen perangkat keras komputer yang berfungsi sebagai memori penyimpanan data kerja sementara saat komputer menyala dan seluruh datanya akan hilang saat komputer dimatikan (bersifat volatile) adalah...",
     "options": [
-      "Mail Merge",
-      "Track Changes",
-      "WordArt",
-      "Page Break"
+      "RAM (Random Access Memory)",
+      "ROM (Read-Only Memory)",
+      "Harddisk Eksternal",
+      "Flashdisk"
     ],
     "answer": 0,
-    "explanation": "Mail Merge adalah fitur Microsoft Word untuk membuat surat massal yang terhubung dengan tabel data penerima di Excel atau Access.",
-    "source": "Panduan Aplikasi Perkantoran Microsoft Word"
+    "explanation": "RAM (Random Access Memory) adalah memori kerja sementara komputer berkecepatan tinggi yang menyimpan data dan instruksi yang sedang diproses oleh prosesor. Jika komputer mati, data dalam RAM otomatis hilang (volatile).",
+    "source": "Dasar Arsitektur Komputer & Perangkat Keras TIK"
   },
   {
     "id": 400,
     "category": "Komputer dasar dan pelayanan publik",
     "difficulty": "sedang",
-    "question": "Berdasarkan Undang-Undang No. 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP), tindakan aparatur desa yang memotret dan menyebarkan Kartu Tanda Penduduk (KTP) dan Kartu Keluarga (KK) warga ke grup media sosial terbuka tanpa persetujuan merupakan...",
+    "question": "Demi menjaga keamanan dan kerahasiaan data kependudukan warga di komputer pelayanan desa saat staf harus meninggalkan meja kerja sementara waktu, kombinasi tombol cepat pada keyboard untuk mengunci layar monitor seketika adalah...",
     "options": [
-      "Bentuk transparansi publik yang dianjurkan",
-      "Pelanggaran hukum terhadap pelindungan data pribadi warga",
-      "Metode verifikasi data yang sah",
-      "Inovasi pelayanan masyarakat digital"
+      "Windows + L",
+      "Windows + D",
+      "Alt + F4",
+      "Ctrl + Alt + P"
     ],
-    "answer": 1,
-    "explanation": "UU No. 27 Tahun 2022 Pasal 65 melarang setiap orang memperoleh, mengumpulkan, dan/atau menyebarluaskan data pribadi yang bukan miliknya tanpa hak dan persetujuan subjek data pribadi.",
-    "source": "UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi Pasal 65"
+    "answer": 0,
+    "explanation": "Kombinasi tombol `Windows + L` (Lock) berfungsi langsung mengunci komputer seketika sehingga siapa pun yang ingin menggunakan komputer harus memasukkan kata sandi (password) terlebih dahulu. Ini praktik keamanan standar saat meninggalkan meja kerja.",
+    "source": "Standar Keamanan Informasi & Pintasan Keyboard Windows"
   }
 ]
