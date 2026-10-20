@@ -1,0 +1,71 @@
+name: Optimasi CSS & Aset Web (Performance Optimizer)
+
+on:
+  push:
+    branches: ["main", "master"]
+    paths:
+      - "css/**"
+      - "js/**"
+      - "assets/**"
+      - "index.html"
+      - "index_standalone_bundle.html"
+      - "generator/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "optimize-assets"
+  cancel-in-progress: true
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Jalankan Optimasi CSS, JS, SVG, & HTML
+        run: |
+          echo "=========================================================="
+          echo "MULAI PROSES OPTIMASI CSS & ASET WEB LENGKAP"
+          echo "=========================================================="
+          python generator/optimize_assets.py
+
+      - name: Verifikasi Kualitas & Integritas Test Suite Pasca-Optimasi
+        run: |
+          echo "=========================================================="
+          echo "VERIFIKASI INTEGRITAS SETELAH OPTIMASI"
+          echo "=========================================================="
+          node test_suite.js
+          node test_full_audit.js
+          node test_cbt_engine_sim.js
+          node test_zero_repetition.js
+          echo "[OK] Seluruh 4 rangkaian tes berhasil 100%!"
+
+      - name: Commit & Push Aset yang Telah Dioptimasi
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "Tidak ada perubahan ukuran aset baru. Semua aset sudah dalam kondisi teroptimasi."
+          else
+            git commit -m "perf: optimasi CSS (style.min.css), JS, SVG, dan dokumen web [skip ci]"
+            git push origin HEAD:${{ github.ref_name }}
+            echo "SUKSES: Seluruh aset teroptimasi berhasil disimpan ke repositori!"
+          fi

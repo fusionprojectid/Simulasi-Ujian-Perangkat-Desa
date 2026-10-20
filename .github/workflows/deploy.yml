@@ -50,30 +50,42 @@ jobs:
       - name: Konfigurasi GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Bersihkan File .py, Duplikat, & File Non-Web di Luar Folder
+      - name: Setup Python untuk Optimasi
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Jalankan Pembersihan & Optimasi Aset Web (CSS, JS, SVG, HTML)
         run: |
-          echo "Membersihkan file non-web dan file di luar folder sebelum dipublikasikan..."
-          # 1. Hapus semua file .py yang berada di luar folder (root direktori)
+          echo "=========================================================="
+          echo "MENJALANKAN OPTIMASI ASET SEBELUM PUBLIKASI KE GITHUB PAGES"
+          echo "=========================================================="
+          python generator/optimize_assets.py
+
+      - name: Bersihkan File Generator, Skrip Lokal, & File Non-Web
+        run: |
+          echo "Membersihkan file generator internal dan file pengujian..."
+          # 1. Hapus semua file .py di root direktori
           rm -f ./*.py
 
-          # 2. Hapus file skrip internal & file pengujian yang berada di luar folder
+          # 2. Hapus file skrip internal & file pengujian yang berada di root
           rm -f ./sync_github.bat ./sync_github.ps1 ./test_*.js
 
-          # 3. Hapus folder generator python, dev_scratch, dan cache yang tidak ditampilkan di web
+          # 3. Hapus folder generator python, dev_scratch, dan cache
           rm -rf ./generator ./dev_scratch ./__pycache__ ./.pytest_cache
 
-          # 4. Jika ada file di luar folder yang sudah ada di dalam folder, hapus yang di luar folder
+          # 4. Hapus file root yang sudah ada di dalam folder assets/
           for file in *; do
             if [ -f "$file" ]; then
-              duplicate_match=$(find assets css js -type f -name "$file" -print -quit 2>/dev/null)
-              if [ -n "$duplicate_match" ]; then
-                echo "Menghapus file di luar folder karena sudah ada di dalam folder: $file (duplikat dari $duplicate_match)"
+              duplicate_match=$(find assets -type f -name "$file" -print -quit 2>/dev/null)
+              if [ -n "$duplicate_match" ] && [ "$file" != "favicon.svg" ]; then
+                echo "Menghapus duplikat root karena sudah ada di assets/: $file"
                 rm -f "$file"
               fi
             fi
           done
 
-          echo "=== Daftar Berkas Web Bersih Siap Unggah ==="
+          echo "=== Daftar Berkas Web Bersih & Teroptimasi Siap Deploy ==="
           ls -la
 
       - name: Unggah Aset Web CBT (index.html, css, js)
