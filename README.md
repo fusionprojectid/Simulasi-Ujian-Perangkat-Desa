@@ -133,10 +133,16 @@ Basis kode telah dipisahkan secara rapi dan modular ke dalam komponen HTML, CSS,
 │       ├── glossary.js           # Database 36 istilah resmi pemerintahan desa
 │       └── practical.js          # Master 10 butir tugas praktik komputer realistis (dua mode & rubrik)
 │
-├── build_index.py                # Script kompilasi/build otomatis Python untuk memvalidasi & menyinkronkan aset
+├── generator/                    # Modul generator & builder Python (terisolasi rapi)
+│   ├── build_index.py            # Script kompilasi/build otomatis Python untuk memvalidasi & menyinkronkan aset
+│   ├── merge_and_validate.py     # Assembler & validasi master pool 585 soal
+│   └── *.py                      # Modul data bank soal, template HTML, CSS, dan engine
+│
 ├── test_suite.js                 # Suite pengujian komprehensif Node.js untuk integritas modular & kuota bank soal
 ├── test_full_audit.js            # Audit privasi 100% offline, zero network leaks, dan struktur regulasi
 ├── test_cbt_engine_sim.js        # Simulasi state machine end-to-end (5 bidang tertulis + 10 butir praktik 2 mode)
+├── test_zero_repetition.js       # Pengujian siklus state machine tanpa pengulangan (Zero Repetition Engine)
+├── .gitignore                    # Konfigurasi pengabaian file cache & scratch lokal
 └── README.md                     # Dokumentasi komprehensif proyek
 ```
 
@@ -207,8 +213,15 @@ Hasil pengujian:
 ### 3. Mengompilasi Ulang Aset (Build System)
 Jika Anda memperbarui bank soal di file sumber Python, jalankan script pembangun:
 ```bash
-python build_index.py
+python generator/build_index.py
 ```
+
+### 4. Deploy Otomatis ke GitHub Pages (CI/CD)
+Proyek ini telah dilengkapi dengan workflow GitHub Actions di `.github/workflows/deploy.yml`. Begitu Anda melakukan push atau menjalankan `sync_github.bat`, sistem GitHub akan:
+1. Menjalankan seluruh pengujian otomatis integritas bank soal dan simulasi CBT secara otomatis di cloud.
+2. Mempublikasikan aplikasi web simulasi secara langsung dan otomatis ke **GitHub Pages**.
+3. Aplikasi CBT dapat langsung dibuka dan dikerjakan secara online di HP, tablet, maupun laptop melalui alamat:
+   `https://<username>.github.io/<nama-repo>/`
 
 ---
 
