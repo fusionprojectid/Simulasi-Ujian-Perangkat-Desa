@@ -1,0 +1,60 @@
+name: Deploy CBT ke GitHub Pages
+
+on:
+  push:
+    branches: ["main", "master"]
+  workflow_dispatch:
+
+# Izin deployment ke GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Batasi hanya 1 deployment berjalan dalam satu waktu
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Tahap 1: Verifikasi & Pengujian Otomatis
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Jalankan Seluruh Pengujian CBT Kabupaten Tuban
+        run: |
+          node test_suite.js
+          node test_full_audit.js
+          node test_cbt_engine_sim.js
+          node test_zero_repetition.js
+
+  # Tahap 2: Deployment Otomatis ke GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Konfigurasi GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Unggah Aset Web CBT (index.html, css, js)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy ke GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
