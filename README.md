@@ -1,5 +1,7 @@
 # Simulasi Ujian Perangkat Desa Kabupaten Tuban — Computer Assisted Test (CBT)
 
+> **Versi:** `v4.5.0` • **Lisensi & Hak Cipta:** `Copyright by fusionproject.id` • **Status:** `Production Ready`
+
 Aplikasi simulasi Computer Assisted Test (CAT/CBT) modern, interaktif, dan modular yang dirancang khusus untuk persiapan seleksi calon Perangkat Desa (Sekretaris Desa, Kaur, Kasi, dan Kepala Dusun) di **Kabupaten Tuban, Jawa Timur** serta mengacu pada regulasi pemerintahan desa di Indonesia.
 
 Aplikasi ini menggunakan format resmi ujian perangkat desa Kabupaten Tuban: **5 Bidang Ujian Tertulis berurutan (125 Soal, 150 Menit) dilanjutkan 10 Butir Ujian Praktik Komputer Berbasis Tugas Nyata (Tersedia Mode Microsoft Office Asli dan Simulasi Browser Interaktif)**. Nilai akhir dihitung secara otomatis menggunakan formula resmi: **Ujian Tertulis (87,50 Poin) + Praktik Komputer (12,50 Poin) = 100,00 Poin Maksimal**.
@@ -202,13 +204,14 @@ Cukup buka berkas `index.html` langsung menggunakan peramban modern apa pun:
 ### 2. Menjalankan Suite Pengujian Otomatis
 Pastikan Node.js telah terpasang pada komputer Anda, kemudian jalankan seluruh pengujian:
 ```bash
-node test_suite.js; node test_full_audit.js; node test_cbt_engine_sim.js
+node test_suite.js; node test_full_audit.js; node test_cbt_engine_sim.js; node test_zero_repetition.js
 ```
 
 Hasil pengujian:
 - `test_suite.js`: 9/9 tes integritas file modular, ekstraksi 585 soal, 10 tugas praktik, rumus penilaian resmi 87,5 + 12,5 = 100,0, dan rendering teks berformat lulus 100%.
 - `test_full_audit.js`: Audit keamanan offline 100% tanpa CDN eksternal, validasi bank soal 585 butir, distribusi materi, dan simulasi penilaian resmi lulus 100%.
 - `test_cbt_engine_sim.js`: Simulasi state machine end-to-end mengerjakan 5 bidang materi tertulis berurutan (125 soal) dan seluruh 10 butir tugas praktik komputer (kedua mode), penguncian sesi, dan perhitungan nilai akhir lulus 100%.
+- `test_zero_repetition.js`: Verifikasi integritas bank soal 585 butir (0 duplikasi bank soal) dan keunikan 125 butir soal per sesi ujian (1 soal keluar di 1 sesi ujian).
 
 ### 3. Mengompilasi Ulang Aset (Build System)
 Jika Anda memperbarui bank soal di file sumber Python, jalankan script pembangun:
@@ -216,11 +219,16 @@ Jika Anda memperbarui bank soal di file sumber Python, jalankan script pembangun
 python generator/build_index.py
 ```
 
-### 4. Deploy Otomatis ke GitHub Pages (CI/CD)
-Proyek ini telah dilengkapi dengan workflow GitHub Actions di `.github/workflows/deploy.yml`. Begitu Anda melakukan push atau menjalankan `sync_github.bat`, sistem GitHub akan:
-1. Menjalankan seluruh pengujian otomatis integritas bank soal dan simulasi CBT secara otomatis di cloud.
-2. Mempublikasikan aplikasi web simulasi secara langsung dan otomatis ke **GitHub Pages**.
-3. Aplikasi CBT dapat langsung dibuka dan dikerjakan secara online di HP, tablet, maupun laptop melalui alamat:
+### 4. Deploy Otomatis ke GitHub Pages & Pembersihan Berkas (CI/CD)
+Proyek ini dilengkapi dengan workflow GitHub Actions di `.github/workflows/deploy.yml`. Begitu Anda melakukan push atau menjalankan `sync_github.bat` / `sync_github.ps1`:
+1. **Pengujian Otomatis Cloud:** Seluruh 4 test suite dijalankan untuk memverifikasi integritas materi dan engine CBT.
+2. **Pembersihan Berkas Non-Web:** Sebelum aset diunggah ke GitHub Pages, pipeline secara otomatis:
+   - Menghapus seluruh file `.py` di root direktori (di luar folder).
+   - Menghapus skrip sinkronisasi (`sync_github.*`) dan berkas test runner (`test_*.js`).
+   - Menghapus folder `generator/`, `dev_scratch/`, dan cache python agar tidak terunggah ke web.
+   - Menghapus file di luar folder jika file dengan nama yang sama sudah ada di dalam folder (`assets/`, `css/`, `js/`).
+3. **Deploy Bersih ke GitHub Pages:** Hanya berkas web murni (`index.html`, `index_standalone_bundle.html`, `css/`, `js/`, `assets/`, `favicon.svg`, `logo.svg`) yang dipublikasikan secara online.
+4. Aplikasi CBT dapat langsung dibuka dan dikerjakan secara online di HP, tablet, maupun laptop melalui alamat:
    `https://<username>.github.io/<nama-repo>/`
 
 ---
@@ -250,5 +258,59 @@ Proyek ini telah dilengkapi dengan workflow GitHub Actions di `.github/workflows
 
 ---
 
-## ⚖️ Lisensi & Ketentuan Penggunaan
-Aplikasi ini dikembangkan untuk tujuan simulasi latihan dan persiapan mandiri bagi calon aparatur pemerintah desa di Kabupaten Tuban dan sekitarnya. Seluruh data hasil pengerjaan ujian disimpan secara privat di penyimpanan lokal browser pengguna (*localStorage*) tanpa pernah dikirimkan ke server eksternal.
+## ⚖️ Lisensi, Hak Cipta, & Changelog Aplikasi
+
+### 1. Hak Cipta (Copyright)
+> **© 2026 Copyright by fusionproject.id**  
+> Seluruh hak cipta dilindungi undang-undang. Aplikasi dikembangkan untuk tujuan simulasi latihan dan persiapan mandiri bagi calon aparatur pemerintah desa di Kabupaten Tuban dan sekitarnya. Seluruh data hasil pengerjaan ujian disimpan secara privat di penyimpanan lokal browser pengguna (*localStorage*) tanpa pernah dikirimkan ke server eksternal.
+
+### 2. Aturan Penomoran Versi (Internal SemVer 3 Digit: `X.Y.Z`)
+*Aturan ini digunakan oleh pengembang dan sistem otomasi git; versi bertambah secara otomatis pada setiap rilis fitur baru:*
+* **Digit 1 (Besar / Major):** Perombakan arsitektur besar / format sistem (misal: `5.0.0`).
+* **Digit 2 (Menengah / Minor):** Penambahan fitur baru, modul, atau aset branding (misal: `4.5.0`).
+* **Digit 3 (Minor / Patch):** Perbaikan bug, penyesuaian teks, atau patch styling (misal: `4.5.1`).
+
+### 3. Catatan Rilis & Riwayat Fitur (Changelog)
+
+#### **v4.5.0 (Rilis Terkini)**
+- **Landing Page Sederhana & Bersih (Gambar 2):** Halaman depan kini tampil minimalis dan terfokus dengan kartu identitas peserta (Nama, Desa & Kecamatan, Fokus Regulasi) serta 2 tombol aksi utama: **"Mulai Ujian"** dan **"Mulai Mode Latihan"**.
+- **Halaman Khusus Pusat Bantuan (Help):** Seluruh keterangan format ujian, tabel distribusi bank soal 585 butir, alur sekuensial 5 bidang, panduan praktik komputer, formula penilaian 87,5 + 12,5 = 100,0, dan rujukan hukum telah dipindahkan ke halaman tersendiri (`Bantuan`).
+- **Menu Navigasi Modern & Minimalis (Gambar 3):** Desain navbar yang jauh lebih simpel, modern, dan elegan dengan tombol pill ber-backdrop blur, lencana versi aktif `v4.5.0`, drawer responsif mobile, dan pemilih skala font.
+- **Footer direktori responsif:** Menyediakan navigasi latihan, materi, bantuan, informasi fitur aplikasi, dan tautan privasi.
+- **Favicon & Logo Resmi:** Favicon SVG dan Logo Emblem CBT Kabupaten Tuban (`favicon.svg`, `logo.svg`, `assets/logo-full.svg`).
+- **Atribusi Hak Cipta Konsisten:** Seluruh bagian aplikasi menggunakan atribusi resmi `Copyright by fusionproject.id`.
+- **Workflow Deploy Bersih (deploy.yml):** Otomasi penghapusan file `.py` di root direktori, file non-web luar folder, dan pembersihan duplikat sebelum publikasi ke GitHub Pages.
+- **Integritas Bank Soal:** 585 butir soal bebas duplikasi di bank data master dan pengundian 125 soal unik per sesi ujian tertulis.
+
+#### **v4.4.0**
+- **Sistem Ujian Praktik Komputer (10 Butir):** Modul tugas nyata Microsoft Office (Word, Excel, PowerPoint, ZIP) dengan skor maksimal 12,50 poin.
+- **Dual-Mode Praktik:** Mode 1 (Office Asli dengan parser struktur OpenXML) dan Mode 2 (Simulasi Browser Interaktif dengan live spreadsheet grid).
+- **Pengaturan Durasi Praktik:** Konfigurasi timer fleksibel (30m, 45m, 60m, 90m, dan Tanpa Batas).
+
+#### **v4.3.0**
+- **Struktur Ujian Resmi 5 Bidang Berurutan:** Agama (25 soal), Pemdes (25 soal), Bahasa Indonesia (25 soal), Pengetahuan Umum (25 soal), dan Komputer (25 soal).
+- **Sequential Section Lock:** Penguncian sekuensial per seksi materi dengan timer independen 30 menit per bidang.
+- **Formula Penilaian Resmi:** Perhitungan otomatis gabungan Tertulis (87,50) + Praktik (12,50) = 100,00 Poin Maksimal.
+
+#### **v4.2.0**
+- **Ekspansi Master Bank Soal (585 Butir):** Penambahan 100 butir soal baru (Pemerintahan Desa, Komputer Kantor Desa, dan Agama/Moderasi Beragama).
+- **Audit Regulasi Terkini:** Penyelarasan materi dengan UU No. 3/2024 (Perubahan UU Desa), PP 11/2019, dan UU PDP No. 27/2022.
+
+#### **v4.1.0**
+- **Fitur Glosarium Pemerintahan Desa:** 36 istilah teknis administrasi desa lengkap dengan definisi dan rujukan hukum.
+- **Rendering Teks Berformat:** Dukungan cetak miring (*italics*), tebal (*bold*), dan sintaks kode rumus pada soal dan pembahasan.
+
+#### **v4.0.0**
+- **Pemisahan Arsitektur Modular:** Refaktorisasi berkas menjadi `index.html`, `css/style.css`, dan `js/app.js` serta modul data terpisah.
+- **Comprehensive Automated Test Suite:** Implementasi 4 modul pengujian berbasis Node.js untuk validasi otomatis offline dan CI/CD.
+
+#### **v3.0.0**
+- **Fitur Ekspor & Cadangan:** Ekspor hasil ujian ke format PDF/cetak sertifikat resmi, backup/restore riwayat berbasis JSON.
+- **Mode Latihan Mandiri (Practice Mode):** Pemilihan materi per kategori dengan kunci pembahasan instan dan tombol ragu-ragu (*flagged*).
+
+#### **v2.0.0**
+- **Antarmuka Responsif & Tema Gelap (Dark Mode):** Desain mobile-first responsif, tombol pintas keyboard, dan navigasi nomor soal interaktif.
+
+#### **v1.0.0**
+- **Peluncuran Awal CBT Engine:** Simulasi ujian perangkat desa berbasis web peramban lokal dengan penyimpanan data privat (*localStorage*).
+

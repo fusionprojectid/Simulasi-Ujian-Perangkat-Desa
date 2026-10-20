@@ -82,7 +82,13 @@ def build_all_assets():
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simulasi Ujian Perangkat Desa Kabupaten Tuban | 5 Bidang Tertulis & Praktik Komputer</title>
   <meta name="description" content="Aplikasi simulasi resmi ujian perangkat desa Kabupaten Tuban. 5 bidang materi tertulis berurutan @ 25 soal (30 menit/bidang, total 125 soal) dan praktik komputer 10 butir. Nilai akhir gabungan tertulis (87,5) dan praktik (12,5).">
-  <meta name="author" content="Simulasi CBT Perangkat Desa Kabupaten Tuban">
+  <meta name="author" content="fusionproject.id">
+  <meta name="version" content="4.5.0">
+  <meta name="copyright" content="Copyright by fusionproject.id">
+  <!-- Official Favicon & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
   <!-- Modular Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -113,7 +119,13 @@ def build_all_assets():
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simulasi Ujian Perangkat Desa Kabupaten Tuban | 5 Bidang Tertulis & Praktik Komputer</title>
   <meta name="description" content="Aplikasi simulasi resmi ujian perangkat desa Kabupaten Tuban. 5 bidang materi tertulis berurutan @ 25 soal (30 menit/bidang, total 125 soal) dan praktik komputer 10 butir. Nilai akhir gabungan tertulis (87,5) dan praktik (12,5).">
-  <meta name="author" content="Simulasi CBT Perangkat Desa Kabupaten Tuban">
+  <meta name="author" content="fusionproject.id">
+  <meta name="version" content="4.5.0">
+  <meta name="copyright" content="Copyright by fusionproject.id">
+  <!-- Official Favicon & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
   <style>
 {APP_CSS}
   </style>

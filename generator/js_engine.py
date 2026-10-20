@@ -138,74 +138,26 @@ def get_js_engine():
       }
     }
 
-    // Question History Tracker (Zero-Repetition Engine)
-    const SEEN_QUESTIONS_KEY = 'cbt_seen_question_ids_tuban_v2';
 
-    function getSeenQuestionIds() {
-      const arr = safeGetStorage(SEEN_QUESTIONS_KEY, []);
-      return new Set(Array.isArray(arr) ? arr : []);
-    }
-
-    function saveSeenQuestionIds(seenSet) {
-      safeSetStorage(SEEN_QUESTIONS_KEY, Array.from(seenSet));
-    }
-
-    // Helper: Build Exam Questions for 5 Bidang (125 Soal Total) with Zero Repetition
+    // Helper: Build Exam Questions for 5 Bidang (125 Soal Unik per Sesi Ujian)
     function generateTubanExamSections(masterList, randomize = true) {
       const sections = [];
-      const seenSet = getSeenQuestionIds();
 
       BIDANG_CONFIG.forEach(cfg => {
         let pickedQuestions = [];
 
         if (cfg.subQuotas) {
-          // Distributed across sub-categories
+          // Distributed across sub-categories (strictly unique per session)
           Object.entries(cfg.subQuotas).forEach(([catName, quota]) => {
             const pool = masterList.filter(q => q.category === catName);
-            let unseen = pool.filter(q => !seenSet.has(q.id));
-            let selected = [];
-
-            if (unseen.length >= quota) {
-              const shuffledUnseen = randomize ? shuffleArray(unseen) : [...unseen];
-              selected = shuffledUnseen.slice(0, quota);
-            } else {
-              // Unseen are fewer than quota: take all unseen first
-              selected = [...unseen];
-              const needed = quota - unseen.length;
-              // Reset seen for this category pool because pool is exhausted
-              pool.forEach(q => seenSet.delete(q.id));
-              // Choose remaining from pool excluding what is already in selected
-              const remainingPool = pool.filter(q => !selected.some(s => s.id === q.id));
-              const shuffledRemaining = randomize ? shuffleArray(remainingPool) : [...remainingPool];
-              selected.push(...shuffledRemaining.slice(0, needed));
-            }
-
-            // Mark all selected as seen
-            selected.forEach(q => seenSet.add(q.id));
-            pickedQuestions.push(...selected);
+            const shuffled = randomize ? shuffleArray(pool) : [...pool];
+            pickedQuestions.push(...shuffled.slice(0, quota));
           });
         } else {
-          // Single category (e.g. Agama, Bahasa Indonesia, Komputer)
+          // Single category (Agama, Bahasa Indonesia, Komputer)
           const pool = masterList.filter(q => cfg.categories.includes(q.category));
-          let unseen = pool.filter(q => !seenSet.has(q.id));
-          let selected = [];
-
-          if (unseen.length >= cfg.count) {
-            const shuffledUnseen = randomize ? shuffleArray(unseen) : [...unseen];
-            selected = shuffledUnseen.slice(0, cfg.count);
-          } else {
-            // Take all unseen
-            selected = [...unseen];
-            const needed = cfg.count - unseen.length;
-            // Reset seen for this category pool
-            pool.forEach(q => seenSet.delete(q.id));
-            const remainingPool = pool.filter(q => !selected.some(s => s.id === q.id));
-            const shuffledRemaining = randomize ? shuffleArray(remainingPool) : [...remainingPool];
-            selected.push(...shuffledRemaining.slice(0, needed));
-          }
-
-          selected.forEach(q => seenSet.add(q.id));
-          pickedQuestions.push(...selected);
+          const shuffled = randomize ? shuffleArray(pool) : [...pool];
+          pickedQuestions.push(...shuffled.slice(0, cfg.count));
         }
 
         // Shuffle questions within the section
@@ -264,8 +216,6 @@ def get_js_engine():
         });
       });
 
-      // Persist the updated seen questions set
-      saveSeenQuestionIds(seenSet);
 
       return sections;
     }
@@ -354,26 +304,8 @@ def get_js_engine():
         this.renderGlossary();
         this.checkExistingSession();
         this.setupKeyboardShortcuts();
-        this.updateSeenQuestionsBadge();
       },
 
-      updateSeenQuestionsBadge() {
-        const badge = document.getElementById('seenQuestionBadge');
-        if (!badge) return;
-        const seenSet = getSeenQuestionIds();
-        const total = (typeof MASTER_QUESTIONS !== 'undefined' && Array.isArray(MASTER_QUESTIONS)) ? MASTER_QUESTIONS.length : 585;
-        const count = Math.min(seenSet.size, total);
-        const pct = total > 0 ? Math.round((count / total) * 100) : 0;
-        badge.textContent = `Terpakai: ${count} / ${total} Soal (${pct}%)`;
-      },
-
-      resetQuestionHistory() {
-        if (confirm('Apakah Anda yakin ingin me-reset riwayat bank soal? Semua 585 butir soal akan dapat diundi kembali dari awal.')) {
-          safeSetStorage(SEEN_QUESTIONS_KEY, []);
-          this.updateSeenQuestionsBadge();
-          this.showToastNotification('✓ Riwayat bank soal di-reset! Semua 585 butir soal siap diundi dari awal.', 'info');
-        }
-      },
 
       renderDistributionTable() {
         const tbody = document.getElementById('distributionTableBody');
@@ -445,14 +377,47 @@ def get_js_engine():
         else if (scale === '115%') document.getElementById('fScaleLg')?.classList.add('active');
       },
 
+      toggleMobileMenu() {
+        const menu = document.getElementById('modernNavMenu');
+        if (menu) menu.classList.toggle('mobile-open');
+      },
+
+      handleSubscribe(form) {
+        const input = form ? form.querySelector('input') : null;
+        const email = input ? input.value.trim() : '';
+        if (email) {
+          this.showToastNotification('✓ Terima kasih! Alamat ' + email + ' telah terdaftar untuk informasi pembaruan simulasi.', 'success');
+          if (form) form.reset();
+        }
+      },
+
       navigate(viewName) {
-        document.getElementById('viewHome').style.display = viewName === 'home' ? 'block' : 'none';
-        document.getElementById('viewPracticeConfig').style.display = viewName === 'practice-config' ? 'block' : 'none';
-        document.getElementById('viewExam').style.display = viewName === 'exam' ? 'block' : 'none';
-        document.getElementById('viewPractical').style.display = viewName === 'practical' ? 'block' : 'none';
-        document.getElementById('viewResults').style.display = viewName === 'results' ? 'block' : 'none';
-        document.getElementById('viewGlossary').style.display = viewName === 'glossary' ? 'block' : 'none';
-        document.getElementById('viewHistory').style.display = viewName === 'history' ? 'block' : 'none';
+        const vHome = document.getElementById('viewHome');
+        const vPractice = document.getElementById('viewPracticeConfig');
+        const vExam = document.getElementById('viewExam');
+        const vPractical = document.getElementById('viewPractical');
+        const vResults = document.getElementById('viewResults');
+        const vGlossary = document.getElementById('viewGlossary');
+        const vHistory = document.getElementById('viewHistory');
+        const vHelp = document.getElementById('viewHelp');
+
+        if (vHome) vHome.style.display = viewName === 'home' ? 'block' : 'none';
+        if (vPractice) vPractice.style.display = viewName === 'practice-config' ? 'block' : 'none';
+        if (vExam) vExam.style.display = viewName === 'exam' ? 'block' : 'none';
+        if (vPractical) vPractical.style.display = viewName === 'practical' ? 'block' : 'none';
+        if (vResults) vResults.style.display = viewName === 'results' ? 'block' : 'none';
+        if (vGlossary) vGlossary.style.display = viewName === 'glossary' ? 'block' : 'none';
+        if (vHistory) vHistory.style.display = viewName === 'history' ? 'block' : 'none';
+        if (vHelp) vHelp.style.display = viewName === 'help' ? 'block' : 'none';
+
+        // Update active class on modern nav menu buttons
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.navView === viewName);
+        });
+
+        // Close mobile drawer if open
+        const menu = document.getElementById('modernNavMenu');
+        if (menu) menu.classList.remove('mobile-open');
 
         if (viewName === 'history') {
           this.renderHistoryView();
@@ -491,7 +456,6 @@ def get_js_engine():
 
         // Generate the 5 official sections (each exactly 25 questions)
         this.sections = generateTubanExamSections(MASTER_QUESTIONS, true);
-        this.updateSeenQuestionsBadge();
         this.currentSectionIndex = 0;
 
         // Initialize Practical Tasks (10 butir)
@@ -2875,27 +2839,8 @@ def get_js_engine():
         let pool = selectedCat === 'all'
           ? [...MASTER_QUESTIONS]
           : MASTER_QUESTIONS.filter(q => q.category === selectedCat);
-
-        // Prioritize unseen questions in practice mode
-        const seenSet = getSeenQuestionIds();
-        let unseen = pool.filter(q => !seenSet.has(q.id));
-        let sampled = [];
-
-        if (unseen.length >= count) {
-          const shuffledUnseen = doShuffle ? shuffleArray(unseen) : [...unseen];
-          sampled = shuffledUnseen.slice(0, count);
-        } else {
-          sampled = doShuffle ? shuffleArray([...unseen]) : [...unseen];
-          const needed = count - unseen.length;
-          pool.forEach(q => seenSet.delete(q.id));
-          const remainingPool = pool.filter(q => !sampled.some(s => s.id === q.id));
-          const shuffledRem = doShuffle ? shuffleArray(remainingPool) : [...remainingPool];
-          sampled.push(...shuffledRem.slice(0, needed));
-        }
-
-        sampled.forEach(q => seenSet.add(q.id));
-        saveSeenQuestionIds(seenSet);
-        this.updateSeenQuestionsBadge();
+        const shuffledPool = doShuffle ? shuffleArray(pool) : [...pool];
+        const sampled = shuffledPool.slice(0, Math.min(count, pool.length));
 
         const formatted = sampled.map((q, idx) => ({
           ...q,
@@ -3157,10 +3102,16 @@ def get_js_engine():
         document.getElementById('modalBackupRestore').classList.add('open');
       },
 
+      openVersionModal() {
+        const m = document.getElementById('modalVersionInfo');
+        if (m) m.classList.add('open');
+      },
+
       exportBackupJSON() {
         const data = {
           app: 'Simulasi Ujian Perangkat Desa Kabupaten Tuban',
-          version: '4.0',
+          version: '4.5.0',
+          copyright: 'Copyright by fusionproject.id',
           exportedAt: new Date().toISOString(),
           history: safeGetStorage(this.HISTORY_KEY, [])
         };

@@ -27,8 +27,22 @@ if (-not (Test-Path ".git")) {
     Write-Host ""
 }
 
-# 3. Lepaskan tracking dev_scratch jika sebelumnya pernah terunggah
-Write-Host "[1/4] Menghapus tracking cache file lama & folder scratch dari index GitHub..." -ForegroundColor Green
+# 3. Bersihkan file .py liar atau duplikat yang berada di luar folder (root)
+Write-Host "[1/5] Memeriksa dan membersihkan file liar di luar folder..." -ForegroundColor Green
+Get-ChildItem -Path . -Filter "*.py" -File | ForEach-Object {
+    $name = $_.Name
+    if (Test-Path "generator/$name") {
+        Write-Host "Menghapus file di luar folder: $name (sudah ada di generator/)" -ForegroundColor Yellow
+        Remove-Item $_.FullName -Force
+    }
+    elseif (Test-Path "dev_scratch/$name") {
+        Write-Host "Menghapus file di luar folder: $name (sudah ada di dev_scratch/)" -ForegroundColor Yellow
+        Remove-Item $_.FullName -Force
+    }
+}
+
+# 4. Lepaskan tracking dev_scratch jika sebelumnya pernah terunggah
+Write-Host "[2/5] Menghapus tracking cache file lama & folder scratch dari index GitHub..." -ForegroundColor Green
 git rm -r --cached dev_scratch/ 2>$null
 $scratchFiles = @(
     "audit_deep.py", "audit_questions.py", "export_modular_assets.py",
@@ -40,16 +54,16 @@ foreach ($f in $scratchFiles) {
     git rm --cached $f 2>$null
 }
 
-# 4. Rekam seluruh pemindahan file ke generator/ dan penghapusan di root
-Write-Host "[2/4] Merekam seluruh pemindahan file (git add -A)..." -ForegroundColor Green
+# 5. Rekam seluruh perubahan
+Write-Host "[3/5] Merekam seluruh berkas (git add -A)..." -ForegroundColor Green
 git add -A
 
-# 5. Commit perubahan
-Write-Host "[3/4] Membuat commit..." -ForegroundColor Green
-git commit -m "Refactor: Pindahkan seluruh file python ke folder generator dan rapikan repositori"
+# 6. Commit perubahan
+Write-Host "[4/5] Membuat commit..." -ForegroundColor Green
+git commit -m "Release v4.5.0: Update changelog rilis, footer copyright by fusionproject.id, dan optimasi pembersihan deploy.yml"
 
-# 6. Push ke remote
-Write-Host "[4/4] Mengunggah perubahan ke GitHub..." -ForegroundColor Green
+# 7. Push ke remote
+Write-Host "[5/5] Mengunggah perubahan ke GitHub..." -ForegroundColor Green
 git push origin main
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Mencoba push ke branch 'master'..." -ForegroundColor Yellow

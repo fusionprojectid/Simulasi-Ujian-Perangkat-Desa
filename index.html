@@ -5,52 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simulasi Ujian Perangkat Desa Kabupaten Tuban | 5 Bidang Tertulis & Praktik Komputer</title>
   <meta name="description" content="Aplikasi simulasi resmi ujian perangkat desa Kabupaten Tuban. 5 bidang materi tertulis berurutan @ 25 soal (30 menit/bidang, total 125 soal) dan praktik komputer 10 butir. Nilai akhir gabungan tertulis (87,5) dan praktik (12,5).">
-  <meta name="author" content="Simulasi CBT Perangkat Desa Kabupaten Tuban">
+  <meta name="author" content="fusionproject.id">
+  <meta name="version" content="4.5.0">
+  <meta name="copyright" content="Copyright by fusionproject.id">
+  <!-- Official Favicon & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
   <!-- Modular Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Civic Top Header -->
+  <!-- Civic Top Header (Modern & Minimalist) -->
   <header class="civic-header no-print">
     <div class="civic-header-inner">
-      <div class="brand-block" onclick="CBTApp.navigate('home')">
-        <div class="brand-emblem">TB</div>
+      <div class="brand-block" onclick="CBTApp.navigate('home')" title="Simulasi Ujian Perangkat Desa Kab. Tuban">
+        <div class="brand-emblem-wrap">
+          <img src="assets/favicon.svg" alt="Logo CBT Tuban" class="brand-logo-img" width="40" height="40">
+        </div>
         <div class="brand-text">
-          <h1>Simulasi Ujian Seleksi Perangkat Desa</h1>
-          <p id="topRegionLabel">Format Resmi Kabupaten Tuban • 5 Bidang Tertulis & Praktik Komputer</p>
+          <div class="brand-title-row">
+            <h1>Simulasi CBT Perangkat Desa</h1>
+            <span class="version-badge" onclick="event.stopPropagation(); CBTApp.openVersionModal();" title="Versi v4.5.0 • Klik untuk Changelog">v4.5.0</span>
+          </div>
+          <p id="topRegionLabel">Kabupaten Tuban • <span class="brand-copyright">Copyright by fusionproject.id</span></p>
         </div>
       </div>
 
-      <div class="header-actions">
-        <button class="btn btn-outline btn-sm" onclick="CBTApp.navigate('home')" title="Halaman Utama">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
-          Beranda
+      <!-- Mobile Hamburger Button -->
+      <button class="nav-toggle-btn" id="btnNavToggle" onclick="CBTApp.toggleMobileMenu()" aria-label="Toggle Navigasi">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+
+      <!-- Modern Navigation Bar -->
+      <nav class="modern-nav-menu" id="modernNavMenu">
+        <button class="nav-btn active" data-nav-view="home" onclick="CBTApp.navigate('home')" title="Halaman Utama">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          <span>Beranda</span>
         </button>
-        <button class="btn btn-outline btn-sm" onclick="CBTApp.navigate('practice-config')" title="Mode Latihan Bebas">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-          Mode Latihan
+        <button class="nav-btn" data-nav-view="practice-config" onclick="CBTApp.navigate('practice-config')" title="Mode Latihan Bebas">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          <span>Mode Latihan</span>
         </button>
-        <button class="btn btn-outline btn-sm" onclick="CBTApp.navigate('glossary')" title="Glosarium 36 Istilah Desa">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-          Glosarium
+        <button class="nav-btn" data-nav-view="glossary" onclick="CBTApp.navigate('glossary')" title="Glosarium 36 Istilah Desa">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span>Glosarium</span>
         </button>
-        <button class="btn btn-outline btn-sm" onclick="CBTApp.navigate('history')" title="Riwayat & Grafik Nilai">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-          Riwayat
+        <button class="nav-btn" data-nav-view="history" onclick="CBTApp.navigate('history')" title="Riwayat &amp; Statistik Nilai">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          <span>Riwayat</span>
         </button>
-        <button class="btn btn-outline btn-sm" onclick="CBTApp.openBackupModal()" title="Cadangan Data (Ekspor / Impor JSON)">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Cadangan
+        <button class="nav-btn" data-nav-view="help" onclick="CBTApp.navigate('help')" title="Pusat Bantuan &amp; Panduan Lengkap">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span>Bantuan</span>
+        </button>
+        <button class="nav-btn" onclick="CBTApp.openBackupModal()" title="Cadangan Data (Ekspor / Impor JSON)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Cadangan</span>
         </button>
 
-        <!-- Font Scale Controls -->
+        <!-- Font Scale Controls (Minimalist & Compact) -->
         <div class="font-scale-controls" title="Pengaturan Skala Ukuran Teks">
           <button class="font-scale-btn" id="fScaleSm" onclick="CBTApp.setFontScale('90%')">A-</button>
           <button class="font-scale-btn active" id="fScaleMd" onclick="CBTApp.setFontScale('100%')">A</button>
           <button class="font-scale-btn" id="fScaleLg" onclick="CBTApp.setFontScale('115%')">A+</button>
         </div>
-      </div>
+      </nav>
     </div>
   </header>
 
@@ -80,175 +101,68 @@
     </div>
 
     <!-- ======================================================================
-         VIEW 1: BERANDA / HALAMAN PERSIAPAN (HOME VIEW)
+         VIEW 1: BERANDA / LANDING PAGE SEDERHANA (SIMPLE LANDING VIEW)
          ====================================================================== -->
     <section id="viewHome">
-      <div class="hero-panel">
-        <div class="hero-badge-row">
-          <span class="badge-pill badge-cat">Total 125 Soal Tertulis</span>
-          <span class="badge-pill badge-diff-mudah">5 Bidang @ 25 Soal</span>
-          <span class="badge-pill badge-diff-sedang">Waktu 30 Menit / Bidang</span>
-          <span class="badge-pill badge-diff-sulit">Praktik Komputer: 10 Butir</span>
-          <span class="badge-pill badge-verified">Nilai Akhir Maksimal 100 Poin</span>
-          <span class="badge-pill" style="background:rgba(255,255,255,0.15); color:#fff;">100% Offline & Privat</span>
-        </div>
-        <h2>Simulasi Ujian Perangkat Desa Kabupaten Tuban</h2>
-        <p class="lead">Persiapkan diri Anda menghadapi seleksi perangkat desa (Sekretaris Desa, Kaur, Kasi, Kepala Dusun) dengan sistem Computer Assisted Test (CAT) berstandar Kabupaten Tuban. Ujian tertulis terdiri dari 5 bidang materi berurutan dengan timer mandiri 30 menit per bidang, dilanjutkan tahapan Praktik Komputer 10 butir interaktif.</p>
-
-        <!-- Candidate Registration Box -->
-        <div class="form-candidate-grid">
-          <div class="form-group">
-            <label for="inputCandidateName">Nama Lengkap Peserta (Opsional):</label>
-            <input type="text" id="inputCandidateName" class="form-control" placeholder="Contoh: Muhammad Ilham">
-          </div>
-          <div class="form-group">
-            <label for="inputCandidateVillage">Desa & Kecamatan (Opsional):</label>
-            <input type="text" id="inputCandidateVillage" class="form-control" placeholder="Contoh: Desa Sukamaju, Kec. Rengel">
-          </div>
-          <div class="form-group">
-            <label for="selectRegion">Fokus Regulasi & Acuan Daerah:</label>
-            <select id="selectRegion" class="form-control" onchange="CBTApp.handleRegionChange()">
-              <option value="tuban" selected>Kabupaten Tuban (Perda 2/2016 jo 16/2021 & Perbup 11/2022)</option>
-              <option value="nasional">Standar Nasional (UU 6/2014 jo. UU 3/2024)</option>
-            </select>
-          </div>
+      <div class="landing-hero-card">
+        <!-- Top Badges / Chips -->
+        <div class="landing-chip-row">
+          <span class="landing-chip landing-chip-gold">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Format Resmi Kab. Tuban
+          </span>
+          <span class="landing-chip">5 Bidang Tertulis (125 Soal)</span>
+          <span class="landing-chip">10 Butir Praktik Office</span>
+          <span class="landing-chip">Skor Maks. 100,0</span>
+          <span class="landing-chip landing-chip-green">100% Offline &amp; Privat</span>
         </div>
 
-        <!-- Automatic Randomization & Anti-Cheating Banner -->
-        <div style="background:rgba(16, 185, 129, 0.15); padding:0.85rem 1.25rem; border-radius:var(--radius-md); border:1px solid rgba(16, 185, 129, 0.35); display:flex; gap:0.75rem; align-items:center;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--emerald-400); flex-shrink:0;">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-          <div style="font-size:0.88rem; color:var(--white); line-height:1.4;">
-            <strong>Ketentuan Simulasi Resmi:</strong> Urutan pengerjaan dimulai dari <em>Bidang 1 (Agama)</em>. Setiap bidang menampilkan 25 soal dengan timer terpisah 30 menit. Bidang berikutnya baru dapat dibuka setelah bidang sebelumnya selesai. Bidang yang sudah dikunci tidak dapat diubah kembali. Kunci jawaban & pembahasan baru terbuka setelah seluruh tahapan ujian (termasuk Praktik Komputer) selesai.
-          </div>
-        </div>
-      </div>
+        <h2 class="landing-headline">Simulasi Ujian Seleksi Perangkat Desa</h2>
+        <p class="landing-desc">
+          Computer Assisted Test (CAT) terstandar untuk persiapan seleksi calon Sekretaris Desa, Kaur, Kasi, dan Kepala Dusun di Kabupaten Tuban. Evaluasi otomatis 5 bidang materi berurutan dan 10 butir praktik komputer perkantoran desa.
+        </p>
 
-      <!-- Zero-Repetition Engine Status Card -->
-      <div class="cbt-card no-print" style="margin-top:1.25rem; margin-bottom:1.5rem; background:linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); border:1px solid #bbf7d0;">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
-          <div style="display:flex; align-items:center; gap:0.75rem;">
-            <div style="width:42px; height:42px; border-radius:50%; background:var(--emerald-600); color:white; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <!-- Formulir Peserta Sesuai Gambar 2 -->
+        <div class="candidate-spec-card">
+          <div class="candidate-form-row">
+            <div class="candidate-form-col">
+              <label for="inputCandidateName" class="spec-label">Nama Lengkap Peserta (Opsional):</label>
+              <input type="text" id="inputCandidateName" class="spec-input" placeholder="Contoh: Muhammad Ilham">
             </div>
-            <div>
-              <h4 style="margin:0; font-size:1rem; font-weight:800; color:var(--slate-900);">Siklus Bank Soal Tanpa Pengulangan (Zero Repetition Engine)</h4>
-              <p style="margin:2px 0 0; font-size:0.85rem; color:var(--slate-600);">
-                Soal yang sudah pernah muncul pada sesi ujian sebelumnya <strong>tidak akan keluar lagi</strong> sampai seluruh 585 butir soal diuji tuntas, lalu siklus diperbarui secara otomatis.
-              </p>
+            <div class="candidate-form-col">
+              <label for="inputCandidateVillage" class="spec-label">Desa &amp; Kecamatan (Opsional):</label>
+              <input type="text" id="inputCandidateVillage" class="spec-input" placeholder="Contoh: Desa Sukamaju, Kec. Rengel">
+            </div>
+            <div class="candidate-form-col">
+              <label for="selectRegion" class="spec-label">Fokus Regulasi &amp; Acuan Daerah:</label>
+              <select id="selectRegion" class="spec-select" onchange="CBTApp.handleRegionChange()">
+                <option value="tuban" selected>Kabupaten Tuban (Perda 2/2016 jo 16/2021 &amp; Perbup 11/2022)</option>
+                <option value="nasional">Standar Nasional (UU 6/2014 jo. UU 3/2024)</option>
+              </select>
             </div>
           </div>
-          <div style="display:flex; align-items:center; gap:0.65rem;">
-            <span id="seenQuestionBadge" class="badge-pill badge-verified" style="font-size:0.85rem; font-weight:700; padding:0.45rem 0.85rem;">
-              Terpakai: 0 / 585 Soal (0%)
-            </span>
-            <button class="btn btn-outline btn-sm" onclick="CBTApp.resetQuestionHistory()" title="Reset riwayat agar semua soal dapat diundi kembali dari awal">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"></path><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
-              Reset Riwayat
-            </button>
-          </div>
         </div>
-      </div>
 
-      <!-- Action Cards Grid -->
-      <div class="actions-grid">
-        <div class="action-card" style="border:2px solid var(--accent-gold-500);">
-          <div>
-            <div class="action-card-header">
-              <div class="action-card-icon" style="background:var(--accent-gold-100); color:var(--accent-gold-700);">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              </div>
-              <div>
-                <h3>Mulai Ujian Format Tuban</h3>
-                <span class="badge-pill badge-cat" style="font-size:0.7rem;">5 Bidang + Praktik Komputer</span>
-              </div>
-            </div>
-            <p>125 butir soal pilihan ganda (5 sesi @ 25 soal & 30 menit) + 10 butir praktik komputer interaktif. Nilai akhir gabungan (Tertulis 87,5 + Praktik 12,5 = 100,0).</p>
-          </div>
-          <button class="btn btn-gold btn-lg" onclick="CBTApp.confirmStartExam()">
-            Mulai Ujian Sekarang
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        <!-- Tombol Aksi Utama Sesuai Permintaan Pengguna -->
+        <div class="landing-cta-row">
+          <button class="btn btn-landing-exam" onclick="CBTApp.confirmStartExam()" id="btnStartExamMain">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span>Mulai Ujian</span>
+          </button>
+          <button class="btn btn-landing-practice" onclick="CBTApp.navigate('practice-config')" id="btnStartPracticeMain">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>Mulai Mode Latihan</span>
           </button>
         </div>
 
-        <div class="action-card">
-          <div>
-            <div class="action-card-header">
-              <div class="action-card-icon" style="background:var(--emerald-100); color:var(--emerald-700);">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-              </div>
-              <h3>Mode Latihan Mandiri</h3>
-            </div>
-            <p>Latihan belajar mandiri bebas tanpa penguncian sesi. Pilih per kategori materi atau acak soal, dengan kunci jawaban dan pembahasan instan setelah menjawab.</p>
-          </div>
-          <button class="btn btn-primary" onclick="CBTApp.navigate('practice-config')">
-            Atur Mode Latihan
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </button>
-        </div>
-
-        <div class="action-card">
-          <div>
-            <div class="action-card-header">
-              <div class="action-card-icon" style="background:#e0f2fe; color:#0369a1;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-              </div>
-              <h3>Glosarium 36 Istilah</h3>
-            </div>
-            <p>Kumpulan 36 istilah hukum & singkatan resmi pemerintahan desa (Siltap, APB Desa, Silpa, Musrenbangdes, Siskeudes) dengan pencarian instan dan landasan hukum.</p>
-          </div>
-          <button class="btn btn-outline" onclick="CBTApp.navigate('glossary')">
-            Buka Glosarium
-          </button>
-        </div>
-
-        <div class="action-card">
-          <div>
-            <div class="action-card-header">
-              <div class="action-card-icon" style="background:var(--primary-100); color:var(--primary-700);">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-              </div>
-              <h3>Riwayat & Grafik Nilai</h3>
-            </div>
-            <p>Pantau perkembangan skor per sesi ujian, rincian skor tertulis, skor praktik komputer, dan grafik visual perkembangan kesiapan Anda.</p>
-          </div>
-          <button class="btn btn-outline" onclick="CBTApp.navigate('history')">
-            Lihat Riwayat Nilai
-          </button>
-        </div>
-      </div>
-
-      <!-- Structure of the Examination (5 Bidang + Praktik Komputer) -->
-      <div class="cbt-card">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
-          <div>
-            <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-900);">Struktur 5 Bidang Ujian Tertulis & Praktik Komputer</h3>
-            <p style="font-size:0.85rem; color:var(--slate-600);">Standar format seleksi Kabupaten Tuban dengan total 125 soal tertulis dan 10 butir praktik komputer.</p>
-          </div>
-          <span class="badge-pill badge-cat">Total Bank Soal: 585 Butir</span>
-        </div>
-
-        <div class="table-container">
-          <table class="cbt-table">
-            <thead>
-              <tr>
-                <th style="width:40px; text-align:center;">Sesi</th>
-                <th>Bidang Materi Ujian</th>
-                <th style="text-align:center;">Jumlah Soal</th>
-                <th style="text-align:center;">Alokasi Waktu</th>
-                <th style="text-align:center;">Bobot Nilai</th>
-                <th style="text-align:center;">Tersedia di Bank</th>
-                <th>Cakupan & Fokus Kompetensi</th>
-              </tr>
-            </thead>
-            <tbody id="distributionTableBody">
-              <!-- Rendered via JS -->
-            </tbody>
-          </table>
+        <!-- Hint Menuju Halaman Bantuan -->
+        <div class="landing-footer-hint">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent-gold-400); flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          <span>Memerlukan panduan teknis, rincian materi 5 bidang, atau format penilaian? <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Pelajari di Halaman Bantuan (Help) →</a></span>
         </div>
       </div>
     </section>
+
 
     <!-- ======================================================================
          VIEW 2: KONFIGURASI LATIHAN MANDIRI (PRACTICE CONFIG VIEW)
@@ -815,6 +729,18 @@
           <!-- Rendered via JS -->
         </div>
       </div>
+
+      <!-- Print-Only Certificate & Copyright Footer -->
+      <div class="print-only-footer">
+        <div>
+          <strong>Simulasi CBT Seleksi Perangkat Desa Kabupaten Tuban</strong><br>
+          <span style="font-size:0.7rem; color:#64748b;">Standar Resmi 125 Soal Tertulis (87,5 Poin) + 10 Praktik Komputer (12,5 Poin) = 100,00 Poin</span>
+        </div>
+        <div style="text-align:right;">
+          <span>Versi Aplikasi: <strong>v4.5.0</strong></span><br>
+          <span style="color:#0f172a; font-weight:700;">Copyright by fusionproject.id</span>
+        </div>
+      </div>
     </section>
 
     <!-- ======================================================================
@@ -901,15 +827,248 @@
       </div>
     </section>
 
+    <!-- ======================================================================
+         VIEW 7: PUSAT BANTUAN & PANDUAN RESMI (HELP VIEW)
+         ====================================================================== -->
+    <section id="viewHelp" style="display:none;">
+      <div class="help-hero-panel">
+        <div class="help-header-content">
+          <span class="badge-pill badge-cat">Pusat Informasi &amp; Regulasi</span>
+          <h2 style="font-size:1.6rem; font-weight:900; color:var(--white); margin:0.4rem 0 0.5rem 0;">Bantuan &amp; Panduan Seleksi Perangkat Desa</h2>
+          <p class="lead" style="color:var(--slate-200); font-size:0.95rem; max-width:850px; line-height:1.6;">Panduan lengkap format ujian resmi Kabupaten Tuban, ketentuan 5 bidang materi tertulis berurutan, ujian praktik komputer office, rubrik penilaian, dan rujukan hukum terkini.</p>
+        </div>
+        <div class="help-quick-nav">
+          <a href="#helpSec1" class="help-nav-pill">1. Format 5 Bidang</a>
+          <a href="#helpSec2" class="help-nav-pill">2. Tabel Distribusi Soal</a>
+          <a href="#helpSec3" class="help-nav-pill">3. Praktik Komputer</a>
+          <a href="#helpSec4" class="help-nav-pill">4. Formula Penilaian</a>
+          <a href="#helpSec5" class="help-nav-pill">5. FAQ &amp; Tips CBT</a>
+          <a href="#helpSec6" class="help-nav-pill">6. Rujukan Hukum</a>
+        </div>
+      </div>
+
+      <!-- Section 1: Alur & Mekanisme Ujian Tertulis 5 Bidang -->
+      <div class="cbt-card" id="helpSec1" style="margin-bottom:1.5rem;">
+        <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-900); margin-bottom:0.75rem;">1. Ketentuan Ujian Tertulis Resmi (5 Bidang Berurutan)</h3>
+        <p style="font-size:0.9rem; color:var(--slate-700); line-height:1.6; margin-bottom:1rem;">
+          Berdasarkan standar seleksi perangkat desa Kabupaten Tuban (Perbup Tuban No. 11/2022), ujian tertulis diselenggarakan secara terpisah ke dalam 5 seksi bidang materi yang harus diselesaikan bertahap:
+        </p>
+        <div class="help-step-grid">
+          <div class="help-step-card">
+            <div class="help-step-num">Bidang 1</div>
+            <h4>Agama &amp; Moderasi Beragama</h4>
+            <p>25 Soal • 30 Menit. Fiqih jenazah desa, zakat, wakaf, batas usia nikah, moderasi beragama, aparatur bebas risywah, dan sejarah Sunan Bonang Tuban.</p>
+          </div>
+          <div class="help-step-card">
+            <div class="help-step-num">Bidang 2</div>
+            <h4>Pemerintahan Desa</h4>
+            <p>25 Soal • 30 Menit. UU No. 6/2014 jo. UU No. 3/2024, PP 11/2019 (Siltap), Permendagri 84/2015 (SOTK), Permendagri 20/2018 (APBDes), Perda Tuban No. 2/2016 jo. No. 16/2021.</p>
+          </div>
+          <div class="help-step-card">
+            <div class="help-step-num">Bidang 3</div>
+            <h4>Bahasa Indonesia</h4>
+            <p>25 Soal • 30 Menit. EYD Edisi V, penulisan naskah dinas resmi surat edaran, undangan, berita acara musdes, dan tata kalimat efektif kedinasan.</p>
+          </div>
+          <div class="help-step-card">
+            <div class="help-step-num">Bidang 4</div>
+            <h4>Pengetahuan Umum</h4>
+            <p>25 Soal • 30 Menit. Pancasila &amp; Pembukaan UUD 1945, wawasan kebangsaan, matematika numerik anggaran/lahan, logika penalaran, dan sejarah Tuban.</p>
+          </div>
+          <div class="help-step-card">
+            <div class="help-step-num">Bidang 5</div>
+            <h4>Pengetahuan Komputer</h4>
+            <p>25 Soal • 30 Menit. Aplikasi perkantoran desa (Word, Excel), surat elektronik dinas, pengarsipan digital, dan keamanan data kependudukan (UU PDP No. 27/2022).</p>
+          </div>
+        </div>
+        <div style="background:var(--slate-50); border:1px solid var(--slate-200); border-radius:var(--radius-md); padding:1rem; margin-top:1rem; font-size:0.86rem; color:var(--slate-700);">
+          <strong>Aturan Penguncian Sekuensial (Sequential Lock):</strong> Peserta harus menyelesaikan bidang satu per satu. Bidang yang sudah dikunci secara permanen tidak dapat dibuka kembali demi mencegah manipulasi waktu. Jika browser ditutup atau dimuat ulang secara tidak sengaja, sistem akan memulihkan sisa waktu dan jawaban terakhir Anda secara otomatis.
+        </div>
+      </div>
+
+      <!-- Section 2: Tabel Distribusi Materi (distributionTableBody) -->
+      <div class="cbt-card" id="helpSec2" style="margin-bottom:1.5rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
+          <div>
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-900);">2. Tabel Distribusi Soal &amp; Alokasi Waktu Ujian</h3>
+            <p style="font-size:0.85rem; color:var(--slate-600);">Rincian lengkap 125 butir soal ujian tertulis yang diundi secara acak dan bebas duplikasi dari master database 585 butir soal.</p>
+          </div>
+          <span class="badge-pill badge-cat">Total Bank Soal: 585 Butir</span>
+        </div>
+
+        <div class="table-container">
+          <table class="cbt-table">
+            <thead>
+              <tr>
+                <th style="width:40px; text-align:center;">Sesi</th>
+                <th>Bidang Materi Ujian</th>
+                <th style="text-align:center;">Jumlah Soal</th>
+                <th style="text-align:center;">Alokasi Waktu</th>
+                <th style="text-align:center;">Bobot Nilai</th>
+                <th style="text-align:center;">Tersedia di Bank</th>
+                <th>Cakupan &amp; Fokus Kompetensi</th>
+              </tr>
+            </thead>
+            <tbody id="distributionTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section 3: Panduan Praktik Komputer (10 Butir Tugas) -->
+      <div class="cbt-card" id="helpSec3" style="margin-bottom:1.5rem;">
+        <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-900); margin-bottom:0.75rem;">3. Panduan Ujian Praktik Komputer (10 Butir Tugas Nyata)</h3>
+        <p style="font-size:0.9rem; color:var(--slate-700); line-height:1.6; margin-bottom:1rem;">
+          Setelah peserta menuntaskan seluruh 5 seksi bidang tertulis, tahapan ujian langsung berlanjut ke Ujian Praktik Komputer. Ujian ini menguji kecakapan menghasilkan naskah dinas desa secara konkret.
+        </p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1rem; margin-bottom:1rem;">
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--radius-md); padding:1rem;">
+            <h4 style="font-size:0.95rem; font-weight:800; color:var(--primary-800); margin-bottom:0.5rem;">Mode 1: Microsoft Office Asli (Rekomendasi)</h4>
+            <p style="font-size:0.85rem; color:var(--slate-600); line-height:1.5;">Peserta mengunduh naskah sumber, mengerjakan di aplikasi Word, Excel, PowerPoint asli di komputernya, dan mengunggah kembali berkas hasil. Sistem memeriksa struktur OpenXML secara nyata tanpa bantuan server eksternal.</p>
+          </div>
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--radius-md); padding:1rem;">
+            <h4 style="font-size:0.95rem; font-weight:800; color:var(--primary-800); margin-bottom:0.5rem;">Mode 2: Simulasi Browser Interaktif</h4>
+            <p style="font-size:0.85rem; color:var(--slate-600); line-height:1.5;">Alternatif bagi peserta yang tidak memiliki MS Office. Disediakan simulasi pengolah kata, spreadsheet live formula (SUM/AVERAGE), dan pembuat slide presentasi langsung di dalam halaman web.</p>
+          </div>
+        </div>
+        <div style="font-size:0.85rem; color:var(--slate-700); line-height:1.6;">
+          <strong>Alokasi Skor Praktik:</strong> 10 butir tugas dinilai secara objektif dengan bobot masing-masing <strong>1,25 poin</strong> (total maksimal 12,50 poin). Durasi timer praktik dapat diatur sesuai kebijakan panitia desa (30 menit, 45 menit standar, 60 menit, 90 menit, atau tanpa batas waktu).
+        </div>
+      </div>
+
+      <!-- Section 4: Formula & Sistem Penilaian Resmi -->
+      <div class="cbt-card" id="helpSec4" style="margin-bottom:1.5rem;">
+        <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-900); margin-bottom:0.75rem;">4. Formula &amp; Perhitungan Nilai Akhir</h3>
+        <p style="font-size:0.9rem; color:var(--slate-700); line-height:1.6; margin-bottom:1rem;">
+          Sesuai regulasi Perda No. 2/2016 jo. No. 16/2021 dan Perbup Tuban No. 11/2022, nilai akhir seleksi perangkat desa menggabungkan dua instrumen ujian dengan total nilai maksimal 100,00 poin:
+        </p>
+        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--radius-md); padding:1.25rem; margin-bottom:1rem; font-size:0.95rem; color:#1e3a8a;">
+          <div style="margin-bottom:0.6rem;"><strong>• Nilai Ujian Tertulis:</strong> <code>Jumlah Jawaban Benar (dari 125 Soal) × 0,7 = Maksimal 87,50 Poin</code></div>
+          <div style="margin-bottom:0.6rem;"><strong>• Nilai Praktik Komputer:</strong> <code>Total Skor 10 Butir Tugas Nyata = Maksimal 12,50 Poin</code></div>
+          <div style="border-top:1px dashed #93c5fd; padding-top:0.6rem; font-weight:800; color:#1e40af; font-size:1.05rem;">
+            <strong>• Nilai Akhir Total:</strong> <code>Nilai Tertulis + Nilai Praktik Komputer = Maksimal 100,00 Poin</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: FAQ & Tips Teknis CBT -->
+      <div class="cbt-card" id="helpSec5" style="margin-bottom:1.5rem;">
+        <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-900); margin-bottom:0.75rem;">5. Tanya Jawab (FAQ) &amp; Pintasan Keyboard</h3>
+        <div style="display:flex; flex-direction:column; gap:0.75rem; font-size:0.88rem;">
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--radius-sm); padding:0.85rem;">
+            <strong style="color:var(--slate-900);">Apakah simulasi ini memerlukan koneksi internet?</strong>
+            <p style="color:var(--slate-600); margin-top:0.25rem;">Tidak. Seluruh aplikasi dirancang 100% mandiri, offline, dan privat. Bank soal, aset icon, modul praktik, dan mesin penilaian tertanam sepenuhnya di dalam file tanpa mengirimkan data apa pun ke server luar.</p>
+          </div>
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--radius-sm); padding:0.85rem;">
+            <strong style="color:var(--slate-900);">Pintasan Keyboard (Keyboard Shortcuts) saat Ujian:</strong>
+            <p style="color:var(--slate-600); margin-top:0.25rem;">Tekan angka <strong>1 - 4</strong> atau huruf <strong>A - D</strong> untuk memilih opsi jawaban, tekan <strong>R</strong> atau <strong>F</strong> untuk menandai ragu-ragu (*flag*), dan tekan panah <strong>Kiri / Kanan</strong> untuk berpindah nomor soal secara cepat.</p>
+          </div>
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--radius-sm); padding:0.85rem;">
+            <strong style="color:var(--slate-900);">Bagaimana jika laptop mati atau browser ter-refresh saat ujian?</strong>
+            <p style="color:var(--slate-600); margin-top:0.25rem;">Sistem memiliki fitur <em>Crash Resilience</em> otomatis. Saat membuka kembali aplikasi, kotak dialog hijau akan muncul menawarkan opsi melanjutkan sesi terakhir dengan timer dan jawaban yang tersimpan utuh.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Rujukan Regulasi Resmi -->
+      <div class="cbt-card" id="helpSec6" style="margin-bottom:1.5rem;">
+        <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-900); margin-bottom:0.75rem;">6. Landasan Regulasi &amp; Dasar Hukum Resmi</h3>
+        <ul style="margin-left:1.5rem; font-size:0.86rem; color:var(--slate-700); line-height:1.7;">
+          <li><strong>Undang-Undang No. 6 Tahun 2014</strong> jo. <strong>Undang-Undang No. 3 Tahun 2024</strong> tentang Desa.</li>
+          <li><strong>Peraturan Pemerintah No. 11 Tahun 2019</strong> tentang Penghasilan Tetap Kepala Desa dan Perangkat Desa.</li>
+          <li><strong>Permendagri No. 84 Tahun 2015</strong> tentang Susunan Organisasi dan Tata Kerja Pemerintah Desa.</li>
+          <li><strong>Permendagri No. 67 Tahun 2017</strong> tentang Pengangkatan dan Pemberhentian Perangkat Desa.</li>
+          <li><strong>Permendagri No. 20 Tahun 2018</strong> tentang Pengelolaan Keuangan Desa.</li>
+          <li><strong>Peraturan Daerah Kabupaten Tuban No. 2 Tahun 2016</strong> jo. <strong>Perda No. 16 Tahun 2021</strong> tentang Perangkat Desa.</li>
+          <li><strong>Peraturan Bupati Tuban No. 11 Tahun 2022</strong> tentang Petunjuk Pelaksanaan Pengangkatan Perangkat Desa.</li>
+          <li><strong>Peraturan Bupati Tuban No. 30 Tahun 2023</strong> tentang Pengelolaan Keuangan Desa di Kabupaten Tuban.</li>
+          <li><strong>Undang-Undang No. 27 Tahun 2022</strong> tentang Perlindungan Data Pribadi (UU PDP).</li>
+        </ul>
+      </div>
+
+      <div style="text-align:center; margin:2rem 0;">
+        <button class="btn btn-outline" onclick="CBTApp.navigate('home')" style="margin-right:0.5rem;">← Kembali ke Beranda</button>
+        <button class="btn btn-primary" onclick="CBTApp.confirmStartExam()">Mulai Ujian Sekarang →</button>
+      </div>
+    </section>
+
   </main>
 
-  <!-- Official Footer -->
-  <footer class="civic-footer no-print" style="background:var(--primary-900); color:var(--slate-300); padding:1.5rem 1.25rem; font-size:0.82rem; border-top:1px solid rgba(255,255,255,0.1);">
-    <div style="max-width:1300px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem;">
-      <p>© 2026 Simulasi Ujian Seleksi Perangkat Desa Kabupaten Tuban. 5 Bidang Tertulis (125 Soal) & Praktik Komputer (10 Butir).</p>
-      <p>100% Offline • Terverifikasi Berdasarkan UU No. 6/2014 jo. UU No. 3/2024 & Perda Tuban No. 2/2016 jo. No. 16/2021.</p>
+  <!-- ======================================================================
+       CIVIC FOOTER (ADOPTING COLORLIB DARK MINIMALIST FOOTER LAYOUT)
+       ====================================================================== -->
+  <footer class="civic-footer no-print">
+    <div class="footer-main-container">
+      <div class="footer-main-grid">
+        <div class="footer-intro">
+          <a class="footer-brand" href="javascript:void(0)" onclick="CBTApp.navigate('home')">FUSIONPROJECT.ID</a>
+          <p>Aplikasi simulasi seleksi perangkat desa Kabupaten Tuban. Dilengkapi ujian tertulis 5 bidang dan praktik komputer 100% mandiri secara offline.</p>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')" class="footer-read-more">read more <span aria-hidden="true">→</span></a>
+        </div>
+
+        <nav class="footer-nav-group" aria-label="Menu Discover">
+          <h3>Discover</h3>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('home')">Ujian Tertulis 5 Bidang</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('practice-config')">Mode Latihan Bebas</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Praktik Naskah Dinas</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('glossary')">Glosarium Istilah Desa</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Bank Soal 585 Butir</a>
+        </nav>
+
+        <nav class="footer-nav-group" aria-label="Menu About">
+          <h3>About</h3>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Profil CBT Desa</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Format Resmi Tuban</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Formula Skor 87,5 + 12,5</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Tim Pengembang</a>
+          <a href="javascript:void(0)" onclick="CBTApp.openVersionModal()">Changelog v4.5.0</a>
+        </nav>
+
+        <nav class="footer-nav-group" aria-label="Menu Resources">
+          <h3>Resources</h3>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Perda No. 2/2016</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Perda No. 16/2021</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Perbup No. 11/2022</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Panduan &amp; Pintasan</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Privasi &amp; Data</a>
+        </nav>
+
+        <nav class="footer-nav-group" aria-label="Menu Social">
+          <h3>Social</h3>
+          <a href="javascript:void(0)" onclick="alert('Media Sosial: Facebook Resmi')">Facebook</a>
+          <a href="javascript:void(0)" onclick="alert('Media Sosial: Twitter / X')">Twitter</a>
+          <a href="javascript:void(0)" onclick="alert('Media Sosial: Instagram')">Instagram</a>
+          <a href="javascript:void(0)" onclick="alert('Media Sosial: YouTube Pembahasan')">YouTube</a>
+          <a href="javascript:void(0)" onclick="alert('Kontak Pengembang: WhatsApp Support')">WhatsApp</a>
+        </nav>
+      </div>
+
+      <div class="footer-partner-row">
+        <span class="footer-partner-label">Our Partner:</span>
+        <div class="footer-feature-list" aria-label="Mitra acuan regulasi">
+          <span class="partner-item"><svg class="partner-bullet" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="8" r="2.5" fill="currentColor"/></svg>PEMKAB TUBAN</span>
+          <span class="partner-item"><svg class="partner-bullet" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="8" r="2.5" fill="currentColor"/></svg>DISPERMAS BPD</span>
+          <span class="partner-item"><svg class="partner-bullet" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="8" r="2.5" fill="currentColor"/></svg>BKN RI</span>
+          <span class="partner-item"><svg class="partner-bullet" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="8" r="2.5" fill="currentColor"/></svg>KEMENDAGRI</span>
+          <span class="partner-item"><svg class="partner-bullet" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="8" r="2.5" fill="currentColor"/></svg>PERDA 2/2016</span>
+          <span class="partner-item"><svg class="partner-bullet" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="8" r="2.5" fill="currentColor"/></svg>PERBUP 11/2022</span>
+        </div>
+        <a href="javascript:void(0)" onclick="CBTApp.navigate('help')" class="footer-see-all">See All <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <div class="civic-footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-copy">Copyright ©2026 All rights reserved | This application is made with <span class="footer-heart">❤</span> by <strong>fusionproject.id</strong></p>
+        <div class="footer-bottom-links">
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Terms</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Privacy</a>
+          <a href="javascript:void(0)" onclick="CBTApp.navigate('help')">Compliances</a>
+        </div>
+      </div>
     </div>
   </footer>
+
 
   <!-- ======================================================================
        MODAL DIALOGS
@@ -1125,6 +1284,88 @@
       <div class="modal-actions">
         <button class="btn btn-outline" onclick="CBTApp.closeModals()">Batal</button>
         <button class="btn btn-primary" onclick="CBTApp.applyPracticalDuration()">Terapkan Durasi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Catatan Rilis & Riwayat Fitur (Changelog) -->
+  <div id="modalVersionInfo" class="modal-backdrop no-print">
+    <div class="cbt-modal-box" style="max-width:620px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <img src="assets/favicon.svg" alt="Logo" width="40" height="40" style="filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">
+          <div>
+            <h3 style="font-size:1.2rem; font-weight:800; color:var(--primary-900); margin:0;">Catatan Rilis &amp; Riwayat Fitur</h3>
+            <p style="font-size:0.8rem; color:var(--slate-500); margin:0;">CBT Simulasi Ujian Perangkat Desa Kab. Tuban</p>
+          </div>
+        </div>
+        <button class="btn-close-modal" onclick="CBTApp.closeModals()">&times;</button>
+      </div>
+
+      <div style="background:var(--slate-50); border:1px solid var(--slate-200); border-radius:var(--radius-md); padding:0.85rem 1.15rem; margin-bottom:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <div>
+          <span style="font-size:1.05rem; font-weight:900; color:var(--primary-900);">Versi Aplikasi: <span style="color:var(--accent-gold-600);">v4.5.0</span></span>
+          <div style="font-size:0.78rem; color:var(--slate-600); margin-top:2px;">Hak Cipta: <strong>Copyright by fusionproject.id</strong></div>
+        </div>
+        <span class="badge-pill badge-verified" style="font-size:0.75rem;">Production Ready</span>
+      </div>
+
+      <h4 style="font-size:0.92rem; font-weight:800; color:var(--primary-900); margin-bottom:0.75rem;">Daftar Fitur &amp; Pembaruan Aplikasi:</h4>
+      <div style="display:flex; flex-direction:column; gap:0.75rem; font-size:0.82rem; max-height:320px; overflow-y:auto; padding-right:0.25rem; margin-bottom:1.25rem;">
+        
+        <!-- v4.5.0 -->
+        <div style="padding:0.75rem 0.9rem; background:#eff6ff; border-left:3px solid #2563eb; border-radius:var(--radius-sm);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+            <strong style="color:#1d4ed8; font-size:0.88rem;">Versi v4.5.0 (Pembaruan Terkini)</strong>
+            <span style="font-size:0.7rem; color:#64748b; font-weight:600;">Terbaru</span>
+          </div>
+          <ul style="margin:0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
+            <li><strong>Landing Page Sederhana (Gambar 2):</strong> Tampilan depan minimalis dengan kartu identitas peserta dan tombol "Mulai Ujian" &amp; "Mulai Mode Latihan".</li>
+            <li><strong>Halaman Pusat Bantuan (Help):</strong> Rujukan regulasi, alur 5 bidang, tabel distribusi soal 585 butir, dan panduan praktik komputer dipindahkan ke halaman tersendiri.</li>
+            <li><strong>Menu Navigasi Modern (Gambar 3):</strong> Navigasi pill elegan, backdrop-blur, responsif mobile, dan pemilih skala font.</li>
+            <li><strong>Footer direktori responsif:</strong> Menyediakan navigasi latihan, materi, bantuan, fitur aplikasi, dan tautan privasi.</li>
+            <li>Penambahan <strong>Favicon SVG</strong> dan <strong>Logo Resmi Emblem</strong> Kabupaten Tuban yang tajam di semua layar.</li>
+            <li>Optimasi pemilihan 125 soal unik tanpa duplikasi intra-sesi ujian.</li>
+          </ul>
+        </div>
+
+        <!-- v4.4.0 -->
+        <div style="padding:0.75rem 0.9rem; background:#f8fafc; border-left:3px solid #64748b; border-radius:var(--radius-sm);">
+          <strong style="color:var(--slate-800); font-size:0.88rem;">Versi v4.4.0</strong>
+          <ul style="margin:0.35rem 0 0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
+            <li>Penataan direktori proyek dan isolasi modul generator ke folder <code>generator/</code>.</li>
+            <li>Otomatisasi pengujian dan deployment CI/CD ke <strong>GitHub Pages</strong> via GitHub Actions.</li>
+            <li>Penyediaan script sinkronisasi otomatis satu klik untuk Windows (<code>sync_github.bat</code>).</li>
+          </ul>
+        </div>
+
+        <!-- v4.0.0 - v4.3.0 -->
+        <div style="padding:0.75rem 0.9rem; background:#f8fafc; border-left:3px solid #059669; border-radius:var(--radius-sm);">
+          <strong style="color:#047857; font-size:0.88rem;">Versi v4.0.0 – v4.3.0</strong>
+          <ul style="margin:0.35rem 0 0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
+            <li>Rilis Arsitektur Modular 100% Offline (HTML5, CSS, dan JS Engine terpisah).</li>
+            <li>Modul Ujian Praktik Komputer 10 Butir Tugas Nyata (Word, Excel, PowerPoint, ZIP).</li>
+            <li>Dual Mode Praktik Komputer: Mode 1 (Office Asli + Verifikasi OpenXML) &amp; Mode 2 (Simulasi Browser).</li>
+            <li>Formula Penilaian Resmi Tuban: 87,5 (Tertulis) + 12,5 (Praktik) = 100,00 Poin Maksimal.</li>
+            <li>Glosarium interaktif 36 istilah desa dan grafik histori tren nilai berbasis SVG native.</li>
+          </ul>
+        </div>
+
+        <!-- v1.0.0 - v3.0.0 -->
+        <div style="padding:0.75rem 0.9rem; background:#f8fafc; border-left:3px solid #d97706; border-radius:var(--radius-sm);">
+          <strong style="color:#b45309; font-size:0.88rem;">Versi v1.0.0 – v3.0.0</strong>
+          <ul style="margin:0.35rem 0 0; padding-left:1.15rem; color:var(--slate-700); line-height:1.5;">
+            <li>Penyusunan Master Pool 585 butir soal lengkap pada 13 kategori materi berdasar regulasi perundang-undangan.</li>
+            <li>Format 5 bidang materi ujian tertulis berurutan (sequential locking) dengan timer mandiri 30 menit per bidang.</li>
+            <li>Ketahanan sesi ujian dari refresh atau peramban tertutup tanpa kehilangan progres.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="modal-actions" style="justify-content:space-between; align-items:center;">
+        <span style="font-size:0.75rem; color:var(--slate-500);">© 2026 <strong>fusionproject.id</strong></span>
+        <button class="btn btn-primary btn-sm" onclick="CBTApp.closeModals()">Tutup</button>
       </div>
     </div>
   </div>
